@@ -8,6 +8,107 @@
 } */
 
 .header {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url(./assests/images/header-bcg-chair-mob.jpg);
+  min-height: 230px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.header-top {
+  padding-top: 41px;
+  margin-bottom: 37px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  text-decoration: none;
+}
+
+.logo-img {
+  margin-right: 10px;
+}
+
+.logo-txt {
+  display: none;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 35px;
+  color: var(--white-text-color);
+}
+
+.nav-list {
+  display: flex;
+}
+
+.nav-item:not(:last-child) {
+  margin-right: 40px;
+}
+
+.nav-btn {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--white-text-color);
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.nav-btn.is-active-btn::after {
+  display: block;
+  content: "";
+  height: 3px;
+  background-color: red;
+}
+
+.header-bottom {
+  position: relative;
+  text-align: center;
+
+  margin: 0 auto;
+}
+
+.input-search {
+  width: 100%;
+  height: 20px;
+  margin-bottom: 22px;
+  background-color: transparent;
+  border: none;
+  border-bottom: 0.5px solid #ffffff;
+  caret-color: var(--white-text-color);
+  color: var(--white-text-color);
+  outline: none;
+}
+.input-search::placeholder {
+  border-top: none;
+  color: var(--white-text-color);
+  caret-color: var(--white-text-color);
+}
+
+.search-icon {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-image: url(./assests/images/search-icon.svg);
+}
+
+.notify-text {
+  font-size: 14px;
+  line-height: 16px;
+  color: #ff001b;
+  text-align: left;
 }
 
 .section {
@@ -27,6 +128,7 @@
   background-color: #f7f7f7;
   width: 100%;
 }
+
 .footer-text,
 .footer-text--first {
   font-size: 14px;
@@ -35,9 +137,10 @@
 
   color: #545454;
 }
+
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .container {
-    max-width: var(--section-mobile-width-size);
+    width: var(--container-mobile-width-size);
     padding-top: 28px;
     padding-bottom: 55px;
   }
@@ -45,6 +148,21 @@
   .section {
     max-width: var(--section-mobile-width-size);
   }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .header {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/header-bcg-chair-mob-2x.jpg);
+    }
+
   .footer-text--first {
     margin-bottom: 10px;
   }
@@ -52,9 +170,9 @@
 
 @media screen and (min-width: 768px) {
   .container {
+    width: var(--container-tablet-width-size);
     display: flex;
     justify-content: center;
-    max-width: var(--section-tablet-width-size);
     padding-left: 75px;
     padding-right: 75px;
     padding-top: 30px;
@@ -66,11 +184,55 @@
     padding-bottom: 60px;
     max-width: var(--section-tablet-width-size);
   }
+
+  .header {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(./assests/images/header-bcg-chair-tablet.jpg);
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .header {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/header-bcg-chair-tablet-2x.jpg);
+    }
+  }
+
+  .logo-txt {
+    display: block;
+  }
+
+  .header-bottom {
+    width: 393px;
+  }
+
+  .input-search {
+    width: 336px;
+  }
+  .notify-text {
+    text-align: center;
+  }
+
+  .search-icon {
+    top: 5px;
+    right: 30px;
+  }
 }
 
 @media screen and (min-width: 1024px) {
   .container {
-    max-width: var(--section-desctop-width-size);
+    width: var(---container-desctop-width-size);
     padding-left: 71px;
     padding-right: 71px;
   }
@@ -78,4 +240,70 @@
   .section {
     max-width: var(--section-desctop-width-size);
   }
+
+  .header {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(./assests/images/header-bcg-chair-pc.jpg);
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .header {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/header-bcg-chair-pc-2x.jpg);
+    }
+  }
 }
+
+/* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
+
+.button-list {
+  display: flex;
+  justify-content: center;
+}
+
+.button-item:not(:last-child) {
+  margin-right: 15px;
+}
+
+.btn {
+  background-color: transparent;
+  color: var(--white-text-color);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  min-width: 136px;
+  cursor: pointer;
+}
+
+.btn.accent {
+  background-color: var(--accent-color);
+}
+
+.btn.primary-white {
+  border: 1px solid var(--white-text-color);
+}
+
+.btn.primary-black {
+  border: 1px solid var(--black-text-color);
+}
+
+/* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
+=======
+}
+

@@ -48,3 +48,4 @@ export const getPopular = function() {
 
 // getDetails(2734)
 // getPopular()
+
