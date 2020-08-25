@@ -5,29 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Webpack Starter Kit</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  
+
   <body>
     <header class="header">
       <div class="container">
+        <div class="header-top">
+          <a href="./index.html" class="logo">
+            <img
+              src="./assests/images/logo.svg"
+              alt="Логотип компании"
+              class="logo-img"
+            />
+            <span class="logo-txt">Filmoteka</span>
+          </a>
 
+          <nav>
+            <ul class="nav-list">
+              <li class="nav-item">
+                <button class="nav-btn is-active-btn">HOME</button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-btn">MY LIBRARY</button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="header-bottom">
+          <input type="text" placeholder="Поиск фильмов" class="input-search" />
+          <span class="search-icon"></span>
+          <p class="notify-text">
+            Search result not successful. Enter the correct movie name and
+          </p>
+          <ul class="button-list">
+            <li class="button-item">
+              <button class="btn accent">WATCHED</button>
+            </li>
+            <li class="button-item">
+              <button class="btn primary-white">QUEUE</button>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
 
     <main>
       <section class="section">
-        <div class="container">
-        </div>
+        <div class="container"></div>
       </section>
     </main>
 
     <footer class="footer">
-      <div class="container">
-        
-      </div>
+      <div class="container"></div>
     </footer>
-
   </body>
 </html>
