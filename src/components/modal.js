@@ -1,6 +1,6 @@
 import * as basicLightbox from 'basiclightbox'
 import "basiclightbox/dist/basicLightbox.min.css";
-// import filmCardTpl from '../templates/film-card.hbs'
+// import filmCardTpl from '../template/film-card.hbs'
 
 export function openModal(event){
     // if(event.target.nodeName !== 'IMG'){

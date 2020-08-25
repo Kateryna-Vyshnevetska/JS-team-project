@@ -1,10 +1,8 @@
-{{#each this}}
+{{#each items}}
 <li class="film">
     <div class="film__poster">
-        {{#each image}}
-  <img class="film__poster-photo" src="{{this}}" alt="" />
-  {{/each}}
-</div>
+      <img class="film__poster-photo" src= "{{url}}" alt="" />
+    </div>
   <div class="film__preview">
     <p class="film__preview-title">
       {{title}} 

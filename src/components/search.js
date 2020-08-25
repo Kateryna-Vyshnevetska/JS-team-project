@@ -20,4 +20,4 @@ const checkInput = (e) => {
     refs.searchInfo.innerHTML = `Результат поиска не удался. Введите правильное название фильма и попробуйте еще раз`;
 };
 
-refs.search.addEventListener("change", checkInput);
+// refs.search.addEventListener("change", checkInput);
