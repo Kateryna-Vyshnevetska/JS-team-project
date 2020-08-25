@@ -140,7 +140,7 @@
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .container {
-    width: var(--container-mobile-width-size);
+    max-width: var(--container-mobile-width-size);
     padding-top: 28px;
     padding-bottom: 55px;
   }
@@ -167,12 +167,16 @@
     margin-bottom: 10px;
   }
 }
-
+}
 @media screen and (min-width: 768px) {
   .container {
-    width: var(--container-tablet-width-size);
-    display: flex;
-    justify-content: center;
+    max-width: var(--container-tablet-width-size);
+
+    /* WHO USE THIS FOR CONTAINER */
+
+    /* display: flex;
+    justify-content: center; */
+
     padding-left: 75px;
     padding-right: 75px;
     padding-top: 30px;
@@ -232,7 +236,7 @@
 
 @media screen and (min-width: 1024px) {
   .container {
-    width: var(---container-desctop-width-size);
+    max-width: var(--container-desctop-width-size);
     padding-left: 71px;
     padding-right: 71px;
   }
@@ -304,6 +308,5 @@
 }
 
 /* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
-=======
-}
+
 
