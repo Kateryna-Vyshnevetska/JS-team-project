@@ -1,4 +1,4 @@
-@import './options/variables.css';
+@import "./options/variables.css";
 
 /* HOW TO USE VARIABLES FROM VARIABLES.CSS  */
 
@@ -7,60 +7,75 @@
   font-size: var(--main-font-weight);
 } */
 
-.header{
-  
+.header {
 }
 
-.section{
+.section {
   padding-top: 20px;
   padding-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.container{
+.container {
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
+}
+
+.footer {
+  background-color: #f7f7f7;
   width: 100%;
 }
+.footer-text,
+.footer-text--first {
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
 
-.footer{
-  
+  color: #545454;
 }
-
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .container {
     max-width: var(--section-mobile-width-size);
+    padding-top: 28px;
+    padding-bottom: 55px;
   }
 
-  .section{
+  .section {
     max-width: var(--section-mobile-width-size);
+  }
+  .footer-text--first {
+    margin-bottom: 10px;
   }
 }
 
-@media screen and (min-width: 768px){
+@media screen and (min-width: 768px) {
   .container {
+    display: flex;
+    justify-content: center;
     max-width: var(--section-tablet-width-size);
     padding-left: 75px;
     padding-right: 75px;
+    padding-top: 30px;
+    padding-bottom: 28px;
   }
 
-  .section{
+  .section {
     padding-top: 60px;
     padding-bottom: 60px;
     max-width: var(--section-tablet-width-size);
   }
 }
 
-@media screen and (min-width: 1024px){
+@media screen and (min-width: 1024px) {
   .container {
     max-width: var(--section-desctop-width-size);
     padding-left: 71px;
     padding-right: 71px;
   }
 
-  .section{
+  .section {
     max-width: var(--section-desctop-width-size);
   }
 }
