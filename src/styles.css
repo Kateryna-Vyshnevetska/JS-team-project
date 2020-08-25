@@ -122,20 +122,33 @@
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
-  width: 100%;
 }
 
 .footer {
+  background-color: #f7f7f7;
+  width: 100%;
 }
 
-@media screen and (min-width: 320px) {
+.footer-text,
+.footer-text--first {
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+
+  color: #545454;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .container {
     width: var(--container-mobile-width-size);
+    padding-top: 28px;
+    padding-bottom: 55px;
   }
 
   .section {
     max-width: var(--section-mobile-width-size);
   }
+
   @media screen and (min-device-pixel-ratio: 2),
     screen and (-webkit-min-device-pixel-ratio: 2),
     screen and (-o-min-device-pixel-ratio: 2/1),
@@ -149,14 +162,21 @@
         ),
         url(./assests/images/header-bcg-chair-mob-2x.jpg);
     }
+
+  .footer-text--first {
+    margin-bottom: 10px;
   }
 }
 
 @media screen and (min-width: 768px) {
   .container {
     width: var(--container-tablet-width-size);
+    display: flex;
+    justify-content: center;
     padding-left: 75px;
     padding-right: 75px;
+    padding-top: 30px;
+    padding-bottom: 28px;
   }
 
   .section {
@@ -220,6 +240,7 @@
   .section {
     max-width: var(--section-desctop-width-size);
   }
+
   .header {
     background-image: linear-gradient(
         to right,
@@ -283,3 +304,6 @@
 }
 
 /* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
+=======
+}
+

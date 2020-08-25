@@ -55,6 +55,18 @@
           </ul>
         </div>
       </div>
+
+<!--       SERG FOR CHECK INPUT
+<div class="container">
+        <input
+          class="search"
+          type="search"
+          name="search"
+          placeholder="Поиск фильмов"
+        />
+        <p class="searchInfo"></p>
+      </div> -->
+      
     </header>
 
     <main>
@@ -62,9 +74,28 @@
         <div class="container"></div>
       </section>
     </main>
-
+    <button
+      id="search"
+      class="btn btn-primary"
+      type="button"
+      data-action="load-more"
+    >
+      <span
+        class="spinner-border spinner-border-sm spinner is-hidden"
+        role="status"
+        aria-hidden="true"
+      >
+      </span>
+      <span class="label">Показать еще...</span>
+    </button>
+    
     <footer class="footer">
-      <div class="container"></div>
+      <div class="container">
+        <p class="footer-text--first">© 2020 | All Rights Reserved |</p>
+        <p class="footer-text">
+          &nbsp;Developed with 🧡 by GoIT Students
+        </p>
+      </div>
     </footer>
   </body>
 </html>
