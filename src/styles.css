@@ -206,6 +206,7 @@
 
   @media screen and (min-width: 320px) and (max-width: 767px) {
     .footer-content {
+      flex-shrink: 0;
       padding-top: 28px;
       padding-bottom: 55px;
     }
