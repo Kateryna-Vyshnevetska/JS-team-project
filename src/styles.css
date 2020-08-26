@@ -1,12 +1,5 @@
 @import "./options/variables.css";
 
-/* HOW TO USE VARIABLES FROM VARIABLES.CSS  */
-
-/* .h{
-  color: var(--red-text-color);
-  font-size: var(--main-font-weight);
-} */
-
 .header {
   background-image: linear-gradient(
       to right,
@@ -127,6 +120,23 @@
   display: none;
 }
 
+.footer-text,
+.footer-text--first {
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  color: #545454;
+}
+
+.footer-content {
+  padding-top: 28px;
+  padding-bottom: 55px;
+}
+
+.footer-text--first {
+  margin-bottom: 10px;
+}
+
 /* нотификация для поля инпут в хедере */
 
 .notify-text {
@@ -140,8 +150,6 @@
 .notify-text.is-not-visible {
   display: none;
 }
-
-/* нотификация для поля инпут в хедере */
 
 .button-list {
   display: flex;
@@ -249,34 +257,19 @@
   font-size: 12px;
   line-height: 20px;
 }
-/* =============================================== */
 
-@media screen and (min-width: 320px) {
-  .footer-text,
-  .footer-text--first {
-    font-size: 14px;
-    line-height: 1.14;
-    text-align: center;
-    color: #545454;
+/* WHIS IF FOR SCREEEEENS */
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .container {
+    max-width: var(--container-mobile-width-size);
   }
 
-  @media screen and (min-width: 320px) and (max-width: 767px) {
-    .footer-content {
-      padding-top: 28px;
-      padding-bottom: 55px;
-    }
-    .footer-text--first {
-      margin-bottom: 10px;
-    }
-    .container {
-      max-width: var(--container-mobile-width-size);
-    }
+  .section {
+    max-width: var(--section-mobile-width-size);
+  }
 
-    .section {
-      max-width: var(--section-mobile-width-size);
-    }
-
-    @media screen and (min-device-pixel-ratio: 2),
+  @media screen and (min-device-pixel-ratio: 2),
       screen and (-webkit-min-device-pixel-ratio: 2),
       screen and (-o-min-device-pixel-ratio: 2/1),
       screen and (min-resolution: 192dpi),
@@ -290,278 +283,189 @@
           url(./assests/images/header-bcg-chair-mob-2x.jpg);
       }
     }
+}
+
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: var(--container-tablet-width-size);
+    padding-left: 75px;
+    padding-right: 75px;
   }
 
-  @media screen and (min-width: 768px) {
-    .footer-content {
-      display: flex;
-      justify-content: center;
-      padding-top: 30px;
-      padding-bottom: 28px;
-    }
-    .container {
-      max-width: var(--container-tablet-width-size);
-      padding-left: 75px;
-      padding-right: 75px;
-    }
-
-    .section {
-      padding-top: 60px;
-      padding-bottom: 60px;
-      max-width: var(--section-tablet-width-size);
-    }
-
-    .header {
-      background-image: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
-        url(./assests/images/header-bcg-chair-tablet.jpg);
-    }
-
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (-webkit-min-device-pixel-ratio: 2),
-      screen and (-o-min-device-pixel-ratio: 2/1),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      .header {
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.56),
-            rgba(0, 0, 0, 0.56)
-          ),
-          url(./assests/images/header-bcg-chair-tablet-2x.jpg);
-      }
-    }
-
-    .logo-txt {
-      display: block;
-    }
-
-    .header-bottom {
-      width: 393px;
-    }
-
-    .input-search {
-      width: 336px;
-    }
-    .notify-text {
-      text-align: center;
-    }
-
-    .search-icon {
-      top: 5px;
-      right: 30px;
-    }
+  .section {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    max-width: var(--section-tablet-width-size);
   }
 
-  @media screen and (min-width: 1024px) {
-    .container {
-      max-width: var(--container-desctop-width-size);
-      padding-left: 71px;
-      padding-right: 71px;
-    }
-
-    .section {
-      max-width: var(--section-desctop-width-size);
-    }
-/*           url(./assests/images/header-bcg-chair-mob-2x.jpg);
-      } */
-
-/*       .footer-text--first {
-        margin-bottom: 10px;
-      }
-    }
+  .header {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(./assests/images/header-bcg-chair-tablet.jpg);
   }
 
-  @media screen and (min-width: 768px) {
-    .container {
-      max-width: var(--container-tablet-width-size);
-      padding-left: 75px;
-      padding-right: 75px;
-    }
-
-    .section {
-      max-width: var(--section-tablet-width-size);
-    } */
-
-    .header {
-      background-image: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
-        url(./assests/images/header-bcg-chair-pc.jpg);
-    }
-
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (-webkit-min-device-pixel-ratio: 2),
-      screen and (-o-min-device-pixel-ratio: 2/1),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      .header {
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.56),
-            rgba(0, 0, 0, 0.56)
-          ),
-          url(./assests/images/header-bcg-chair-pc-2x.jpg);
-      }
-    }
+  @media screen and (min-device-pixel-ratio: 2),
+  screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (-o-min-device-pixel-ratio: 2/1),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  .header {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(./assests/images/header-bcg-chair-tablet-2x.jpg);
   }
 
-
-/*         url(./assests/images/header-bcg-chair-tablet.jpg);
-    }
-
-    .new-bcg {
-      background-image: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
-        url(./assests/images/red-chair/header-bcg-red-chair-tablet.jpg);
-      min-height: 230px;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      background-size: cover;
-    }
-
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (-webkit-min-device-pixel-ratio: 2),
-      screen and (-o-min-device-pixel-ratio: 2/1),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      .header {
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.56),
-            rgba(0, 0, 0, 0.56)
-          ),
-          url(./assests/images/header-bcg-chair-tablet-2x.jpg);
-      }
-      .new-bcg {
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.56),
-            rgba(0, 0, 0, 0.56)
-          ),
-          url(./assests/images/red-chair/header-bcg-red-chair-tablet-2x.jpg);
-        min-height: 230px;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        background-size: cover;
-      }
-    }
-
-    .logo-txt {
-      display: block;
-    }
-
-    .header-bottom {
-      width: 393px;
-    }
-
-    .input-search {
-      width: 336px;
-    }
-    .notify-text {
-      text-align: center;
-    }
-
-    .search-icon {
-      top: 5px;
-      right: 55px;
+  .new-bcg {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(./assests/images/red-chair/header-bcg-red-chair-tablet.jpg);
+    min-height: 230px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
     }
   }
+  .new-bcg {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(./assests/images/red-chair/header-bcg-red-chair-tablet-2x.jpg);
+    min-height: 230px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
 
-  @media screen and (min-width: 1024px) {
-    .container {
-      max-width: var(--container-desctop-width-size);
-      padding-left: 71px;
-      padding-right: 71px;
-    }
+  .logo-txt {
+    display: block;
+  }
 
-    .section {
-      max-width: var(--section-desctop-width-size);
-    }
+  .header-bottom {
+    width: 393px;
+  }
 
-    .header {
-      background-image: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
-        url(./assests/images/header-bcg-chair-pc.jpg);
-    }
+  .input-search {
+    width: 336px;
+  }
+  .notify-text {
+    text-align: center;
+  }
 
-    .new-bcg {
-      background-image: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
-        url(./assests/images/red-chair/header-bcg-red-chair-pc.jpg);
-      min-height: 230px;
-      background-repeat: no-repeat;
-      background-position: 50% 50%;
-      background-size: cover;
-    }
+  .search-icon {
+    top: 5px;
+    right: 30px;
+  }
 
-    @media screen and (min-device-pixel-ratio: 2),
-      screen and (-webkit-min-device-pixel-ratio: 2),
-      screen and (-o-min-device-pixel-ratio: 2/1),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      .header {
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.56),
-            rgba(0, 0, 0, 0.56)
-          ),
-          url(./assests/images/header-bcg-chair-pc-2x.jpg);
-      }
-      .new-bcg {
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.56),
-            rgba(0, 0, 0, 0.56)
-          ),
-          url(./assests/images/red-chair/header-bcg-red-chair-pc-2x.jpg);
-        min-height: 230px;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        background-size: cover;
-      }
-    }
-  } */
+  .footer-content {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 28px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: var(--container-desctop-width-size);
+    padding-left: 71px;
+    padding-right: 71px;
+  }
+
+  .section {
+    max-width: var(--section-desctop-width-size);
+  }
+
+  .footer-text--first {
+    margin-bottom: 10px;
+  }
+
+  .header {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(./assests/images/header-bcg-chair-pc.jpg);
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
+  screen and (-webkit-min-device-pixel-ratio: 2),
+  screen and (-o-min-device-pixel-ratio: 2/1),
+  screen and (min-resolution: 192dpi),
+  screen and (min-resolution: 2dppx) {
+  .header {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(./assests/images/header-bcg-chair-pc-2x.jpg);
+  }
+
+  .new-bcg {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(./assests/images/red-chair/header-bcg-red-chair-pc.jpg);
+    min-height: 230px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+  
+  .new-bcg {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(./assests/images/red-chair/header-bcg-red-chair-pc-2x.jpg);
+    min-height: 230px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+  }
+  }
+}
 
   /* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
 
-/*   .btn {
-    background-color: transparent;
-    color: var(--white-text-color);
-    border: 1px solid transparent;
-    border-radius: 5px;
-    outline: none;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-    min-width: 136px;
-    cursor: pointer;
-  }
+.btn {
+  background-color: transparent;
+  color: var(--white-text-color);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  min-width: 136px;
+  cursor: pointer;
+}
 
-  .btn.accent {
-    background-color: var(--accent-color);
-  }
+.btn.accent {
+  background-color: var(--accent-color);
+}
 
-  .btn.primary-white {
-    border: 1px solid var(--white-text-color);
-  }
+.btn.primary-white {
+  border: 1px solid var(--white-text-color);
+}
 
-  .btn.primary-black {
-    border: 1px solid var(--black-text-color);
-  } */
+.btn.primary-black {
+  border: 1px solid var(--black-text-color);
 }
