@@ -1,3 +1,4 @@
+import {getIDFromIMG} from './modal.js'
 //------watched
 let watchedMovies = [];
 const watched = "watched"
@@ -55,3 +56,6 @@ const sendId = (key, data) => {
     localStorage.setItem(key, JSON.stringify(data));
 };
 
+export function write(some) {
+    console.log('some',some);
+}
