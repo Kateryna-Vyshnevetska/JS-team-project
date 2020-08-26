@@ -72,7 +72,7 @@ const changeGenres = function(list, results) {
     // console.log(generName);
     // console.log(results);
 
-
+    // 
 }
 
 const dateSlice = function(results) {
