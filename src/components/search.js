@@ -15,11 +15,15 @@ const checkInput = function (e) {
       refs.searchInfo.classList.remove("unSuccessful");
       refs.searchInfo.classList.add("successful");
       refs.searchInfo.textContent = `По вашему запросу найдено ${res} фильм(ов/а)`;
+      if (res === 0) {
+        refs.paginationRef.classList.add("is-not-visible");
+      }
     }, 500);
   } else {
     refs.searchInfo.classList.remove("successful");
     refs.searchInfo.classList.add("unSuccessful");
     refs.searchInfo.textContent = `Search result not successful. Enter the correct movie name and try again`;
+    refs.paginationRef.classList.add("is-not-visible");
   }
 };
 

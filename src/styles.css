@@ -52,6 +52,7 @@
 
 .nav-list {
   display: flex;
+  margin-bottom: 0px;
 }
 
 .nav-item:not(:last-child) {
@@ -84,9 +85,10 @@
 }
 
 .input-search {
+  
   display: block;
   width: 100%;
-  height: 20px;
+  height: 30px;
   margin-bottom: 22px;
   background-color: transparent;
   border: none;
@@ -96,6 +98,9 @@
   outline: none;
 }
 .input-search::placeholder {
+  
+  font-size: 14px;
+  line-height: 16px;
   border-top: none;
   color: var(--white-text-color);
   caret-color: var(--white-text-color);
@@ -108,7 +113,7 @@
 .search-icon {
   display: block;
   position: absolute;
-  top: 5px;
+  top: 10px;
   right: 0;
   display: block;
   width: 12px;
@@ -164,7 +169,7 @@
   display: none;
 }
 
-button:focus{
+button:focus {
   outline: none;
 }
 
@@ -210,8 +215,8 @@ button:focus{
   font-weight: 500;
   padding: 10px 0;
 }
-.card-image__wrapper{
-  width: 260px ;
+.card-image__wrapper {
+  width: 260px;
   height: 300px;
   margin: 0 20px 15px;
 }
@@ -268,14 +273,14 @@ button:focus{
   font-size: 12px;
   line-height: 20px;
 }
-.card-button__wrapper{
+.card-button__wrapper {
   margin: 20px 20px 10px;
   display: flex;
   justify-content: space-between;
 }
-.modal-btn{
-  border:1px solid var(--black-text-color);
-  color:  var(--black-text-color);
+.modal-btn {
+  border: 1px solid var(--black-text-color);
+  color: var(--black-text-color);
   background-color: transparent;
   text-transform: uppercase;
   border-radius: 5px;
@@ -284,20 +289,19 @@ button:focus{
   width: 120px;
   cursor: pointer;
   font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 16px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
 }
-.modal-btn:hover{
-  color:  var(--white-text-color);
+.modal-btn:hover {
+  color: var(--white-text-color);
   background-color: var(--accent-color);
-  border:1px solid var(--accent-color)
+  border: 1px solid var(--accent-color);
 }
 /* =============================================== */
 
 /* WHIS IF FOR SCREEEEENS */
-
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .container {
@@ -344,8 +348,8 @@ line-height: 16px;
         rgba(0, 0, 0, 0.56)
       ),
       url(./assests/images/header-bcg-chair-tablet.jpg);
-    }
-   
+  }
+
   @media screen and (min-device-pixel-ratio: 2),
     screen and (-webkit-min-device-pixel-ratio: 2),
     screen and (-o-min-device-pixel-ratio: 2/1),
@@ -416,10 +420,10 @@ line-height: 16px;
   }
 
   .search-icon {
-    top: 5px;
-    right: 30px;
+    top: 10px;
+    right: 60px;
   }
-  
+
   .footer-content {
     display: flex;
     justify-content: center;
@@ -427,19 +431,19 @@ line-height: 16px;
     padding-bottom: 28px;
   }
 
-   /* ===================modal====================== */
+  /* ===================modal====================== */
   .card-wrapper {
     width: 640px;
     display: flex;
   }
-  
-  .card-info__wrapper{
+
+  .card-info__wrapper {
     max-width: 335px;
   }
-  
-  .card-title{
+
+  .card-title {
     font-size: 30px;
-    line-height: 35px
+    line-height: 35px;
   }
 }
 
@@ -469,13 +473,12 @@ line-height: 16px;
   /* ============modal====================== */
   .card-wrapper {
     width: 920px;
-    
   }
-  .card-info__wrapper{
+  .card-info__wrapper {
     max-width: 470px;
   }
   /* ============================= */
-  
+
   @media screen and (min-device-pixel-ratio: 2),
     screen and (-webkit-min-device-pixel-ratio: 2),
     screen and (-o-min-device-pixel-ratio: 2/1),
@@ -519,10 +522,9 @@ line-height: 16px;
 
   .card-wrapper {
     width: 920px;
-    
   }
 
-  .card-info__wrapper{
+  .card-info__wrapper {
     max-width: 470px;
   }
 }
@@ -542,6 +544,11 @@ line-height: 16px;
   background-color: var(--accent-color);
   font-weight: 500;
 }
+
+.tui-pagination.is-not-visible {
+  display: none;
+}
+
 /* стили кнопок для пагинатора  */
 
 /* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
@@ -566,6 +573,11 @@ line-height: 16px;
 
 .btn.primary-white {
   border: 1px solid var(--white-text-color);
+}
+
+.btn.primary-white:hover {
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
 }
 
 .btn.primary-black {
