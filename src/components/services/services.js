@@ -1,4 +1,4 @@
-вводыimport { API_KEY } from "../../options/apikey.js";
+import { API_KEY } from "../../options/apikey.js";
 import { data } from "autoprefixer";
 import refs from "../../options/refs.js";
 import mainTemplate from "../../template/mainTemplate.hbs";
