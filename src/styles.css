@@ -196,186 +196,182 @@
 /* =============================================== */
 
 @media screen and (min-width: 320px) {
-
-.footer-text,
-.footer-text--first {
-  font-size: 14px;
-  line-height: 1.14;
-  text-align: center;
-
-  color: #545454;
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .container {
-    max-width: var(--container-mobile-width-size);
-    padding-top: 28px;
-    padding-bottom: 55px;
-  }
-
-  .section {
-    max-width: var(--section-mobile-width-size);
-  }
-
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (-webkit-min-device-pixel-ratio: 2),
-    screen and (-o-min-device-pixel-ratio: 2/1),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    .header {
-      background-image: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
-        url(./assests/images/header-bcg-chair-mob-2x.jpg);
-    }
-
+  .footer-text,
   .footer-text--first {
-    margin-bottom: 10px;
-  }
-}
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: var(--container-tablet-width-size);
-
-    /* WHO USE THIS FOR CONTAINER */
-
-    /* display: flex;
-    justify-content: center; */
-
-    padding-left: 75px;
-    padding-right: 75px;
-    padding-top: 30px;
-    padding-bottom: 28px;
-  }
-
-  .section {
-    padding-top: 60px;
-    padding-bottom: 60px;
-    max-width: var(--section-tablet-width-size);
-  }
-
-  .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/header-bcg-chair-tablet.jpg);
-  }
-
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (-webkit-min-device-pixel-ratio: 2),
-    screen and (-o-min-device-pixel-ratio: 2/1),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
-    .header {
-      background-image: linear-gradient(
-          to right,
-          rgba(0, 0, 0, 0.56),
-          rgba(0, 0, 0, 0.56)
-        ),
-        url(./assests/images/header-bcg-chair-tablet-2x.jpg);
-    }
-  }
-
-  .logo-txt {
-    display: block;
-  }
-
-  .header-bottom {
-    width: 393px;
-  }
-
-  .input-search {
-    width: 336px;
-  }
-  .notify-text {
+    font-size: 14px;
+    line-height: 1.14;
     text-align: center;
+    color: #545454;
   }
 
-  .search-icon {
-    top: 5px;
-    right: 30px;
-  }
-}
+  @media screen and (min-width: 320px) and (max-width: 767px) {
+    .footer-content {
+      padding-top: 28px;
+      padding-bottom: 55px;
+    }
+    .footer-text--first {
+      margin-bottom: 10px;
+    }
+    .container {
+      max-width: var(--container-mobile-width-size);
+    }
 
-@media screen and (min-width: 1024px) {
-  .container {
-    max-width: var(--container-desctop-width-size);
-    padding-left: 71px;
-    padding-right: 71px;
+    .section {
+      max-width: var(--section-mobile-width-size);
+    }
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      .header {
+        background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)
+          ),
+          url(./assests/images/header-bcg-chair-mob-2x.jpg);
+      }
+    }
   }
 
-  .section {
-    max-width: var(--section-desctop-width-size);
-  }
+  @media screen and (min-width: 768px) {
+    .footer-content {
+      display: flex;
+      justify-content: center;
+      padding-top: 30px;
+      padding-bottom: 28px;
+    }
+    .container {
+      max-width: var(--container-tablet-width-size);
+      padding-left: 75px;
+      padding-right: 75px;
+    }
 
-  .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/header-bcg-chair-pc.jpg);
-  }
+    .section {
+      padding-top: 60px;
+      padding-bottom: 60px;
+      max-width: var(--section-tablet-width-size);
+    }
 
-  @media screen and (min-device-pixel-ratio: 2),
-    screen and (-webkit-min-device-pixel-ratio: 2),
-    screen and (-o-min-device-pixel-ratio: 2/1),
-    screen and (min-resolution: 192dpi),
-    screen and (min-resolution: 2dppx) {
     .header {
       background-image: linear-gradient(
           to right,
           rgba(0, 0, 0, 0.56),
           rgba(0, 0, 0, 0.56)
         ),
-        url(./assests/images/header-bcg-chair-pc-2x.jpg);
+        url(./assests/images/header-bcg-chair-tablet.jpg);
+    }
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      .header {
+        background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)
+          ),
+          url(./assests/images/header-bcg-chair-tablet-2x.jpg);
+      }
+    }
+
+    .logo-txt {
+      display: block;
+    }
+
+    .header-bottom {
+      width: 393px;
+    }
+
+    .input-search {
+      width: 336px;
+    }
+    .notify-text {
+      text-align: center;
+    }
+
+    .search-icon {
+      top: 5px;
+      right: 30px;
     }
   }
-}
 
-/* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
+  @media screen and (min-width: 1024px) {
+    .container {
+      max-width: var(--container-desctop-width-size);
+      padding-left: 71px;
+      padding-right: 71px;
+    }
 
-.button-list {
-  display: flex;
-  justify-content: center;
-}
+    .section {
+      max-width: var(--section-desctop-width-size);
+    }
 
-.button-item:not(:last-child) {
-  margin-right: 15px;
-}
+    .header {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/header-bcg-chair-pc.jpg);
+    }
 
-.btn {
-  background-color: transparent;
-  color: var(--white-text-color);
-  border: 1px solid transparent;
-  border-radius: 5px;
-  outline: none;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  min-width: 136px;
-  cursor: pointer;
-}
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      .header {
+        background-image: linear-gradient(
+            to right,
+            rgba(0, 0, 0, 0.56),
+            rgba(0, 0, 0, 0.56)
+          ),
+          url(./assests/images/header-bcg-chair-pc-2x.jpg);
+      }
+    }
+  }
 
-.btn.accent {
-  background-color: var(--accent-color);
-}
+  /* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
 
-.btn.primary-white {
-  border: 1px solid var(--white-text-color);
-}
+  .button-list {
+    display: flex;
+    justify-content: center;
+  }
 
-.btn.primary-black {
-  border: 1px solid var(--black-text-color);
-}
+  .button-item:not(:last-child) {
+    margin-right: 15px;
+  }
 
-/* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
+  .btn {
+    background-color: transparent;
+    color: var(--white-text-color);
+    border: 1px solid transparent;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    min-width: 136px;
+    cursor: pointer;
+  }
 
+  .btn.accent {
+    background-color: var(--accent-color);
+  }
+
+  .btn.primary-white {
+    border: 1px solid var(--white-text-color);
+  }
+
+  .btn.primary-black {
+    border: 1px solid var(--black-text-color);
+  }
+
+  /* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
 }
