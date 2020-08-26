@@ -1,5 +1,8 @@
 @import "./options/variables.css";
-
+body {
+  display: flex;
+  flex-direction: column;
+}
 .header {
   background-image: linear-gradient(
       to right,
@@ -134,12 +137,8 @@
 }
 
 .footer-content {
-  padding-top: 28px;
-  padding-bottom: 55px;
-}
-
-.footer-text--first {
-  margin-bottom: 10px;
+  margin-top: 28px;
+  margin-bottom: 55px;
 }
 
 /* нотификация для поля инпут в хедере */
@@ -181,6 +180,7 @@ button:focus {
 }
 
 .container {
+  flex-grow: 1;
   padding-left: 20px;
   padding-right: 20px;
   margin: 0 auto;
@@ -219,6 +219,10 @@ button:focus {
   font-weight: 500;
   padding: 10px 0;
 }
+
+/* .card-image__wrapper {
+  width: 260px;
+  height: 300px; */
 
 .card-image__wrapper{
   text-align: center;
@@ -343,6 +347,9 @@ button:focus {
         ),
         url(./assests/images/header-bcg-chair-mob-2x.jpg);
     }
+  }
+  .footer-text--first {
+    margin-bottom: 10px;
   }
 }
 
@@ -474,10 +481,6 @@ button:focus {
 
   .section {
     max-width: var(--section-desctop-width-size);
-  }
-
-  .footer-text--first {
-    margin-bottom: 10px;
   }
 
   .header {
