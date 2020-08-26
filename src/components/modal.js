@@ -5,12 +5,13 @@ import { pullData } from "./services/services";
 import {write} from './localStorage.js';
 const mainFilmList = document.querySelector('.list-film')
 
+let idForLocalStorage;
 
 export function openModal(event) {
   if (event.target.nodeName !== "IMG") {
     return;
   } else {
-    write(event.target.dataset.id);
+    idForLocalStorage = event.target.dataset.id;
     let id = event.target.dataset.id;
     getCurrentObj(id);
     // document.body.classList.add('modal-open')
@@ -32,6 +33,7 @@ function drawModal(obj) {
     let markup = filmCardTpl(obj);
     const instance = basicLightbox.create(markup);
     instance.show();
+    write(idForLocalStorage);
 }
 
 mainFilmList.addEventListener("click", openModal);
