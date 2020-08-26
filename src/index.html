@@ -42,39 +42,41 @@
               <span class="logo-txt">Filmoteka</span>
             </a>
 
-            <nav>
-              <ul class="nav-list">
-                <li class="nav-item">
-                  <button class="nav-btn is-active-btn">HOME</button>
-                </li>
-                <li class="nav-item">
-                  <button class="nav-btn">MY LIBRARY</button>
-                </li>
-              </ul>
-            </nav>
-          </div>
-          <div class="header-bottom">
-            <input
-              type="text"
-              placeholder="Поиск фильмов"
-              class="input-search"
-            />
-            <span class="search-icon"></span>
-            <p class="notify-text">
-              Search result not successful. Enter the correct movie name and
-            </p>
-            <ul class="button-list">
-              <li class="button-item">
-                <button class="btn accent">WATCHED</button>
+          <nav>
+            <ul class="nav-list">
+              <li class="nav-item">
+                <button class="nav-btn is-active-btn" data-nav-choice="home">
+                  HOME
+                </button>
               </li>
-              <li class="button-item">
-                <button class="btn primary-white">QUEUE</button>
+              <li class="nav-item">
+                <button class="nav-btn" data-nav-choice="my-library">
+                  MY LIBRARY
+                </button>
               </li>
             </ul>
-          </div>
+          </nav>
+        </div>
+        <div class="header-bottom">
+          <input type="text" placeholder="Поиск фильмов" class="input-search" />
+          <span class="search-icon"></span>
+          <p class="notify-text is-not-visible">
+            Search result not successful. Enter the correct movie name and
+          </p>
+          <ul
+            class="button-list is-not-visible"
+            data-button-list-header="watched-and-queue"
+          >
+            <li class="button-item">
+              <button class="btn accent">WATCHED</button>
+            </li>
+            <li class="button-item">
+              <button class="btn primary-white">QUEUE</button>
+            </li>
+          </ul>
         </div>
 
-        <!--       SERG FOR CHECK INPUT
+      <!--       SERG FOR CHECK INPUT
 <div class="container">
         <input
           class="search"
@@ -84,7 +86,7 @@
         />
         <p class="searchInfo"></p>
       </div> -->
-      </header>
+    </header>
 
       <main class="main d-none">
         <section class="section">
@@ -101,7 +103,30 @@
         </div>
       </footer>
     </div>
-    
-   
+<!--       </section>
+    </main>
+    <button
+      id="search"
+      class="btn btn-primary"
+      type="button"
+      data-action="load-more"
+    >
+      <span
+        class="spinner-border spinner-border-sm spinner is-hidden"
+        role="status"
+        aria-hidden="true"
+      >
+      </span>
+      <span class="label">Показать еще...</span>
+    </button>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <p class="footer-text--first">© 2020 | All Rights Reserved |</p>
+          <p class="footer-text">&nbsp;Developed with 🧡 by GoIT Students</p>
+        </div>
+      </div>
+    </footer> -->
   </body>
 </html>
