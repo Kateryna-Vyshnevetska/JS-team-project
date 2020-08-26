@@ -60,9 +60,7 @@
         <div class="header-bottom">
           <input type="text" placeholder="Поиск фильмов" class="input-search" />
           <span class="search-icon"></span>
-          <p class="notify-text is-not-visible">
-            Search result not successful. Enter the correct movie name and
-          </p>
+          <p class="unSuccessful" id="notify-text"></p>
           <ul
             class="button-list is-not-visible"
             data-button-list-header="watched-and-queue"
@@ -75,24 +73,16 @@
             </li>
           </ul>
         </div>
-
-      <!--       SERG FOR CHECK INPUT
-<div class="container">
-        <input
-          class="search"
-          type="search"
-          name="search"
-          placeholder="Поиск фильмов"
-        />
-        <p class="searchInfo"></p>
-      </div> -->
+   
     </header>
 
       <main class="main d-none">
         <section class="section">
+          <button class="sort-button" type="button">Sort by *</button>
           <div class="container">
             <ul class="list-film"></ul>
           </div>
+          <div id="pagination2" class="tui-pagination" data-pagination-value=""></div>
         </section>
       </main>
 

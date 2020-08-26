@@ -1,48 +1,69 @@
-import { API_KEY } from '../../options/apikey.js';
-import { data } from 'autoprefixer';
+import { API_KEY } from "../../options/apikey.js";
+import { data } from "autoprefixer";
 import refs from "../../options/refs.js";
-import mainTemplate from '../../template/mainTemplate.hbs'
+import mainTemplate from "../../template/mainTemplate.hbs";
 
 
 // keyword и page пока заглушка, будет брать из инпута
 const page = 1;
-const keyWord = 'dog';
+export let res;
+// const keyWord = 'dog';
 
 
-export const filmsSearch = function() {
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyWord}&page=${page}&include_adult=false`)
-        .then((list) => list.json())
-        .then((list) => {
-            getFilmsByWord(list)
-        }).catch(error => {
-            console.log(error);
-        })
-}
+export const filmsSearch = function (keyWord) {
+  fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyWord}&page=${page}&include_adult=false`
+  )
+    .then((list) => list.json())
+    .then((list) => {
+      res = list.total_results;
+      getFilmsByWord(list);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  return res;
+};
+
+// Предыдущая функция Тофика
+// export const filmsSearch = function(page) {
+//     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyWord}&page=${page}&include_adult=false`)
+//         .then((list) => list.json())
+//         .then((list) => {
+//             getFilmsByWord(list)
+//         }).catch(error => {
+//             console.log(error);
+//         })
+// }
+
 
 const drawHtml = (data) => {
-    const markup = mainTemplate(data);
-    refs.listFilms.innerHTML = markup;
-}
+  console.log(data);
+  const markup = mainTemplate(data);
+  refs.listFilms.innerHTML = markup;
+};
 
-export const getDetails = function(id) {
-    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`)
-        .then((list) => list.json())
-        .catch(error => {
-            console.log(error);
-        });
-}
-
+export const getDetails = function (id) {
+  fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`)
+    .then((list) => list.json())
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 // при вызове популярных так же срабатывают и другие функции как при обычном поиске
-export const getPopular = function() {
-    fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${page}`)
-        .then((list) => list.json())
-        .then((list) => {
-            getFilmsByWord(list)
-        }).catch(error => {
-            console.log(error);
-        });
-}
+export const getPopular = function () {
+  fetch(
+    `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${page}`
+  )
+    .then((list) => list.json())
+    .then((list) => {
+      getFilmsByWord(list);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
 const getGenres = function(results) {
     fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`)
@@ -87,3 +108,4 @@ const dateSlice = function(results) {
 getPopular()
 
 // filmsSearch()
+

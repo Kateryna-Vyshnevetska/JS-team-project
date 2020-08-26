@@ -164,6 +164,10 @@
   display: none;
 }
 
+button:focus{
+  outline: none;
+}
+
 .section {
   padding-top: 20px;
   padding-bottom: 40px;
@@ -195,7 +199,8 @@
 
 /* ===============modal========================== */
 .card-wrapper {
-  width: 300px;
+  width: 290px;
+  max-height: 800px;
   background-color: var(--background-main-color);
   font-family: Roboto;
   color: var(--black-text-color);
@@ -203,6 +208,12 @@
   text-align: left;
   margin: 0 auto;
   font-weight: 500;
+  padding: 10px 0;
+}
+.card-image__wrapper{
+  width: 260px ;
+  height: 300px;
+  margin: 0 20px 15px;
 }
 .card-title {
   font-size: 20px;
@@ -257,8 +268,36 @@
   font-size: 12px;
   line-height: 20px;
 }
+.card-button__wrapper{
+  margin: 20px 20px 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.modal-btn{
+  border:1px solid var(--black-text-color);
+  color:  var(--black-text-color);
+  background-color: transparent;
+  text-transform: uppercase;
+  border-radius: 5px;
+  outline: none;
+  padding: 10px 5px;
+  width: 120px;
+  cursor: pointer;
+  font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 12px;
+line-height: 16px;
+}
+.modal-btn:hover{
+  color:  var(--white-text-color);
+  background-color: var(--accent-color);
+  border:1px solid var(--accent-color)
+}
+/* =============================================== */
 
 /* WHIS IF FOR SCREEEEENS */
+
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
   .container {
@@ -270,21 +309,20 @@
   }
 
   @media screen and (min-device-pixel-ratio: 2),
-      screen and (-webkit-min-device-pixel-ratio: 2),
-      screen and (-o-min-device-pixel-ratio: 2/1),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      .header {
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.56),
-            rgba(0, 0, 0, 0.56)
-          ),
-          url(./assests/images/header-bcg-chair-mob-2x.jpg);
-      }
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .header {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/header-bcg-chair-mob-2x.jpg);
     }
+  }
 }
-
 
 @media screen and (min-width: 768px) {
   .container {
@@ -306,33 +344,33 @@
         rgba(0, 0, 0, 0.56)
       ),
       url(./assests/images/header-bcg-chair-tablet.jpg);
-  }
-
+    }
+   
   @media screen and (min-device-pixel-ratio: 2),
-  screen and (-webkit-min-device-pixel-ratio: 2),
-  screen and (-o-min-device-pixel-ratio: 2/1),
-  screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx) {
-  .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/header-bcg-chair-tablet-2x.jpg);
-  }
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .header {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/header-bcg-chair-tablet-2x.jpg);
+    }
 
-  .new-bcg {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/red-chair/header-bcg-red-chair-tablet.jpg);
-    min-height: 230px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
+    .new-bcg {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/red-chair/header-bcg-red-chair-tablet.jpg);
+      min-height: 230px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
     }
   }
   .new-bcg {
@@ -359,20 +397,49 @@
   .input-search {
     width: 336px;
   }
-  .notify-text {
+  .input-search:focus::-webkit-input-placeholder {
+    text-indent: 500px;
+    transition: text-indent 0.3s ease;
+  }
+  #notify-text {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 5px;
     text-align: center;
+  }
+  #notify-text.unSuccessful {
+    color: #ff001b;
+  }
+  #notify-text.successful {
+    color: #7cdbb7;
+    text-align: left;
   }
 
   .search-icon {
     top: 5px;
     right: 30px;
   }
-
+  
   .footer-content {
     display: flex;
     justify-content: center;
     padding-top: 30px;
     padding-bottom: 28px;
+  }
+
+   /* ===================modal====================== */
+  .card-wrapper {
+    width: 640px;
+    display: flex;
+  }
+  
+  .card-info__wrapper{
+    max-width: 335px;
+  }
+  
+  .card-title{
+    font-size: 30px;
+    line-height: 35px
   }
 }
 
@@ -399,50 +466,85 @@
       ),
       url(./assests/images/header-bcg-chair-pc.jpg);
   }
-
-  @media screen and (min-device-pixel-ratio: 2),
-  screen and (-webkit-min-device-pixel-ratio: 2),
-  screen and (-o-min-device-pixel-ratio: 2/1),
-  screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx) {
-  .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/header-bcg-chair-pc-2x.jpg);
+  /* ============modal====================== */
+  .card-wrapper {
+    width: 920px;
+    
   }
-
-  .new-bcg {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/red-chair/header-bcg-red-chair-pc.jpg);
-    min-height: 230px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
+  .card-info__wrapper{
+    max-width: 470px;
   }
+  /* ============================= */
   
-  .new-bcg {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/red-chair/header-bcg-red-chair-pc-2x.jpg);
-    min-height: 230px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .header {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/header-bcg-chair-pc-2x.jpg);
+    }
+
+    .new-bcg {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/red-chair/header-bcg-red-chair-pc.jpg);
+      min-height: 230px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+    }
+
+    .new-bcg {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/red-chair/header-bcg-red-chair-pc-2x.jpg);
+      min-height: 230px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+    }
   }
+
+  .card-wrapper {
+    width: 920px;
+    
+  }
+
+  .card-info__wrapper{
+    max-width: 470px;
   }
 }
 
-  /* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
+/* стили кнопок для пагинатора  */
+.section .tui-pagination .tui-page-btn {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.tui-pagination .tui-page-btn.tui-is-selected {
+  background-color: var(--accent-color);
+  font-weight: 500;
+}
+.tui-pagination .tui-page-btn.tui-is-selected:hover {
+  background-color: var(--accent-color);
+  font-weight: 500;
+}
+/* стили кнопок для пагинатора  */
+
+/* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
 
 .btn {
   background-color: transparent;
