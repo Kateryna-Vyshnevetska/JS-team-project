@@ -37,6 +37,7 @@ export const filmsSearch = function (keyWord) {
 
 
 const drawHtml = (data) => {
+  console.log(data);
   const markup = mainTemplate(data);
   refs.listFilms.innerHTML = markup;
 };
@@ -91,3 +92,4 @@ const dateSlice = function (results) {
 getPopular();
 getGenres();
 // filmsSearch()
+

@@ -1,7 +1,7 @@
 {{#each this}}
 <li class="film">
     <div class="film__poster">
-      <img class="film__poster-photo" src= 'https://image.tmdb.org/t/p/w300{{poster_path}}' alt="" />
+      <img data-id = '{{id}}' class="film__poster-photo" src= 'https://image.tmdb.org/t/p/w300{{poster_path}}' alt="" />
     </div>
   <div class="film__preview">
     <p class="film__preview-title">
