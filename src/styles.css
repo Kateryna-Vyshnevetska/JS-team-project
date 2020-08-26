@@ -194,9 +194,13 @@
 }
 
 /* ===============modal========================== */
+/* body.modal-open {
+  overflow: hidden;
+  position: fixed;
+} */
 .card-wrapper {
   width: 290px;
-  max-height: 800px;
+  height: auto;
   background-color: var(--background-main-color);
   font-family: Roboto;
   color: var(--black-text-color);
@@ -207,9 +211,14 @@
   padding: 10px 0;
 }
 .card-image__wrapper{
-  width: 260px ;
-  height: 300px;
+  text-align: center;
   margin: 0 20px 15px;
+}
+
+.card-image{
+  width: 250px;
+  height: auto;
+  border-radius: 5px;
 }
 .card-title {
   font-size: 20px;
@@ -223,6 +232,7 @@
 }
 .card-item {
   display: flex;
+  height: 15px;
 }
 .card-item:not(:last-child) {
   margin-bottom: 10px;
@@ -247,7 +257,7 @@
   /* background: #FF6B01; */
   border-radius: 5px;
   text-align: center;
-  padding-top: 3px;
+  padding-top: 1px;
 }
 
 .card-item__genre {
@@ -267,7 +277,8 @@
 .card-button__wrapper{
   margin: 20px 20px 10px;
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .modal-btn{
   border:1px solid var(--black-text-color);
@@ -284,6 +295,10 @@ font-style: normal;
 font-weight: 500;
 font-size: 12px;
 line-height: 16px;
+margin-bottom: 10px;
+}
+.modal-btn:nth-child(2n+1){
+  margin-right: 10px;
 }
 .modal-btn:hover{
   color:  var(--white-text-color);

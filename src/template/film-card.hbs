@@ -1,48 +1,49 @@
 <div class="card-wrapper">
     <div class="card-image__wrapper">
-        <img src="#"  alt="some image" class="card-image">
-
+        <picture>
+           <source srcset="https://image.tmdb.org/t/p/w300{{poster_path}}" media="(min-width: 1024px)" class="card-image"> 
+           <source srcset="https://image.tmdb.org/t/p/w200{{poster_path}}" media="(min-width: 768px)" class="card-image"> 
+        <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" alt="{{title}}" class="card-image" class="card-image">
+        </picture>
+     
     </div>
     <div class="card-info__wrapper">
 
-    <h2 class="card-title">A FISTFUL OF LEAD</h2>
-    <ul class="card-list">
-        <li class="card-item">
-            <p class="card-item__about">Vote / Votes</p>
-            <p class="card-item__descript">
-                <span class="card-item__vote">7.3</span>
-                <span style="color:rgb(140, 140, 140)">/</span>
-                <span class="card-item__votes">1260</span>
-            </p>
-        </li>
-        <li class="card-item">
-            <p class="card-item__about">Popularity</p>
-            <p class="card-item__descript">100.2</p>
-        </li>
-        <li class="card-item">
-            <p class="card-item__about">Original Title</p>
-            <p class="card-item__descript">A FISTFUL OF LEAD</p>
-        </li>
-        <li class="card-item">
-            <p class="card-item__about">Genre</p>
-            <p class="card-item__descript">
-                <span class="card-item__genre">Western</span>
-                {{!-- {{#each genre_ids}}
-<span class="card-item__genre">{{genre_ids}}</span>
-{{/each}} --}}
-            </p>
-        </li>
-    </ul>
-    <p class="card-description__title">About</p>
-    <p class="card-description__about">Four of the West’s most infamous outlaws assemble to steal a huge stash of gold
-        from the most corrupt settlement of the gold rush towns. But not all goes to plan one is killed and the other
-        three escapes with bags of gold hide out in the abandoned gold mine where they happen across another gang of
-        three – who themselves were planning to hit the very same bank! As tensions rise, things go from bad to worse as
-        they realise the bags of gold are filled with lead... they’ve been double crossed – but by who and how? </p>
-    <div class ="card-button__wrapper">
-        <button class="modal-btn card-button__watched" type="button">add to watched</button>
-        <button class="modal-btn card-button__queue" type="button">add to queue</button>
-    </div>
+        <h2 class="card-title">{{title}}</h2>
+        <ul class="card-list">
+            <li class="card-item">
+                <p class="card-item__about">Vote / Votes</p>
+                <p class="card-item__descript">
+                    <span class="card-item__vote">{{vote_average}}</span>
+                    <span style="color:rgb(140, 140, 140)">/</span>
+                    <span class="card-item__votes">{{vote_count}}</span>
+                </p>
+            </li>
+            <li class="card-item">
+                <p class="card-item__about">Popularity</p>
+                <p class="card-item__descript">{{popularity}}</p>
+            </li>
+            <li class="card-item">
+                <p class="card-item__about">Original Title</p>
+                <p class="card-item__descript">{{original_title}}</p>
+            </li>
+            <li class="card-item">
+                <p class="card-item__about">Genre</p>
+                <p class="card-item__descript">
+
+                    {{#each genre_ids}}
+                    <span class="card-item__genre">{{this}}</span>
+                    {{/each}}
+                </p>
+            </li>
+        </ul>
+        <p class="card-description__title">About</p>
+        <p class="card-description__about">{{overview}}</p>
+        <div class="card-button__wrapper">
+            <button class="modal-btn card-button__watched" type="button">add to watched</button>
+            <button class="modal-btn card-button__queue" type="button">add to queue</button>
+            <button class="modal-btn card-button__trailer" type="button">watch trailer</button>
+        </div>
     </div>
 
 </div>
