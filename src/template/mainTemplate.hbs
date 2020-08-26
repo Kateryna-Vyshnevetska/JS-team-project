@@ -1,7 +1,7 @@
-{{#each items}}
+{{#each this}}
 <li class="film">
     <div class="film__poster">
-      <img class="film__poster-photo" src= "{{url}}" alt="" />
+      <img class="film__poster-photo" src= 'https://image.tmdb.org/t/p/w300{{poster_path}}' alt="" />
     </div>
   <div class="film__preview">
     <p class="film__preview-title">
@@ -11,7 +11,7 @@
       {{genre_ids}} | {{release_date}} 
     </p>
     <p class="film__preview-popularity">
-     {{popularity}}
+     {{vote_average}}
     </p>
   </div>
 </li>
