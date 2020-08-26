@@ -1,62 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Webpack Starter Kit</title>
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
-      rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet"
+    />
+    <link
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    rel="stylesheet"
     />
   </head>
-
+  
   <body>
-    <header class="header">
-      <div class="container">
-        <div class="header-top">
-          <a href="./index.html" class="logo">
-            <img
-              src="./assests/images/logo.svg"
-              alt="Логотип компании"
-              class="logo-img"
-            />
-            <span class="logo-txt">Filmoteka</span>
-          </a>
+<!-- PAGE LOADER -->
 
-          <nav>
-            <ul class="nav-list">
-              <li class="nav-item">
-                <button class="nav-btn is-active-btn">HOME</button>
+    <div class="spinner-border text-dark"
+      style="position: absolute; top: 50%; left: 50%; margin-top: -1.5rem; margin-left: -1.5rem; width: 3rem; height: 3rem;"
+      role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    
+    <!-- HEADER -->
+
+      <header class="header d-none">
+        <div class="container">
+          <div class="header-top">
+            <a href="./index.html" class="logo">
+              <img
+                src="./assests/images/logo.svg"
+                alt="Логотип компании"
+                class="logo-img"
+              />
+              <span class="logo-txt">Filmoteka</span>
+            </a>
+
+            <nav>
+              <ul class="nav-list">
+                <li class="nav-item">
+                  <button class="nav-btn is-active-btn">HOME</button>
+                </li>
+                <li class="nav-item">
+                  <button class="nav-btn">MY LIBRARY</button>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="header-bottom">
+            <input
+              type="text"
+              placeholder="Поиск фильмов"
+              class="input-search"
+            />
+            <span class="search-icon"></span>
+            <p class="notify-text">
+              Search result not successful. Enter the correct movie name and
+            </p>
+            <ul class="button-list">
+              <li class="button-item">
+                <button class="btn accent">WATCHED</button>
               </li>
-              <li class="nav-item">
-                <button class="nav-btn">MY LIBRARY</button>
+              <li class="button-item">
+                <button class="btn primary-white">QUEUE</button>
               </li>
             </ul>
-          </nav>
+          </div>
         </div>
-        <div class="header-bottom">
-          <input type="text" placeholder="Поиск фильмов" class="input-search" />
-          <span class="search-icon"></span>
-          <p class="notify-text">
-            Search result not successful. Enter the correct movie name and
-          </p>
-          <ul class="button-list">
-            <li class="button-item">
-              <button class="btn accent">WATCHED</button>
-            </li>
-            <li class="button-item">
-              <button class="btn primary-white">QUEUE</button>
-            </li>
-          </ul>
-        </div>
-      </div>
 
-<!--       SERG FOR CHECK INPUT
+        <!--       SERG FOR CHECK INPUT
 <div class="container">
         <input
           class="search"
@@ -66,38 +84,24 @@
         />
         <p class="searchInfo"></p>
       </div> -->
-      
-    </header>
+      </header>
 
-    <main>
-      <section class="section">
+      <main class="main d-none">
+        <section class="section">
+          <div class="container">
+            <ul class="list-film"></ul>
+          </div>
+        </section>
+      </main>
+  
+      <footer class="footer d-none">
         <div class="container">
-          <ul class="list-film"></ul>
+          <p class="footer-text--first">© 2020 | All Rights Reserved |</p>
+          <p class="footer-text">&nbsp;Developed with 🧡 by GoIT Students</p>
         </div>
-      </section>
-    </main>
-    <button
-      id="search"
-      class="btn btn-primary"
-      type="button"
-      data-action="load-more"
-    >
-      <span
-        class="spinner-border spinner-border-sm spinner is-hidden"
-        role="status"
-        aria-hidden="true"
-      >
-      </span>
-      <span class="label">Показать еще...</span>
-    </button>
+      </footer>
+    </div>
     
-    <footer class="footer">
-      <div class="container">
-        <p class="footer-text--first">© 2020 | All Rights Reserved |</p>
-        <p class="footer-text">
-          &nbsp;Developed with 🧡 by GoIT Students
-        </p>
-      </div>
-    </footer>
+   
   </body>
 </html>
