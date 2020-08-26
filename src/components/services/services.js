@@ -8,6 +8,7 @@ const page = 1;
 export let res;
 // const keyWord = 'dog';
 
+
 export const filmsSearch = function (keyWord) {
   fetch(
     `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyWord}&page=${page}&include_adult=false`
@@ -22,6 +23,18 @@ export const filmsSearch = function (keyWord) {
     });
   return res;
 };
+
+// Предыдущая функция Тофика
+// export const filmsSearch = function(page) {
+//     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyWord}&page=${page}&include_adult=false`)
+//         .then((list) => list.json())
+//         .then((list) => {
+//             getFilmsByWord(list)
+//         }).catch(error => {
+//             console.log(error);
+//         })
+// }
+
 
 const drawHtml = (data) => {
   const markup = mainTemplate(data);
