@@ -396,8 +396,22 @@ line-height: 16px;
   .input-search {
     width: 336px;
   }
-  .notify-text {
+  .input-search:focus::-webkit-input-placeholder {
+    text-indent: 500px;
+    transition: text-indent 0.3s ease;
+  }
+  #notify-text {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 5px;
     text-align: center;
+  }
+  #notify-text.unSuccessful {
+    color: #ff001b;
+  }
+  #notify-text.successful {
+    color: #7cdbb7;
+    text-align: left;
   }
 
   .search-icon {
@@ -501,7 +515,6 @@ line-height: 16px;
   .card-info__wrapper{
     max-width: 470px;
   }
-  
 }
 
 /* стили кнопок для пагинатора  */

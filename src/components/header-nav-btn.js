@@ -21,4 +21,4 @@ refs.pageHomeRef.addEventListener("click", (event) => {
   refs.searchIconRef.classList.remove("is-not-visible");
 });
 
-console.log(refs.searchIconRef);
+// console.log(refs.searchIconRef);
