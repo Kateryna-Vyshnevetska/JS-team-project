@@ -1,32 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Webpack Starter Kit</title>
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
-      rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet"
+    />
+    <link
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    rel="stylesheet"
     />
   </head>
-
+  
   <body>
-    <header class="header">
-      <div class="container">
-        <div class="header-top">
-          <a href="./index.html" class="logo">
-            <img
-              src="./assests/images/logo.svg"
-              alt="Логотип компании"
-              class="logo-img"
-            />
-            <span class="logo-txt">Filmoteka</span>
-          </a>
+<!-- PAGE LOADER -->
+
+    <div class="spinner-border text-dark"
+      style="position: absolute; top: 50%; left: 50%; margin-top: -1.5rem; margin-left: -1.5rem; width: 3rem; height: 3rem;"
+      role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    
+    <!-- HEADER -->
+
+      <header class="header d-none">
+        <div class="container">
+          <div class="header-top">
+            <a href="./index.html" class="logo">
+              <img
+                src="./assests/images/logo.svg"
+                alt="Логотип компании"
+                class="logo-img"
+              />
+              <span class="logo-txt">Filmoteka</span>
+            </a>
 
           <nav>
             <ul class="nav-list">
@@ -61,7 +75,6 @@
             </li>
           </ul>
         </div>
-      </div>
 
       <!--       SERG FOR CHECK INPUT
 <div class="container">
@@ -75,12 +88,22 @@
       </div> -->
     </header>
 
-    <main>
-      <section class="section">
+      <main class="main d-none">
+        <section class="section">
+          <div class="container">
+            <ul class="list-film"></ul>
+          </div>
+        </section>
+      </main>
+  
+      <footer class="footer d-none">
         <div class="container">
-          <ul class="list-film"></ul>
+          <p class="footer-text--first">© 2020 | All Rights Reserved |</p>
+          <p class="footer-text">&nbsp;Developed with 🧡 by GoIT Students</p>
         </div>
-      </section>
+      </footer>
+    </div>
+<!--       </section>
     </main>
     <button
       id="search"
@@ -104,6 +127,6 @@
           <p class="footer-text">&nbsp;Developed with 🧡 by GoIT Students</p>
         </div>
       </div>
-    </footer>
+    </footer> -->
   </body>
 </html>
