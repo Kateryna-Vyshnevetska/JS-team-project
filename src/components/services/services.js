@@ -8,7 +8,7 @@ const page = 1;
 const keyWord = 'dog';
 
 
-export const filmsSearch = function() {
+export const filmsSearch = function(page) {
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyWord}&page=${page}&include_adult=false`)
         .then((list) => list.json())
         .then((list) => {
