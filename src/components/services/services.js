@@ -3,6 +3,7 @@ import { data } from "autoprefixer";
 import refs from "../../options/refs.js";
 import mainTemplate from "../../template/mainTemplate.hbs";
 
+
 // keyword и page пока заглушка, будет брать из инпута
 const page = 1;
 export let res;
@@ -64,32 +65,47 @@ export const getPopular = function () {
     });
 };
 
-const getGenres = function () {
-  fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`)
-    .then((list) => list.json())
-    .then((list) => {
-      console.log(list);
-    })
-    .catch((error) => {
-      console.log(error);
+const getGenres = function(results) {
+    fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}`)
+        .then((list) => list.json())
+        .then((list) => {
+            changeGenres(list, results)
+        }).catch(error => {
+            console.log(error);
+        });
+}
+
+const getFilmsByWord = function(list) {
+    const results = list.results;
+    getGenres(results)
+    dateSlice(results);
+    drawHtml(results);
+}
+
+const changeGenres = function(list, results) {
+    const genrList = list.genres;
+    const generID = genrList.map(el => el.id)
+    const generName = genrList.map(el => el.name)
+    const resultsGenerIds = results.map(el => el.genre_ids);
+
+    // console.log(resultsGenerIds);
+    // console.log(generID);
+    // console.log(generName);
+    // console.log(results);
+
+
+}
+
+const dateSlice = function(results) {
+    results.map(el => {
+        el.release_date = el.release_date.slice(0, 4);
+
+
     });
-};
-
-const getFilmsByWord = function (list) {
-  console.log(list);
-  const results = list.results;
-  dateSlice(results);
-  drawHtml(results);
-};
-
-const dateSlice = function (results) {
-  results.map((el) => {
-    el.release_date = el.release_date.slice(0, 4);
-  });
-};
+}
 
 // getDetails(2734)
-getPopular();
-getGenres();
+getPopular()
+
 // filmsSearch()
 
