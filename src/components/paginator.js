@@ -1,6 +1,7 @@
 import Pagination from "tui-pagination";
 import "tui-pagination/dist/tui-pagination.css";
 import { filmsSearch } from "./services/services.js";
+import refs from "../options/refs.js";
 
 const paginatorOptions = {
   totalItems: 500,
@@ -14,8 +15,6 @@ var pagination2 = new Pagination(
   paginatorOptions
 );
 
-const pagintaionRef = document.querySelector(".tui-pagination");
-
-pagintaionRef.addEventListener("click", (event) => {
+refs.paginationRef.addEventListener("click", (event) => {
   filmsSearch(event.target.textContent);
 });

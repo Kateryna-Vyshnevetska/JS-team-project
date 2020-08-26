@@ -12,6 +12,7 @@ const refs = {
   ),
   inputSearchRef: document.querySelector(".input-search"),
   sortBtn: document.querySelector(".sort-button"),
+  paginationRef: document.querySelector(".tui-pagination"),
 };
 
 export default refs;
