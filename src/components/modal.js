@@ -1,8 +1,12 @@
 import * as basicLightbox from 'basiclightbox'
 import "basiclightbox/dist/basicLightbox.min.css";
-// import filmCardTpl from '../template/film-card.hbs'
+
+import filmCardTpl from '../template/film-card.hbs'
+const mainFilmList = document.querySelector('.list-film')
+
 
 export function openModal(event){
+    console.log(event.target.nodeName);
     // if(event.target.nodeName !== 'IMG'){
     //     return
     // }else{
@@ -15,3 +19,4 @@ export function openModal(event){
     instance.show()
 }
 
+mainFilmList.addEventListener('click', openModal)
