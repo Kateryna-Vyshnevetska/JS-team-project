@@ -270,21 +270,20 @@
   }
 
   @media screen and (min-device-pixel-ratio: 2),
-      screen and (-webkit-min-device-pixel-ratio: 2),
-      screen and (-o-min-device-pixel-ratio: 2/1),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      .header {
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.56),
-            rgba(0, 0, 0, 0.56)
-          ),
-          url(./assests/images/header-bcg-chair-mob-2x.jpg);
-      }
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .header {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/header-bcg-chair-mob-2x.jpg);
     }
+  }
 }
-
 
 @media screen and (min-width: 768px) {
   .container {
@@ -309,30 +308,30 @@
   }
 
   @media screen and (min-device-pixel-ratio: 2),
-  screen and (-webkit-min-device-pixel-ratio: 2),
-  screen and (-o-min-device-pixel-ratio: 2/1),
-  screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx) {
-  .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/header-bcg-chair-tablet-2x.jpg);
-  }
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .header {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/header-bcg-chair-tablet-2x.jpg);
+    }
 
-  .new-bcg {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/red-chair/header-bcg-red-chair-tablet.jpg);
-    min-height: 230px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
+    .new-bcg {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/red-chair/header-bcg-red-chair-tablet.jpg);
+      min-height: 230px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
     }
   }
   .new-bcg {
@@ -359,8 +358,22 @@
   .input-search {
     width: 336px;
   }
-  .notify-text {
+  .input-search:focus::-webkit-input-placeholder {
+    text-indent: 500px;
+    transition: text-indent 0.3s ease;
+  }
+  #notify-text {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 5px;
     text-align: center;
+  }
+  #notify-text.unSuccessful {
+    color: #ff001b;
+  }
+  #notify-text.successful {
+    color: #7cdbb7;
+    text-align: left;
   }
 
   .search-icon {
@@ -401,48 +414,48 @@
   }
 
   @media screen and (min-device-pixel-ratio: 2),
-  screen and (-webkit-min-device-pixel-ratio: 2),
-  screen and (-o-min-device-pixel-ratio: 2/1),
-  screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx) {
-  .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/header-bcg-chair-pc-2x.jpg);
-  }
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .header {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/header-bcg-chair-pc-2x.jpg);
+    }
 
-  .new-bcg {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/red-chair/header-bcg-red-chair-pc.jpg);
-    min-height: 230px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
-  }
-  
-  .new-bcg {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/red-chair/header-bcg-red-chair-pc-2x.jpg);
-    min-height: 230px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
-  }
+    .new-bcg {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/red-chair/header-bcg-red-chair-pc.jpg);
+      min-height: 230px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+    }
+
+    .new-bcg {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/red-chair/header-bcg-red-chair-pc-2x.jpg);
+      min-height: 230px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+    }
   }
 }
 
-  /* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
+/* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
 
 .btn {
   background-color: transparent;
