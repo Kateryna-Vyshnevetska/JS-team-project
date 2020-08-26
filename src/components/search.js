@@ -1,23 +1,30 @@
-import { API_KEY } from "../options/apikey.js";
 import refs from "../options/refs.js";
+import debounce from "lodash.debounce";
+import { filmsSearch } from "./services/services.js";
+import { res } from "./services/services.js";
+// console.log("filmsSearch", filmsSearch);
 
-const checkInput = (e) => {
+const checkInput = function (e) {
   e.preventDefault();
 
-  let reg = /[\wа-яё]+/gi;
+  let reg = /\w+/gi;
   let inputValue = e.target.value.match(reg);
-
   if (inputValue) {
-    fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${inputValue}`
-    )
-      .then((response) => response.json())
-      .then(
-        (data) =>
-          (refs.searchInfo.innerHTML = `По вашему запросу найдено ${data.results.length} фильмов`)
-      );
-  } else
-    refs.searchInfo.innerHTML = `Результат поиска не удался. Введите правильное название фильма и попробуйте еще раз`;
+    filmsSearch(inputValue);
+    setTimeout(() => {
+      refs.searchInfo.classList.remove("unSuccessful");
+      refs.searchInfo.classList.add("successful");
+      refs.searchInfo.textContent = `По вашему запросу найдено ${res} фильм(ов/а)`;
+      if (res === 0) {
+        refs.paginationRef.classList.add("is-not-visible");
+      }
+    }, 500);
+  } else {
+    refs.searchInfo.classList.remove("successful");
+    refs.searchInfo.classList.add("unSuccessful");
+    refs.searchInfo.textContent = `Search result not successful. Enter the correct movie name and try again`;
+    refs.paginationRef.classList.add("is-not-visible");
+  }
 };
 
-// refs.search.addEventListener("change", checkInput);
+refs.inputSearchRef.addEventListener("change", debounce(checkInput, 1000));

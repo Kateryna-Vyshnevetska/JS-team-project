@@ -1,8 +1,8 @@
 const refs = {
   body: document.querySelector("body"),
   header: document.querySelector(".header"),
-  search: document.querySelector(".search"),
-  searchInfo: document.querySelector(".searchInfo"),
+  //   search: document.querySelector(".input-search"),
+  searchInfo: document.querySelector("#notify-text"),
   searchIconRef: document.querySelector(".search-icon"),
   listFilms: document.querySelector(".list-film"),
   pageHomeRef: document.querySelector(`[data-nav-choice="home"]`),
@@ -11,6 +11,8 @@ const refs = {
     `[data-button-list-header="watched-and-queue"]`
   ),
   inputSearchRef: document.querySelector(".input-search"),
+  sortBtn: document.querySelector(".sort-button"),
+  paginationRef: document.querySelector(".tui-pagination"),
 };
 
 export default refs;

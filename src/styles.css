@@ -52,6 +52,7 @@
 
 .nav-list {
   display: flex;
+  margin-bottom: 0px;
 }
 
 .nav-item:not(:last-child) {
@@ -84,9 +85,10 @@
 }
 
 .input-search {
+  
   display: block;
   width: 100%;
-  height: 20px;
+  height: 30px;
   margin-bottom: 22px;
   background-color: transparent;
   border: none;
@@ -96,6 +98,9 @@
   outline: none;
 }
 .input-search::placeholder {
+  
+  font-size: 14px;
+  line-height: 16px;
   border-top: none;
   color: var(--white-text-color);
   caret-color: var(--white-text-color);
@@ -108,7 +113,7 @@
 .search-icon {
   display: block;
   position: absolute;
-  top: 5px;
+  top: 10px;
   right: 0;
   display: block;
   width: 12px;
@@ -164,6 +169,10 @@
   display: none;
 }
 
+button:focus {
+  outline: none;
+}
+
 .section {
   padding-top: 20px;
   padding-bottom: 40px;
@@ -210,6 +219,7 @@
   font-weight: 500;
   padding: 10px 0;
 }
+
 .card-image__wrapper{
   text-align: center;
   margin: 0 20px 15px;
@@ -274,15 +284,15 @@
   font-size: 12px;
   line-height: 20px;
 }
-.card-button__wrapper{
+.card-button__wrapper {
   margin: 20px 20px 10px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.modal-btn{
-  border:1px solid var(--black-text-color);
-  color:  var(--black-text-color);
+.modal-btn {
+  border: 1px solid var(--black-text-color);
+  color: var(--black-text-color);
   background-color: transparent;
   text-transform: uppercase;
   border-radius: 5px;
@@ -291,19 +301,21 @@
   width: 120px;
   cursor: pointer;
   font-family: Roboto;
-font-style: normal;
-font-weight: 500;
-font-size: 12px;
-line-height: 16px;
-margin-bottom: 10px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  margin-bottom: 10px;
 }
+
 .modal-btn:nth-child(2n+1){
-  margin-right: 10px;
+    margin-right: 10px;
 }
-.modal-btn:hover{
-  color:  var(--white-text-color);
+
+.modal-btn:hover {
+  color: var(--white-text-color);
   background-color: var(--accent-color);
-  border:1px solid var(--accent-color)
+  border: 1px solid var(--accent-color);
 }
 /* =============================================== */
 
@@ -319,21 +331,20 @@ margin-bottom: 10px;
   }
 
   @media screen and (min-device-pixel-ratio: 2),
-      screen and (-webkit-min-device-pixel-ratio: 2),
-      screen and (-o-min-device-pixel-ratio: 2/1),
-      screen and (min-resolution: 192dpi),
-      screen and (min-resolution: 2dppx) {
-      .header {
-        background-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 0.56),
-            rgba(0, 0, 0, 0.56)
-          ),
-          url(./assests/images/header-bcg-chair-mob-2x.jpg);
-      }
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .header {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/header-bcg-chair-mob-2x.jpg);
     }
+  }
 }
-
 
 @media screen and (min-width: 768px) {
   .container {
@@ -358,30 +369,30 @@ margin-bottom: 10px;
   }
 
   @media screen and (min-device-pixel-ratio: 2),
-  screen and (-webkit-min-device-pixel-ratio: 2),
-  screen and (-o-min-device-pixel-ratio: 2/1),
-  screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx) {
-  .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/header-bcg-chair-tablet-2x.jpg);
-  }
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .header {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/header-bcg-chair-tablet-2x.jpg);
+    }
 
-  .new-bcg {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/red-chair/header-bcg-red-chair-tablet.jpg);
-    min-height: 230px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
+    .new-bcg {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/red-chair/header-bcg-red-chair-tablet.jpg);
+      min-height: 230px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
     }
   }
   .new-bcg {
@@ -408,13 +419,27 @@ margin-bottom: 10px;
   .input-search {
     width: 336px;
   }
-  .notify-text {
+  .input-search:focus::-webkit-input-placeholder {
+    text-indent: 500px;
+    transition: text-indent 0.3s ease;
+  }
+  #notify-text {
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 5px;
     text-align: center;
+  }
+  #notify-text.unSuccessful {
+    color: #ff001b;
+  }
+  #notify-text.successful {
+    color: #7cdbb7;
+    text-align: left;
   }
 
   .search-icon {
-    top: 5px;
-    right: 30px;
+    top: 10px;
+    right: 60px;
   }
 
   .footer-content {
@@ -424,19 +449,19 @@ margin-bottom: 10px;
     padding-bottom: 28px;
   }
 
+  /* ===================modal====================== */
   .card-wrapper {
     width: 640px;
     display: flex;
-   
   }
 
-  .card-info__wrapper{
+  .card-info__wrapper {
     max-width: 335px;
   }
 
-  .card-title{
+  .card-title {
     font-size: 30px;
-    line-height: 35px
+    line-height: 35px;
   }
 }
 
@@ -463,60 +488,88 @@ margin-bottom: 10px;
       ),
       url(./assests/images/header-bcg-chair-pc.jpg);
   }
+  /* ============modal====================== */
+  .card-wrapper {
+    width: 920px;
+  }
+  .card-info__wrapper {
+    max-width: 470px;
+  }
+  /* ============================= */
 
   @media screen and (min-device-pixel-ratio: 2),
-  screen and (-webkit-min-device-pixel-ratio: 2),
-  screen and (-o-min-device-pixel-ratio: 2/1),
-  screen and (min-resolution: 192dpi),
-  screen and (min-resolution: 2dppx) {
-  .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/header-bcg-chair-pc-2x.jpg);
-  }
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    .header {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/header-bcg-chair-pc-2x.jpg);
+    }
 
-  .new-bcg {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/red-chair/header-bcg-red-chair-pc.jpg);
-    min-height: 230px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
-  }
-  
-  .new-bcg {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
-      url(./assests/images/red-chair/header-bcg-red-chair-pc-2x.jpg);
-    min-height: 230px;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    background-size: cover;
-  }
+    .new-bcg {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/red-chair/header-bcg-red-chair-pc.jpg);
+      min-height: 230px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+    }
+
+    .new-bcg {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(./assests/images/red-chair/header-bcg-red-chair-pc-2x.jpg);
+      min-height: 230px;
+      background-repeat: no-repeat;
+      background-position: 50% 50%;
+      background-size: cover;
+    }
   }
 
   .card-wrapper {
     width: 920px;
-    
   }
 
-  .card-info__wrapper{
+  .card-info__wrapper {
     max-width: 470px;
   }
-  
 }
 
-  /* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
+/* стили кнопок для пагинатора  */
+.section .tui-pagination .tui-page-btn {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.tui-pagination .tui-page-btn.tui-is-selected {
+  background-color: var(--accent-color);
+  font-weight: 500;
+}
+.tui-pagination .tui-page-btn.tui-is-selected:hover {
+  background-color: var(--accent-color);
+  font-weight: 500;
+}
+
+.tui-pagination.is-not-visible {
+  display: none;
+}
+
+/* стили кнопок для пагинатора  */
+
+/* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
 
 .btn {
   background-color: transparent;
@@ -538,6 +591,11 @@ margin-bottom: 10px;
 
 .btn.primary-white {
   border: 1px solid var(--white-text-color);
+}
+
+.btn.primary-white:hover {
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
 }
 
 .btn.primary-black {
