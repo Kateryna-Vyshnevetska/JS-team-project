@@ -2,8 +2,9 @@ import * as basicLightbox from "basiclightbox";
 import "basiclightbox/dist/basicLightbox.min.css";
 import filmCardTpl from "../template/film-card.hbs";
 import { pullData } from "./services/services";
-import {write} from './localStorage.js';
-const mainFilmList = document.querySelector('.list-film')
+import { write } from "./localStorage.js";
+import { loadTrailer } from "./trailer.js";
+const mainFilmList = document.querySelector(".list-film");
 
 let idForLocalStorage;
 
@@ -30,14 +31,15 @@ function getCurrentObj(id) {
 }
 
 function drawModal(obj) {
-    let markup = filmCardTpl(obj);
-    const instance = basicLightbox.create(markup);
-    instance.show();
-    write(idForLocalStorage);
+  let markup = filmCardTpl(obj);
+  const instance = basicLightbox.create(markup);
+  instance.show();
+  // loadTrailer();
+  write(idForLocalStorage);
 }
 
 mainFilmList.addEventListener("click", openModal);
-  
-export function getIDFromIMG (id){
-    return id;
+
+export function getIDFromIMG(id) {
+  return id;
 }
