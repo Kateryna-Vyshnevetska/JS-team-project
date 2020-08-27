@@ -11,7 +11,7 @@ const refs = {
     `[data-button-list-header="watched-and-queue"]`
   ),
   inputSearchRef: document.querySelector(".input-search"),
-  sortBtn: document.querySelector(".sort-button"),
+  sortBtn: document.querySelector(".sort-button.first"),
   paginationRef: document.querySelector(".tui-pagination"),
 };
 
