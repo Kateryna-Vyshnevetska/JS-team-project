@@ -15,22 +15,22 @@ var pagination2 = new Pagination(
   paginatorOptions
 );
 
-// export function setPaginator() {
-//   page = event.target.textContent;
-//   filmsSearch(page);
-// }
+export function setPaginator() {
+  page = event.target.textContent;
+  filmsSearch(page);
+}
 
-// export let page = 1;
+export let page = 1;
 
 // refs.paginationRef.addEventListener("click", setPaginator);
 
-// function getVisiblePagesCount() {
-//   if (document.body.clientWidth <= 767) {
-//     return 5;
-//   } else {
-//     return 7;
-//   }
-// }
+function getVisiblePagesCount() {
+  if (document.body.clientWidth <= 767) {
+    return 5;
+  } else {
+    return 7;
+  }
+}
 
 refs.paginationRef.addEventListener("click", (event) => {
   filmsSearch(event.target.textContent);
