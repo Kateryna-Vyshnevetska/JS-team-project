@@ -205,26 +205,21 @@ body.modal-open {
 }
 
 .card-wrapper {
-    width: 290px;
-    height: auto;
-    background-color: var(--background-main-color);
-    font-family: Roboto;
-    color: var(--black-text-color);
-    font-style: normal;
-    text-align: left;
-    margin: 0 auto;
-    font-weight: 500;
-    padding: 10px 0;
+  width: 290px;
+  height: auto;
+  background-color: var(--background-main-color);
+  font-family: Roboto;
+  color: var(--black-text-color);
+  font-style: normal;
+  text-align: left;
+  margin: 0 auto;
+  font-weight: 500;
+  padding: 5px 0;
 }
-
-
-/* .card-image__wrapper {
-  width: 260px;
-  height: 300px; */
 
 .card-image__wrapper {
   text-align: center;
-  margin: 0 20px 15px;
+  margin: 5px 20px;
 }
 
 .card-image {
@@ -251,7 +246,7 @@ body.modal-open {
 }
 
 .card-item:not(:last-child) {
-    margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .card-item__about {
@@ -296,10 +291,11 @@ body.modal-open {
 }
 
 .card-button__wrapper {
-    margin: 20px 20px 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+  margin: 5px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  line-height: 15px;
 }
 
 .modal-btn {
@@ -317,11 +313,6 @@ body.modal-open {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  margin-bottom: 10px;
-}
-
-.modal-btn:nth-child(2n + 1) {
-  margin-right: 10px;
 }
 
 .modal-btn:hover {
@@ -337,13 +328,25 @@ body.modal-open {
 /* WHIS IF FOR SCREEEEENS */
 
 @media screen and (min-width: 320px) and (max-width: 767px) {
-    .container {
-        max-width: var(--container-mobile-width-size);
-    }
-    .section {
-        max-width: var(--section-mobile-width-size);
-    }
-    @media screen and (min-device-pixel-ratio: 2),
+
+  .container {
+    max-width: var(--container-mobile-width-size);
+  }
+
+  .section {
+    max-width: var(--section-mobile-width-size);
+  }
+
+  /* ===================modal========================== */
+  .modal-btn:nth-child(2n + 1) {
+    margin-right: 10px;
+  }
+  .modal-btn:not(:last-child){
+    margin-bottom: 10px;
+  
+  }
+
+  @media screen and (min-device-pixel-ratio: 2),
     screen and (-webkit-min-device-pixel-ratio: 2),
     screen and (-o-min-device-pixel-ratio: 2/1),
     screen and (min-resolution: 192dpi),
@@ -482,29 +485,48 @@ body.modal-open {
     font-size: 30px;
     line-height: 35px;
   }
+  .modal-btn:nth-child(2n + 1) {
+    margin-right: 10px;
+  }
+  .modal-btn:not(:last-child){
+    margin-bottom: 10px;
+  
+  }
 }
 
 @media screen and (min-width: 1024px) {
-    .container {
-        max-width: var(--container-desctop-width-size);
-        padding-left: 71px;
-        padding-right: 71px;
-    }
-    .section {
-        max-width: var(--section-desctop-width-size);
-    }
-    .header {
-        background-image: linear-gradient( to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(./assests/images/header-bcg-chair-pc.jpg);
-    }
-    /* ============modal====================== */
-    .card-wrapper {
-        width: 920px;
-    }
-    .card-info__wrapper {
-        max-width: 470px;
-    }
-    /* ============================= */
-    @media screen and (min-device-pixel-ratio: 2),
+  .container {
+    max-width: var(--container-desctop-width-size);
+    padding-left: 71px;
+    padding-right: 71px;
+  }
+
+  .section {
+    max-width: var(--section-desctop-width-size);
+  }
+
+  .header {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(./assests/images/header-bcg-chair-pc.jpg);
+  }
+  /* ============modal====================== */
+  .card-wrapper {
+    width: 920px;
+  }
+  .card-info__wrapper {
+    max-width: 470px;
+  }
+  .modal-btn:not(:last-child) {
+    margin-right: 10px;
+  }
+ 
+  /* ============================= */
+
+  @media screen and (min-device-pixel-ratio: 2),
     screen and (-webkit-min-device-pixel-ratio: 2),
     screen and (-o-min-device-pixel-ratio: 2/1),
     screen and (min-resolution: 192dpi),

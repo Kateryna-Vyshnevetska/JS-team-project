@@ -35,6 +35,7 @@ export const drawHtml = (data) => {
     refs.listFilms.innerHTML = markup;
 };
 
+
 //   THIS IS DEV from Tofic but doesn`t work 
 // export const filmsSearch = function(keyWord) {
 //     return fetch(
