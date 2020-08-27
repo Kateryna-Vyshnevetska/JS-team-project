@@ -12,41 +12,41 @@ export let res;
 
 // const keyWord = 'dog';
 
-export const filmsSearch = function (keyWord) {
-  fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyWord}&page=${page}&include_adult=false`
-  )
-    .then((list) => list.json())
-    .then((list) => {
-      res = list.total_results;
-      getFilmsByWord(list);
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+// export const filmsSearch = function (keyWord) {
+//   fetch(
+//     `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyWord}&page=${page}&include_adult=false`
+//   )
+//     .then((list) => list.json())
+//     .then((list) => {
+//       res = list.total_results;
+//       getFilmsByWord(list);
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
+
+export const drawHtml = (data) => {
+    dataForModal = [...data];
+    const markup = mainTemplate(data);
+    refs.listFilms.innerHTML = markup;
 };
 
-const drawHtml = (data) => {
-  dataForModal = [...data];
-  const markup = mainTemplate(data);
-  refs.listFilms.innerHTML = markup;
- };
 
-//   OLD DEV, DON`T know which is need
-// export const filmsSearch = function(keyWord) {
-//     return fetch(
-//             `https://api.themoviedb.org/3/search/movie?api_key=027ca1d5e779abba9fcdc8b6b57f2385&query=${keyWord}&page=${page}&include_adult=false`
-//         )
-//         .then((list) => list.json())
-//         .then((list) => {
-//             res = list.total_results;
-//             getFilmsByWord(list);
-//             return list.results;
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         });
-// };
+export const filmsSearch = function(keyWord) {
+    return fetch(
+            `https://api.themoviedb.org/3/search/movie?api_key=027ca1d5e779abba9fcdc8b6b57f2385&query=${keyWord}&page=${page}&include_adult=false`
+        )
+        .then((list) => list.json())
+        .then((list) => {
+            res = list.total_results;
+            getFilmsByWord(list);
+            return list.results;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+};
 
 
 // For Kate`s modal
@@ -103,17 +103,15 @@ d.then(drawHtml);
 
 const getFilmsByWord = function(list, keyword) {
     let results = list.results;
-    console.log(results);
     dateSlice(results);
     // drawHtml(results);
 
 }
 
-const dateSlice = function (results) {
-  results.map((el) => {
-    el.release_date = el.release_date.slice(0, 4);
-  });
+const dateSlice = function(results) {
+    results.map((el) => {
+        el.release_date = el.release_date.slice(0, 4);
+    });
 };
 
 getPopular()
-
