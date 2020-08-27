@@ -6,14 +6,11 @@ import { totalResults } from "./services/services.js";
 import { getGenres } from "./services/services.js";
 import { drawHtml } from "./services/services.js";
 import { res } from "./services/services.js";
-
-
 const checkInput = function (e) {
   e.preventDefault();
 
   let reg = /[^\d\sA-Z]/gi;
   let inputValue = e.target.value.match(reg);
-
   if (!inputValue) {
     filmsSearch(e.target.value);
     // const d = filmsSearch(e.target.value).then((f) => {
