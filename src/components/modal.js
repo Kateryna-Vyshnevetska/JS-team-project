@@ -112,7 +112,7 @@ export function openTrailerModal() {
   //   instance.show();
   //   // loadTrailer();
   //   write(idForLocalStorage);
-}
+
 
 mainFilmList.addEventListener("click", openModal);
 
