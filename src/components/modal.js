@@ -3,7 +3,6 @@ import "basiclightbox/dist/basicLightbox.min.css";
 import filmCardTpl from "../template/film-card.hbs";
 import { pullData } from "./services/services";
 import { write } from "./localStorage.js";
-import { GetVideoTrailer } from "./trailer.js";
 const mainFilmList = document.querySelector(".list-film");
 
 let idForLocalStorage;
@@ -45,23 +44,23 @@ function drawModal(obj) {
   const instance = basicLightbox.create(markup, modalOptions);
   instance.show();
   write(idForLocalStorage);
-  titleForLink = document.querySelector('.card-title');
   openTrailerModal();
-
 }
 
 export function openTrailerModal() {
   const trailerBtn = document.querySelector("[data-name ='trailer']");
-
   trailerBtn.addEventListener("click", () => {
-    linkForVideo = GetVideoTrailer(titleForLink);
-    const instance = basicLightbox.create(`
-      <video controls>
-          <source src="${linkForVideo}">
-      </video>
-  `);
-
-    instance.show();
+    const ApiKey = "7f0b5ab01080cb0bb4b9db0d9bc41efa";
+    const url = `https://api.themoviedb.org/3/movie/${idForLocalStorage}/videos?api_key=${ApiKey}&language=en-US`;
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        const id = data.results[0].key;
+        const instance = basicLightbox.create(`
+    <iframe width="560" height="315" src='https://www.youtube.com/embed/${id}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+`);
+        instance.show();
+      });
   });
 
   // чиста функція без слухачів=====================
@@ -73,12 +72,11 @@ export function openTrailerModal() {
 
   //   instance.show();
 
-//   ТО ЧТО БЫЛО ПЕРЕД ТРЕЙЛЕРОМ
-//   const instance = basicLightbox.create(markup);
-//   instance.show();
-//   // loadTrailer();
-//   write(idForLocalStorage);
-
+  //   ТО ЧТО БЫЛО ПЕРЕД ТРЕЙЛЕРОМ
+  //   const instance = basicLightbox.create(markup);
+  //   instance.show();
+  //   // loadTrailer();
+  //   write(idForLocalStorage);
 }
 
 mainFilmList.addEventListener("click", openModal);
