@@ -551,7 +551,7 @@ button:focus {
 }
 
 /* стили кнопок для пагинатора  */
-.section .tui-pagination .tui-page-btn {
+/* .section .tui-pagination .tui-page-btn {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
@@ -568,7 +568,7 @@ button:focus {
 
 .tui-pagination.is-not-visible {
   display: none;
-}
+} */
 
 /* стили кнопок для пагинатора  */
 
