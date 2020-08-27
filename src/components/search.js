@@ -24,6 +24,7 @@ const checkInput = function (e) {
     // });
     // d.then(drawHtml);
     setTimeout(() => {
+      refs.sortBtn.classList.remove("is-active");
       refs.searchInfo.classList.remove("unSuccessful");
       refs.searchInfo.classList.add("successful");
       refs.searchInfo.textContent = `По вашему запросу найдено ${totalResults} фильм(ов/а)`;
