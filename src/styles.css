@@ -231,8 +231,6 @@ body.modal-open {
   border-radius: 5px;
 }
 
-}
-
 .card-title {
     font-size: 20px;
     line-height: 23px;
@@ -409,7 +407,6 @@ body.modal-open {
       background-position: 50% 50%;
       background-size: cover;
     }
-  }
   .new-bcg {
     background-image: linear-gradient(
         to right,
@@ -551,7 +548,6 @@ body.modal-open {
       background-position: 50% 50%;
       background-size: cover;
     }
-  }
 
   .card-wrapper {
     width: 920px;
