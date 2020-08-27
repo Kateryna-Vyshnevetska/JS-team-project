@@ -1,7 +1,6 @@
 const refs = {
   body: document.querySelector("body"),
   header: document.querySelector(".header"),
-  //   search: document.querySelector(".input-search"),
   searchInfo: document.querySelector("#notify-text"),
   searchIconRef: document.querySelector(".search-icon"),
   listFilms: document.querySelector(".list-film"),
@@ -11,7 +10,7 @@ const refs = {
     `[data-button-list-header="watched-and-queue"]`
   ),
   inputSearchRef: document.querySelector(".input-search"),
-  sortBtn: document.querySelector(".sort-button"),
+  sortBtn: document.querySelector(".sort-button.first"),
   paginationRef: document.querySelector(".tui-pagination"),
 };
 

@@ -17,7 +17,7 @@
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     rel="stylesheet"
     />
-  </head>
+   </head>
   
   <body>
 <!-- PAGE LOADER -->
@@ -45,9 +45,12 @@
           <nav>
             <ul class="nav-list">
               <li class="nav-item">
-                <button class="nav-btn is-active-btn" data-nav-choice="home">
+                <a href="./index.html" class="nav-btn is-active-btn" data-nav-choice="home">
+                HOME
+                </a>
+                <!-- <button class="nav-btn is-active-btn" data-nav-choice="home">
                   HOME
-                </button>
+                </button> -->
               </li>
               <li class="nav-item">
                 <button class="nav-btn" data-nav-choice="my-library">
@@ -77,16 +80,54 @@
     </header>
 
       <main class="main d-none">
-        <section class="section">
-          <button class="sort-button" type="button">Sort by *</button>
+        <!-- карусель -->
+        <section>
           <div class="container">
+            <h2 class="carousel-title">Скоро в прокате</h2>
+            <div class="slider-container">
+              <!-- nav arrows -->
+              <div class="slider-arrows">
+                <div class="slider-arrow-left arrowLeft">
+                  <svg width="16" height="30" class="svg-arrow">
+                    <polyline style="stroke-linejoin:miter; stroke:#00275a; stroke-width:3; fill: none;"
+                      points="15 2, 2 15, 15 28" />
+                  </svg>
+                </div>
+                <div class="slider-arrow-right arrowRight">
+                  <svg width="16" height="30" class="svg-arrow">
+                    <polyline style="stroke-linejoin:miter; stroke:#00275a; stroke-width:3; fill: none;"
+                      points="2 2, 14 15, 2 28" />
+                  </svg>
+                </div>
+              </div>
+              <div id="frame">
+                <div id="slider">
+                                 
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- карусель -->
+        <section class="section">
+          <div class="container">
+            
+            <div class="tabs">
+              <button class="sort-button first" type="button">Sort by ⭐</button>
+              <div class="tabs_2">
+                <button class="sort-button" type="button">Maybe</button>
+                <button class="sort-button" type="button">Will be</button>
+              </div>
+            </div>
             <ul class="list-film"></ul>
           </div>
           <div id="pagination2" class="tui-pagination" data-pagination-value=""></div>
         </section>
+        <a class="back_to_top" title="Наверх">&#9650;</a>
       </main>
 
-<!--       </section>
+<!--    ↑   </section>
     </main>
     <button
       id="search"
@@ -111,6 +152,7 @@
           <p class="footer-text">&nbsp;Developed with 🧡 by GoIT Students</p>
         </div>
       </div>
-    </footer>
+    </footer>   
   </body>
+  
 </html>

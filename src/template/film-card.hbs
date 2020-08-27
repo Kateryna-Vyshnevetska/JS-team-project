@@ -1,4 +1,4 @@
-<div class="card-wrapper">
+<div class="card-wrapper modal-scroll">
     <div class="card-image__wrapper">
         <picture>
            <source srcset="https://image.tmdb.org/t/p/w300{{poster_path}}" media="(min-width: 1024px)" class="card-image"> 
@@ -32,7 +32,7 @@
                 <p class="card-item__descript">
 
                     {{#each genre_ids}}
-                    <span class="card-item__genre">{{this}}</span>
+                    <span class="card-item__genre">{{name}}</span>
                     {{/each}}
                 </p>
             </li>

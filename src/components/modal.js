@@ -13,8 +13,8 @@ let titleForLink;
 
 
 const modalOptions = {
-  onShow: () => checkScroll(),
-  onClose: () => checkScroll(),
+  onShow: () => checkBodyScroll(),
+  onClose: () => checkBodyScroll(),
 };
 
 export function openModal(event) {
@@ -27,7 +27,7 @@ export function openModal(event) {
   }
 }
 
-function checkScroll() {
+function checkBodyScroll() {
   document.body.classList.toggle("modal-open");
 }
 
