@@ -3,6 +3,10 @@ import debounce from "lodash.debounce";
 import { filmsSearch } from "./services/services.js";
 import { getPopular } from "./services/services.js";
 import { totalResults } from "./services/services.js";
+import { getGenres } from "./services/services.js";
+import { drawHtml } from "./services/services.js";
+import { res } from "./services/services.js";
+
 
 const checkInput = function (e) {
   e.preventDefault();
@@ -31,7 +35,7 @@ const checkInput = function (e) {
       if (totalResults === 0) {
         refs.searchInfo.classList.remove("successful");
         refs.searchInfo.classList.add("unSuccessful");
-        refs.searchInfo.style.textAlign = "left";
+        refs.searchInfo.textContent = `Search result not successful. Enter the correct movie name and try again`;
         refs.paginationRef.classList.add("is-not-visible");
       } else if (e.target.value === "") {
         getPopular();
