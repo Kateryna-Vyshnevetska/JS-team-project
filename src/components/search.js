@@ -50,6 +50,5 @@ const checkInput = function (e) {
     refs.searchInfo.style.textAlign = "center";
   }
 }
-}
 
 refs.inputSearchRef.addEventListener("change", debounce(checkInput, 1000))
