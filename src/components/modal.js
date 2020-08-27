@@ -1,9 +1,10 @@
 import * as basicLightbox from "basiclightbox";
 import "basiclightbox/dist/basicLightbox.min.css";
 import filmCardTpl from "../template/film-card.hbs";
+import filmCardTplDel from "../template/film-cardDel.hbs";
 import { pullData } from "./services/services";
 import { write } from "./localStorage.js";
-import { GetVideoTrailer } from "./trailer.js";
+// import { GetVideoTrailer } from "./trailer.js";
 const mainFilmList = document.querySelector(".list-film");
 
 let idForLocalStorage;
@@ -13,8 +14,6 @@ let titleForLink;
 
 const modalOptions = {
   onShow: () => checkBodyScroll(),
-    
-
   onClose: () => checkBodyScroll(),
 };
 
@@ -44,13 +43,18 @@ function getCurrentObj(id) {
 }
 
 function drawModal(obj) {
-  let markup = filmCardTpl(obj);
+  let markup;
+  let arr = JSON.parse(localStorage.getItem('arrWatched')) || [];
+  if(arr.includes(String(idForLocalStorage))){
+    markup = filmCardTplDel(obj);
+  }else{
+    markup = filmCardTpl(obj);
+  }
   const instance = basicLightbox.create(markup, modalOptions);
   instance.show();
   write(idForLocalStorage);
   titleForLink = document.querySelector('.card-title');
   openTrailerModal();
-
 }
 
 export function openTrailerModal() {
