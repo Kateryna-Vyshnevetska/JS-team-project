@@ -1,14 +1,15 @@
 // import refs from "../options/refs.js";
-// import { getFilmsByWord } from "./services/services.js";
+// import { filmsSearch } from "./services/services.js";
+// import { res } from "./services/services.js";
 
 // function compareNumbers(a, b) {
 //   return b - a;
 // }
 
-// const sortByPopularity = (res) => {
-//   let res = getFilmsByWord();
-//   console.log(res);
-//   return res
+// const sortByPopularity = (result) => {
+//   let result = res;
+//   console.log(result);
+//   return result
 //     .map((el) => el.popularity)
 //     .sort([compareNumbers])
 //     .reverce();
