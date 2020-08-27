@@ -45,9 +45,12 @@
           <nav>
             <ul class="nav-list">
               <li class="nav-item">
-                <button class="nav-btn is-active-btn" data-nav-choice="home">
+                <a href="./index.html" class="nav-btn is-active-btn" data-nav-choice="home">
+                HOME
+                </a>
+                <!-- <button class="nav-btn is-active-btn" data-nav-choice="home">
                   HOME
-                </button>
+                </button> -->
               </li>
               <li class="nav-item">
                 <button class="nav-btn" data-nav-choice="my-library">
@@ -78,15 +81,22 @@
 
       <main class="main d-none">
         <section class="section">
-          <button class="sort-button" type="button">Sort by *</button>
           <div class="container">
+            <div class="tabs">
+              <button class="sort-button first" type="button">Sort by ⭐</button>
+              <div class="tabs_2">
+                <button class="sort-button" type="button">Maybe</button>
+                <button class="sort-button" type="button">Will be</button>
+              </div>
+            </div>
             <ul class="list-film"></ul>
           </div>
           <div id="pagination2" class="tui-pagination" data-pagination-value=""></div>
         </section>
+        <a class="back_to_top" title="Наверх">&#9650;</a>
       </main>
 
-<!--       </section>
+<!--    ↑   </section>
     </main>
     <button
       id="search"
