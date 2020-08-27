@@ -589,11 +589,10 @@ body.modal-open {
 
 
 /* стили кнопок для пагинатора  */
-
-.section .tui-pagination .tui-page-btn {
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 16px;
+/* .section .tui-pagination .tui-page-btn {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .tui-pagination .tui-page-btn.tui-is-selected {
@@ -607,8 +606,9 @@ body.modal-open {
 }
 
 .tui-pagination.is-not-visible {
-    display: none;
-}
+  display: none;
+} */
+
 
 /* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
 
