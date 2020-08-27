@@ -3,10 +3,12 @@ import "basiclightbox/dist/basicLightbox.min.css";
 import filmCardTpl from "../template/film-card.hbs";
 import { pullData } from "./services/services";
 import { write } from "./localStorage.js";
-import { loadTrailer } from "./trailer.js";
+import { GetVideoTrailer } from "./trailer.js";
 const mainFilmList = document.querySelector(".list-film");
 
 let idForLocalStorage;
+let linkForVideo;
+let titleForLink;
 
 const modalOptions = {
   onShow: () => checkScroll(),
@@ -43,15 +45,19 @@ function drawModal(obj) {
   const instance = basicLightbox.create(markup, modalOptions);
   instance.show();
   write(idForLocalStorage);
+  titleForLink = document.querySelector('.card-title');
   openTrailerModal();
+
 }
 
 export function openTrailerModal() {
   const trailerBtn = document.querySelector("[data-name ='trailer']");
+
   trailerBtn.addEventListener("click", () => {
+    linkForVideo = GetVideoTrailer(titleForLink);
     const instance = basicLightbox.create(`
       <video controls>
-          <source src="https://basiclightbox.electerious.com/assets/videos/video.mp4">
+          <source src="${linkForVideo}">
       </video>
   `);
 
