@@ -203,10 +203,10 @@ button:focus {
 }
 
 /* ===============modal========================== */
-/* body.modal-open {
+body.modal-open {
   overflow: hidden;
   position: fixed;
-} */
+}
 .card-wrapper {
   width: 290px;
   height: auto;
