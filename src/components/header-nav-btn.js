@@ -4,6 +4,8 @@ refs.pageMyLibraryRef.addEventListener("click", (event) => {
   refs.pageMyLibraryRef.classList.add("is-active-btn");
   refs.pageHomeRef.classList.remove("is-active-btn");
 
+  refs.searchInfo.textContent = ""; //очищает текстовый результат поискового запроса
+
   refs.buttonListRef.classList.remove("is-not-visible");
   refs.header.className = "new-bcg";
   refs.inputSearchRef.classList.add("is-not-visible");

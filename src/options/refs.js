@@ -1,7 +1,6 @@
 const refs = {
   body: document.querySelector("body"),
   header: document.querySelector(".header"),
-  //   search: document.querySelector(".input-search"),
   searchInfo: document.querySelector("#notify-text"),
   searchIconRef: document.querySelector(".search-icon"),
   listFilms: document.querySelector(".list-film"),

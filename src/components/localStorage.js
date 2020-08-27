@@ -114,8 +114,9 @@ const checkClickBtn = (ev) => {
         console.log(ev.target);
 
     }
-    else if(ev.target.dataset.name === 'trailer'){
-        // тут пока ничего не делай
-        console.log(ev.target);
-    }
+    // else if(ev.target.dataset.name === 'trailer'){
+    //     // тут пока ничего не делай
+    //     console.log(ev.target);
+        
+    // }
 }

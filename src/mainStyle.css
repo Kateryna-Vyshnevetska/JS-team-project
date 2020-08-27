@@ -1,84 +1,84 @@
 .list-film {
-  display: inline-block;
-  list-style-type: none;
-  margin: -10px;
-  padding: 0;
-  font-size: 0px;
+    display: inline-block;
+    list-style-type: none;
+    margin: -10px;
+    padding: 0;
+    font-size: 0px;
 }
 
 .film {
-  display: inline-block;
-  list-style-type: none;
-  margin: 10px;
-  padding: 0;
+    vertical-align: top;
+    display: inline-block;
+    list-style-type: none;
+    margin: 10px;
+    padding: 0;
+    width: 280px;
 }
 
 .film__poster-photo {
-  width: 280px;
-  height: 402px;
-}
-
-.film__preview {
-  margin-top: 10px;
+    width: 280px;
+    height: 402px;
+    border-radius: 5px;
 }
 
 .film__preview-title {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
-  text-transform: uppercase;
-  color: #000000;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #000000;
+    margin-top: 10px;
+    margin-bottom: 5px;
 }
 
 .film__preview-info {
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 14px;
-  color: #ff6b01;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #ff6b01;
+    margin: 0px;
 }
 
 .film__preview-popularity {
-  font-size: 12px;
-  color: white;
-  text-align: center;
-  vertical-align: center;
-  width: 36px;
-  height: 16px;
-  background: #ff6b01;
-  border-radius: 5px;
+    font-size: 12px;
+    color: white;
+    text-align: center;
+    vertical-align: text-bottom;
+    width: 36px;
+    height: 16px;
+    background: #ff6b01;
+    border-radius: 5px;
+    display: inline-block;
 }
 
 @media screen and (min-width: 768px) {
-  /* .film:nth-child(2n) {
+    /* .film:nth-child(2n) {
     margin-left: 30px;
   } */
-
-  .film {
-    margin: 15px;
-  }
-
-  .list-film {
-    margin-left: -15px;
-    margin-right: -15px;
-  }
-
-  .film__poster-photo {
-    width: 291px;
-    height: 398px;
-  }
+    .film {
+        margin: 15px;
+        width: 294px;
+    }
+    .list-film {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+    .film__poster-photo {
+        width: 294px;
+        height: 398px;
+    }
 }
 
 @media screen and (min-width: 1024px) {
-  /* .film:nth-child(3n + 1) {
-    margin-left: 0px;
-  } */
-
-  .film__poster-photo {
-    width: 271px;
-    height: 398px;
-  }
+    .film {
+        width: 274px;
+    }
+    .film__poster-photo {
+        width: 274px;
+        height: 398px;
+    }
 }
