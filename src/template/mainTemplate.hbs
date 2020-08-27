@@ -1,12 +1,18 @@
 {{#each this}}
 <li class="film">
-  <div class="film__poster">
-    <img data-id = '{{id}}' class="film__poster-photo" src= 'https://image.tmdb.org/t/p/w300{{poster_path}}' alt="" />
-  </div>
-  <div class="film__preview">
-    <h2 class="film__preview-title">{{title}}</h2>
-    <p class="film__preview-info">{{genre_ids}} | {{release_date}}</p>
-    <p class="film__preview-popularity">{{vote_average}}</p>
+    <div class="film__poster">
+      <img data-id = '{{id}}' class="film__poster-photo" src= 'https://image.tmdb.org/t/p/w300{{poster_path}}' alt="" />
     </div>
-    </li>
+  <div class="film__preview">
+    <h2 class="film__preview-title">
+      {{title}} 
+    </h2>
+    <p class="film__preview-info">
+      {{#each genre_ids}} {{name}} {{/each}}| {{release_date}} 
+    </p>
+    <p class="film__preview-popularity">
+     {{vote_average}}
+    </p>
+  </div>
+</li>
 {{/each}}
