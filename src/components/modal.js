@@ -2,6 +2,9 @@ import * as basicLightbox from "basiclightbox";
 import "basiclightbox/dist/basicLightbox.min.css";
 import filmCardTpl from "../template/film-card.hbs";
 import filmCardTplDel from "../template/film-cardDel.hbs";
+import filmCardTplDelQ from "../template/film-cardQ.hbs";
+import filmCardTplDelW from "../template/film-cardW.hbs";
+
 import { pullData } from "./services/services";
 import { write } from "./localStorage.js";
 // import { GetVideoTrailer } from "./trailer.js";
@@ -44,10 +47,16 @@ function getCurrentObj(id) {
 
 function drawModal(obj) {
   let markup;
-  let arr = JSON.parse(localStorage.getItem('arrWatched')) || [];
-  if(arr.includes(String(idForLocalStorage))){
+  let arrW = JSON.parse(localStorage.getItem('arrWatched')) || [];
+  let arrQ = JSON.parse(localStorage.getItem('arrQueue')) || [];
+  if(arrW.includes(String(idForLocalStorage)) && arrQ.includes(String(idForLocalStorage))){
     markup = filmCardTplDel(obj);
-  }else{
+  }else if(arrW.includes(String(idForLocalStorage)) && !arrQ.includes(String(idForLocalStorage))){
+    markup = filmCardTplDelW(obj);
+  }else if(!arrW.includes(String(idForLocalStorage)) && arrQ.includes(String(idForLocalStorage))){
+    markup = filmCardTplDelQ(obj);
+  }
+  else{
     markup = filmCardTpl(obj);
   }
   const instance = basicLightbox.create(markup, modalOptions);

@@ -44,14 +44,15 @@ const checkClickBtn = (ev) => {
     const btnQueue = document.querySelector(".card-button__queue");
     const btnDelQueue = document.querySelector(".card-button__del-queue");
 
-    if (btnWatched) {
-         saveMovie("arrWatched", idMovie);
-    } else if (btnDelWatched) {
-        checkDelete("arrWatched", idMovie);
-    } else if (btnQueue) {
-        saveMovieQueue("arrQueue", idMovie);
-    } else if (btnDelQueue) {
-        checkDelete("arrQueue", idMovie);
+    if (ev.target === btnWatched) {
+      saveMovie("arrWatched", idMovie);
+    } else if (ev.target === btnDelWatched) {
+      checkDelete("arrWatched", idMovie);
+    } else if (ev.target === btnQueue) {
+      saveMovieQueue("arrQueue", idMovie);
+    } else if (ev.target === btnDelQueue) {
+      checkDelete("arrQueue", idMovie);
     }
 };
 
+// localStorage.clear()
