@@ -206,6 +206,7 @@ body.modal-open {
   overflow: hidden;
   position: fixed;
 }
+
 .card-wrapper {
   width: 290px;
   height: auto;
@@ -216,16 +217,11 @@ body.modal-open {
   text-align: left;
   margin: 0 auto;
   font-weight: 500;
-  padding: 10px 0;
+  padding: 5px 0;
 }
-
-/* .card-image__wrapper {
-  width: 260px;
-  height: 300px; */
-
 .card-image__wrapper {
   text-align: center;
-  margin: 0 20px 15px;
+  margin: 5px 20px;
 }
 
 .card-image {
@@ -248,7 +244,7 @@ body.modal-open {
   height: 15px;
 }
 .card-item:not(:last-child) {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .card-item__about {
@@ -288,10 +284,11 @@ body.modal-open {
   line-height: 20px;
 }
 .card-button__wrapper {
-  margin: 20px 20px 10px;
+  margin: 5px 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  line-height: 15px;
 }
 .modal-btn {
   border: 1px solid var(--black-text-color);
@@ -308,11 +305,6 @@ body.modal-open {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  margin-bottom: 10px;
-}
-
-.modal-btn:nth-child(2n + 1) {
-  margin-right: 10px;
 }
 
 .modal-btn:hover {
@@ -331,6 +323,15 @@ body.modal-open {
 
   .section {
     max-width: var(--section-mobile-width-size);
+  }
+
+  /* ===================modal========================== */
+  .modal-btn:nth-child(2n + 1) {
+    margin-right: 10px;
+  }
+  .modal-btn:not(:last-child){
+    margin-bottom: 10px;
+  
   }
 
   @media screen and (min-device-pixel-ratio: 2),
@@ -480,6 +481,13 @@ body.modal-open {
     font-size: 30px;
     line-height: 35px;
   }
+  .modal-btn:nth-child(2n + 1) {
+    margin-right: 10px;
+  }
+  .modal-btn:not(:last-child){
+    margin-bottom: 10px;
+  
+  }
 }
 
 @media screen and (min-width: 1024px) {
@@ -508,6 +516,10 @@ body.modal-open {
   .card-info__wrapper {
     max-width: 470px;
   }
+  .modal-btn:not(:last-child) {
+    margin-right: 10px;
+  }
+ 
   /* ============================= */
 
   @media screen and (min-device-pixel-ratio: 2),

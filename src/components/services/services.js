@@ -26,7 +26,7 @@ export const filmsSearch = function (keyWord) {
     });
 };
 
-const drawHtml = (data) => {
+export const drawHtml = (data) => {
   dataForModal = [...data];
   const markup = mainTemplate(data);
   refs.listFilms.innerHTML = markup;

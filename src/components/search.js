@@ -52,6 +52,7 @@ const checkInput = function(e) {
     refs.paginationRef.classList.add("is-not-visible");
     refs.searchInfo.style.textAlign = "center";
   }
-};
+}
+}
 
-refs.inputSearchRef.addEventListener("change", debounce(checkInput, 1000));
+refs.inputSearchRef.addEventListener("change", debounce(checkInput, 1000))
