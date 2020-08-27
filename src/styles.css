@@ -41,6 +41,7 @@ body {
   text-decoration: none;
 }
 
+
 .logo-img {
   margin-right: 10px;
 }
@@ -604,3 +605,34 @@ button:focus {
 .btn.primary-black {
   border: 1px solid var(--black-text-color);
 }
+
+/* Стили для кнопки прокрутки вверх  */
+
+.back_to_top {
+  position: fixed;
+  bottom: 80px;
+  right: 160px;
+  z-index: 9999;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  line-height: 30px;
+  background: #ff6b08a3;
+  color: var(--black-text-color);
+  cursor: pointer;
+  border-radius: 2px;
+  display: none;
+  border-radius: 50%;
+}
+
+.back_to_top:hover {
+ border: 1px solid var(--black-text-color);
+}
+
+.back_to_top-show {
+  display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* Стили для кнопки прокрутки вверх  */
