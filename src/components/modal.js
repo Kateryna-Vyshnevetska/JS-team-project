@@ -7,7 +7,7 @@ import filmCardTplDelW from "../template/film-cardW.hbs";
 
 import { pullData } from "./services/services";
 import { write } from "./localStorage.js";
-// import { GetVideoTrailer } from "./trailer.js";
+import { GetVideoTrailer } from "./trailer.js";
 const mainFilmList = document.querySelector(".list-film");
 
 let idForLocalStorage;
@@ -69,17 +69,24 @@ function drawModal(obj) {
 export function openTrailerModal() {
   const trailerBtn = document.querySelector("[data-name ='trailer']");
 
-  trailerBtn.addEventListener("click", () => {
-    linkForVideo = GetVideoTrailer(titleForLink);
-    const instance = basicLightbox.create(`
-      <video controls>
-          <source src="${linkForVideo}">
-      </video>
-  `);
-
-    instance.show();
-  });
-
+  // trailerBtn.addEventListener("click", () => {
+  //   // linkForVideo = GetVideoTrailer(titleForLink);
+  //   // const trailerId = event.srcElement.dataset.id;
+  //   const URL = `https://api.themoviedb.org/3/movie/${idForLocalStorage}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
+  //   console.log(URL);
+  //   fetch(URL)
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       const videos = data.results;
+  //       const video = videos[0];
+  //       const videoKey = video.key;
+  //               const instance = basicLightbox.create(`
+  //           <iframe src="https://www.youtube.com/embed/${videoKey}" width="560" height="315" frameborder="0"></iframe>
+  //       `);
+  //       instance.show();
+  //     })
+  //     });
+    }
   // чиста функція без слухачів=====================
   //   const instance = basicLightbox.create(`
   //   <video controls>
@@ -95,7 +102,7 @@ export function openTrailerModal() {
 //   // loadTrailer();
 //   write(idForLocalStorage);
 
-}
+
 
 mainFilmList.addEventListener("click", openModal);
 
