@@ -88,7 +88,6 @@ body {
 }
 
 .input-search {
-  
   display: block;
   width: 100%;
   height: 30px;
@@ -101,7 +100,6 @@ body {
   outline: none;
 }
 .input-search::placeholder {
-  
   font-size: 14px;
   line-height: 16px;
   border-top: none;
@@ -224,12 +222,12 @@ button:focus {
   width: 260px;
   height: 300px; */
 
-.card-image__wrapper{
+.card-image__wrapper {
   text-align: center;
   margin: 0 20px 15px;
 }
 
-.card-image{
+.card-image {
   width: 250px;
   height: auto;
   border-radius: 5px;
@@ -312,8 +310,8 @@ button:focus {
   margin-bottom: 10px;
 }
 
-.modal-btn:nth-child(2n+1){
-    margin-right: 10px;
+.modal-btn:nth-child(2n + 1) {
+  margin-right: 10px;
 }
 
 .modal-btn:hover {
@@ -352,11 +350,10 @@ button:focus {
     margin-bottom: 10px;
   }
 
-  .sort-button.first{
+  .sort-button.first {
     margin: 0 auto;
     display: block;
   }
-
 }
 
 @media screen and (min-width: 768px) {
@@ -462,7 +459,7 @@ button:focus {
     padding-bottom: 28px;
   }
 
-  .tabs{
+  .tabs {
     display: flex;
     justify-content: space-between;
   }
@@ -560,7 +557,7 @@ button:focus {
     max-width: 470px;
   }
 
-  .tabs{
+  .tabs {
     display: flex;
     justify-content: space-between;
   }
@@ -621,7 +618,7 @@ button:focus {
   border: 1px solid var(--black-text-color);
 }
 
-.sort-button{
+.sort-button {
   background-color: transparent;
   color: var(--black-text-color);
   border: 1px solid black;
@@ -647,6 +644,4 @@ button:focus {
   border: 1px solid var(--accent-color);
   color: var(--white-text-color);
 }
-
-
 
