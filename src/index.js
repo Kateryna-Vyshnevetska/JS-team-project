@@ -1,6 +1,7 @@
 import "./components/modal";
 import "./styles.css";
 import "./mainStyle.css";
+import "./slider.css";
 import "./components/services/services.js";
 import "./components/search.js";
 import "./components/loader.js";
@@ -9,4 +10,4 @@ import "./components/paginator.js";
 import "./components/localStorage.js";
 import "./components/trailer.js";
 import "./components/sortByPopularity.js"
-
+import "./components/carousel.js"
