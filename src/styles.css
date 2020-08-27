@@ -199,7 +199,9 @@ button:focus {
 
 body.modal-open {
     overflow: hidden;
-    position: fixed;
+
+    /* THIS IS BROKED ALL BODY */
+    /* position: fixed; */
 }
 
 .card-wrapper {

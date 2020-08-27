@@ -12,29 +12,30 @@ let resList;
 const page = 1;
 
 // THIS IS FROM SEARCH
-// export const filmsSearch = function (keyWord) {
-//   fetch(
-//     `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyWord}&page=${page}&include_adult=false`
-//   )
-//     .then((list) => list.json())
-//     .then((list) => {
-//       totalResults = list.total_results;
-//       resList = list;
-//       localStorage.setItem("searchFilms", JSON.stringify(resList));
-//       getFilmsByWord(list);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// };
+// With this function work search
+export const filmsSearch = function (keyWord) {
+  fetch(
+    `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyWord}&page=${page}&include_adult=false`
+  )
+    .then((list) => list.json())
+    .then((list) => {
+      totalResults = list.total_results;
+      resList = list;
+      localStorage.setItem("searchFilms", JSON.stringify(resList));
+      getFilmsByWord(list);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
 
-// export const drawHtml = (data) => {
-//   dataForModal = [...data];
-//   const markup = mainTemplate(data);
-//   refs.listFilms.innerHTML = markup;
-// };
+export const drawHtml = (data) => {
+    dataForModal = [...data];
+    const markup = mainTemplate(data);
+    refs.listFilms.innerHTML = markup;
+};
 
-//   OLD DEV, DON`T know which is need
+//   THIS IS DEV from Tofic but doesn`t work 
 // export const filmsSearch = function(keyWord) {
 //     return fetch(
 //             `https://api.themoviedb.org/3/search/movie?api_key=027ca1d5e779abba9fcdc8b6b57f2385&query=${keyWord}&page=${page}&include_adult=false`
@@ -49,46 +50,6 @@ const page = 1;
 //             console.log(error);
 //         });
 // };
-// THIS IS FROM SEARCH
-
-//   THIS IS DEV TODAY
-// export const filmsSearch = function (keyWord) {
-//   fetch(
-//     `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyWord}&page=${page}&include_adult=false`
-//   )
-//     .then((list) => list.json())
-//     .then((list) => {
-//       res = list.total_results;
-//       getFilmsByWord(list);
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// };
-
-export const drawHtml = (data) => {
-    dataForModal = [...data];
-    const markup = mainTemplate(data);
-    refs.listFilms.innerHTML = markup;
-};
-
-
-export const filmsSearch = function(keyWord) {
-    return fetch(
-            `https://api.themoviedb.org/3/search/movie?api_key=027ca1d5e779abba9fcdc8b6b57f2385&query=${keyWord}&page=${page}&include_adult=false`
-        )
-        .then((list) => list.json())
-        .then((list) => {
-            res = list.total_results;
-            getFilmsByWord(list);
-            return list.results;
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-};
-//   THIS IS DEV TODAY
-
 
 // For Kate`s modal
 export const pullData = () => {
