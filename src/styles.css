@@ -89,7 +89,6 @@ body {
 }
 
 .input-search {
-  
   display: block;
   width: 100%;
   height: 30px;
@@ -102,7 +101,6 @@ body {
   outline: none;
 }
 .input-search::placeholder {
-  
   font-size: 14px;
   line-height: 16px;
   border-top: none;
@@ -225,12 +223,12 @@ body.modal-open {
   width: 260px;
   height: 300px; */
 
-.card-image__wrapper{
+.card-image__wrapper {
   text-align: center;
   margin: 0 20px 15px;
 }
 
-.card-image{
+.card-image {
   width: 250px;
   height: auto;
   border-radius: 5px;
@@ -313,8 +311,8 @@ body.modal-open {
   margin-bottom: 10px;
 }
 
-.modal-btn:nth-child(2n+1){
-    margin-right: 10px;
+.modal-btn:nth-child(2n + 1) {
+  margin-right: 10px;
 }
 
 .modal-btn:hover {
@@ -441,10 +439,10 @@ body.modal-open {
     font-size: 14px;
     line-height: 16px;
     margin-bottom: 5px;
-    text-align: center;
   }
   #notify-text.unSuccessful {
     color: #ff001b;
+    text-align: center;
   }
   #notify-text.successful {
     color: #7cdbb7;
