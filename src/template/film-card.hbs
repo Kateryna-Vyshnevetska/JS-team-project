@@ -12,41 +12,41 @@
     </div>
     <div class="card-info__wrapper">
 
-        <h2 class="card-title" {{title}}</h2>
-            <ul class="card-list">
-                <li class="card-item">
-                    <p class="card-item__about">Vote / Votes</p>
-                    <p class="card-item__descript">
-                        <span class="card-item__vote">{{vote_average}}</span>
-                        <span style="color:rgb(140, 140, 140)">/</span>
-                        <span class="card-item__votes">{{vote_count}}</span>
-                    </p>
-                </li>
-                <li class="card-item">
-                    <p class="card-item__about">Popularity</p>
-                    <p class="card-item__descript">{{popularity}}</p>
-                </li>
-                <li class="card-item">
-                    <p class="card-item__about">Original Title</p>
-                    <p class="card-item__descript">{{original_title}}</p>
-                </li>
-                <li class="card-item">
-                    <p class="card-item__about">Genre</p>
-                    <p class="card-item__descript">
+        <h2 class="card-title">{{title}}</h2>
+        <ul class="card-list">
+            <li class="card-item">
+                <p class="card-item__about">Vote / Votes</p>
+                <p class="card-item__descript">
+                    <span class="card-item__vote">{{vote_average}}</span>
+                    <span style="color:rgb(140, 140, 140)">/</span>
+                    <span class="card-item__votes">{{vote_count}}</span>
+                </p>
+            </li>
+            <li class="card-item">
+                <p class="card-item__about">Popularity</p>
+                <p class="card-item__descript">{{popularity}}</p>
+            </li>
+            <li class="card-item">
+                <p class="card-item__about">Original Title</p>
+                <p class="card-item__descript">{{original_title}}</p>
+            </li>
+            <li class="card-item">
+                <p class="card-item__about">Genre</p>
+                <p class="card-item__descript">
 
-                        {{#each genre_ids}}
-                        <span class="card-item__genre">{{name}}</span>
-                        {{/each}}
-                    </p>
-                </li>
-            </ul>
-            <p class="card-description__title">About</p>
-            <p class="card-description__about">{{overview}}</p>
-            <div class="card-button__wrapper">
-                <button data-name='watched' class="modal-btn card-button__watched" type="button">add to watched</button>
-                <button data-name='queue' class="modal-btn card-button__queue" type="button">add to queue</button>
-                <button data-name='trailer' class="modal-btn card-button__trailer" type="button">watch trailer</button>
-            </div>
+                    {{#each genre_ids}}
+                    <span class="card-item__genre">{{name}}</span>
+                    {{/each}}
+                </p>
+            </li>
+        </ul>
+        <p class="card-description__title">About</p>
+        <p class="card-description__about">{{overview}}</p>
+        <div class="card-button__wrapper">
+            <button data-name='watched' class="modal-btn card-button__watched" type="button">add to watched</button>
+            <button data-name='queue' class="modal-btn card-button__queue" type="button">add to queue</button>
+            <button data-name='trailer' class="modal-btn card-button__trailer" type="button">watch trailer</button>
+        </div>
     </div>
 
 </div>

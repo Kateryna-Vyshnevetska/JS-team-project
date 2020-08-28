@@ -6,7 +6,9 @@ function sortByPopularity() {
 
   if (refs.sortBtn.classList.contains("is-active")) {
     let films = JSON.parse(localStorage.getItem("searchFilms"));
-    let sortedFilms = films.results.sort((a, b) => b.popularity - a.popularity);
+    let sortedFilms = films.results.sort(
+      (a, b) => b.vote_average - a.vote_average
+    );
     drawHtml([...sortedFilms]);
   } else if (!refs.sortBtn.classList.contains("is-active")) {
     let films = JSON.parse(localStorage.getItem("searchFilms"));
