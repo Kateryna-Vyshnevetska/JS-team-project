@@ -4,6 +4,7 @@ import filmCardTpl from "../template/film-card.hbs";
 import filmCardTplDel from "../template/film-cardDel.hbs";
 import filmCardTplDelQ from "../template/film-cardQ.hbs";
 import filmCardTplDelW from "../template/film-cardW.hbs";
+import castTpl from "../template/cast.hbs";
 
 import { pullData } from "./services/services";
 import { write } from "./localStorage.js";
@@ -12,7 +13,6 @@ const mainFilmList = document.querySelector(".list-film");
 let idForLocalStorage;
 let linkForVideo;
 let titleForLink;
-
 
 const modalOptions = {
   onShow: () => checkBodyScroll(),
@@ -26,6 +26,7 @@ export function openModal(event) {
     idForLocalStorage = event.target.dataset.id;
     let id = event.target.dataset.id;
     getCurrentObj(id);
+    fetchCast(id);
   }
 }
 
@@ -46,16 +47,24 @@ function getCurrentObj(id) {
 
 function drawModal(obj) {
   let markup;
-  let arrW = JSON.parse(localStorage.getItem('arrWatched')) || [];
-  let arrQ = JSON.parse(localStorage.getItem('arrQueue')) || [];
-  if(arrW.includes(String(idForLocalStorage)) && arrQ.includes(String(idForLocalStorage))){
+  let arrW = JSON.parse(localStorage.getItem("arrWatched")) || [];
+  let arrQ = JSON.parse(localStorage.getItem("arrQueue")) || [];
+  if (
+    arrW.includes(String(idForLocalStorage)) &&
+    arrQ.includes(String(idForLocalStorage))
+  ) {
     markup = filmCardTplDel(obj);
-  }else if(arrW.includes(String(idForLocalStorage)) && !arrQ.includes(String(idForLocalStorage))){
+  } else if (
+    arrW.includes(String(idForLocalStorage)) &&
+    !arrQ.includes(String(idForLocalStorage))
+  ) {
     markup = filmCardTplDelW(obj);
-  }else if(!arrW.includes(String(idForLocalStorage)) && arrQ.includes(String(idForLocalStorage))){
+  } else if (
+    !arrW.includes(String(idForLocalStorage)) &&
+    arrQ.includes(String(idForLocalStorage))
+  ) {
     markup = filmCardTplDelQ(obj);
-  }
-  else{
+  } else {
     markup = filmCardTpl(obj);
   }
   const instance = basicLightbox.create(markup, modalOptions);
@@ -97,22 +106,45 @@ export function openTrailerModal() {
   //       instance.show();
   //     })
   //     });
-    }
-  // чиста функція без слухачів=====================
-  //   const instance = basicLightbox.create(`
-  //   <video controls>
-  //       <source src="https://basiclightbox.electerious.com/assets/videos/video.mp4">
-  //   </video>
-  // `);
+}
 
-  //   instance.show();
+function getCastObj(data) {
+  const artistArr = data.cast.slice(0, 4);
+  // console.log(artistArr);
+  const castBtn = document.querySelector("[data-name='cast']");
+  // console.log(castBtn);
+  let markUp = castTpl(artistArr);
+  // console.log(markUp);
+  castBtn.addEventListener("click", () => {
+    const instance = basicLightbox.create(markUp);
+    instance.show();
+  });
+}
 
-  //   ТО ЧТО БЫЛО ПЕРЕД ТРЕЙЛЕРОМ
-  //   const instance = basicLightbox.create(markup);
-  //   instance.show();
-  //   // loadTrailer();
-  //   write(idForLocalStorage);
+function fetchCast(id) {
+  const ApiKey = "7f0b5ab01080cb0bb4b9db0d9bc41efa";
+  const url = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${ApiKey}`;
+  return fetch(url)
+    .then((responce) => responce.json())
+    .then((data) => {
+      getCastObj(data);
+    });
+}
 
+// чиста функція без слухачів=====================
+//   const instance = basicLightbox.create(`
+//   <video controls>
+//       <source src="https://basiclightbox.electerious.com/assets/videos/video.mp4">
+//   </video>
+// `);
+
+//   instance.show();
+
+//   ТО ЧТО БЫЛО ПЕРЕД ТРЕЙЛЕРОМ
+//   const instance = basicLightbox.create(markup);
+//   instance.show();
+//   // loadTrailer();
+//   write(idForLocalStorage);
 
 mainFilmList.addEventListener("click", openModal);
 

@@ -329,6 +329,53 @@ body.modal-open {
   border: 1px solid var(--accent-color);
 }
 
+/* ======================cast-wraper ==============*/
+
+.actors-wraper {
+  background-color: #ffffff;
+  display: flex;
+  border-radius: 5px;
+  padding-top: 10px;
+  flex-wrap: wrap;
+  max-width: 280px;
+  justify-content: space-evenly;
+}
+
+.cast-wraper {
+  max-width: 110px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.card-button__cast {
+  line-height: 10px;
+  width: 120px;
+  padding: 5px 0;
+}
+
+.cast {
+  margin-top: 10px;
+}
+
+.hero-name {
+  margin-bottom: 10px;
+  color: #ff6b01;
+  height: 32px;
+}
+
+.actor-name {
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.cast-image {
+  border-radius: 5px;
+  box-shadow: 0 0 3px;
+  width: 110px;
+}
+
 /* =============================================== */
 
 /* WHIS IF FOR SCREEEEENS */
@@ -523,10 +570,27 @@ body.modal-open {
   .modal-btn:nth-child(2n + 1) {
     margin-right: 10px;
   }
+  /* --------------cast--------------------- */
+  .cast-image {
+    width: 200px;
+  }
+  .cast-wraper {
+    max-width: 200px;
+  }
+  .actors-wraper {
+    max-width: 600px;
+  }
+  .hero-name {
+    height: 16px;
+  }
 }
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .modal-btn:not(:last-child) {
     margin-bottom: 10px;
+  }
+  .cast-wraper:nth-child(2n + 1) {
+    margin-right: 10px;
   }
 }
 
@@ -675,6 +739,25 @@ body.modal-open {
   .tabs {
     display: flex;
     justify-content: space-between;
+  }
+
+  /* =============cast============== */
+  .cast-image {
+    width: 100%;
+  }
+  .cast-wraper {
+    max-width: 100%;
+  }
+  .actors-wraper {
+    max-width: 100%;
+    padding: 10px;
+  }
+  .hero-name {
+    height: 16px;
+  }
+
+  .cast-wraper:not(:last-child) {
+    margin-right: 15px;
   }
 }
 
