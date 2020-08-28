@@ -42,6 +42,7 @@ function getCurrentObj(id) {
     }
   });
   drawModal(currentObj);
+  write(currentObj)
 }
 
 function drawModal(obj) {
@@ -60,7 +61,7 @@ function drawModal(obj) {
   }
   const instance = basicLightbox.create(markup, modalOptions);
   instance.show();
-  write(idForLocalStorage);
+  // write(idForLocalStorage);
   openTrailerModal();
 }
 
