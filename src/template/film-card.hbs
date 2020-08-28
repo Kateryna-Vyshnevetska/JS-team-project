@@ -1,14 +1,6 @@
 <div class="card-wrapper">
     <div class="card-image__wrapper">
         <img src="https://image.tmdb.org/t/p/w400{{poster_path}}" alt="{{title}}" class="card-image">
-        {{!-- <picture>
-            <source srcset="https://image.tmdb.org/t/p/w300{{poster_path}}" media="(min-width: 1024px)"
-                class="card-image">
-            <source srcset="https://image.tmdb.org/t/p/w200{{poster_path}}" media="(min-width: 768px)"
-                class="card-image">
-            <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" alt="{{title}}" class="card-image"
-                class="card-image">
-        </picture> --}}
     </div>
     <div class="card-info__wrapper">
         <h2 class="card-title">{{title}}</h2>
@@ -32,20 +24,19 @@
                 <li class="card-item">
                     <p class="card-item__about">Genre</p>
                     <p class="card-item__descript">
-
-                        {{#each genre_ids}}
-                        <span class="card-item__genre">{{name}}</span>
-                        {{/each}}
-                    </p>
-                </li>
-            </ul>
-            <p class="card-description__title">About</p>
-            <p class="card-description__about">{{overview}}</p>
-            <div class="card-button__wrapper">
-                <button data-name='watched' class="modal-btn card-button__watched" type="button">add to watched</button>
-                <button data-name='queue' class="modal-btn card-button__queue" type="button">add to queue</button>
-                <button data-name='trailer' class="modal-btn card-button__trailer" type="button">watch trailer</button>
-            </div>
+                    {{#each genre_ids}}
+                    <span class="card-item__genre">{{name}}</span>
+                    {{/each}}
+                </p>
+            </li>
+        </ul>
+        <p class="card-description__title">About</p>
+        <p class="card-description__about">{{overview}}</p>
+        <div class="card-button__wrapper">
+            <button data-name='watched' class="modal-btn card-button__watched" type="button">add to watched</button>
+            <button data-name='queue' class="modal-btn card-button__queue" type="button">add to queue</button>
+            <button data-name='trailer' class="modal-btn card-button__trailer" type="button">watch trailer</button>
+        </div>
     </div>
 
 </div>

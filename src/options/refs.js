@@ -12,6 +12,8 @@ const refs = {
   inputSearchRef: document.querySelector(".input-search"),
   sortBtn: document.querySelector(".sort-button.first"),
   paginationRef: document.querySelector(".tui-pagination"),
+  notFoundText: document.querySelector(".not-found-text"),
+  notFoundContainer: document.querySelector(".not-found-container"),
 };
 
 export default refs;

@@ -19,6 +19,8 @@
     width: 280px;
     height: 402px;
     border-radius: 5px;
+    cursor: pointer;
+    position: relative;
 }
 
 .film__preview-title {
