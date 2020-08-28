@@ -321,6 +321,8 @@ body.modal-open {
   font-size: 12px;
   line-height: 16px;
   box-shadow: 0 0 1px;
+  /* transition: all 300ms linear; */
+  transition: all 300ms ease-in;
 }
 
 .modal-btn:hover {
@@ -573,6 +575,9 @@ body.modal-open {
   .card-item__about {
     width: 90px;
   }
+  .card-item__vote{
+    padding-top:1.5px ;
+  }
 
   .card-image__wrapper {
     margin-right: 30px;
@@ -591,6 +596,10 @@ body.modal-open {
     overflow: hidden;
     box-shadow: none;
     padding-left: 0;
+  }
+  .modal-btn{
+    min-width: 136px;
+    line-height: 20px;
   }
   .modal-btn:not(:last-child) {
     margin-right: 15px;
@@ -640,16 +649,13 @@ body.modal-open {
       background-size: cover;
     }
   }
-  .card-wrapper {
-    width: 920px;
-  }
-  .card-info__wrapper {
-    max-width: 470px;
-  }
-  .tabs {
+
+  /* ===============повторюється код із 673 рядком================= */
+  
+  /* .tabs {
     display: flex;
     justify-content: space-between;
-  }
+  }  */
 
   .new-bcg {
     background-image: linear-gradient(
@@ -662,14 +668,6 @@ body.modal-open {
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
-  }
-
-  .card-wrapper {
-    width: 920px;
-  }
-
-  .card-info__wrapper {
-    max-width: 470px;
   }
 
   .tabs {
@@ -713,6 +711,7 @@ body.modal-open {
   padding-bottom: 12px;
   min-width: 136px;
   cursor: pointer;
+  transition: all 300ms ease-in;
 }
 
 .btn.accent {
@@ -721,6 +720,7 @@ body.modal-open {
 
 .btn.primary-white {
   border: 1px solid var(--white-text-color);
+  transition: all 300ms ease-in;
 }
 
 .btn.primary-white:hover {
@@ -749,6 +749,7 @@ body.modal-open {
   border-radius: 2px;
   display: none;
   border-radius: 50%;
+  /* transition: all 300ms ease-in; */
 }
 
 .back_to_top:hover {
@@ -774,6 +775,7 @@ body.modal-open {
   padding-bottom: 12px;
   min-width: 136px;
   cursor: pointer;
+  transition: all 300ms ease-in;
 }
 
 .sort-button:hover {
