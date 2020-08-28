@@ -38,21 +38,43 @@ export function write(some) {
 }
 
 const checkClickBtn = (ev) => {
-    console.log(ev.target);
-    const btnWatched = document.querySelector(".card-button__watched");
-    const btnDelWatched = document.querySelector(".card-button__del-watched");
-    const btnQueue = document.querySelector(".card-button__queue");
-    const btnDelQueue = document.querySelector(".card-button__del-queue");
+  console.log(ev.target);
+  const btnWatched = document.querySelector(".card-button__watched");
+  const btnDelWatched = document.querySelector(".card-button__del-watched");
+  const btnQueue = document.querySelector(".card-button__queue");
+  const btnDelQueue = document.querySelector(".card-button__del-queue");
 
-    if (ev.target === btnWatched) {
-      saveMovie("arrWatched", idMovie);
-    } else if (ev.target === btnDelWatched) {
-      checkDelete("arrWatched", idMovie);
-    } else if (ev.target === btnQueue) {
-      saveMovieQueue("arrQueue", idMovie);
-    } else if (ev.target === btnDelQueue) {
-      checkDelete("arrQueue", idMovie);
-    }
-};
-
+  if (ev.target === btnWatched && btnWatched.textContent === "add to watched") {
+    saveMovie("arrWatched", idMovie);
+    btnWatched.textContent = "delete from watched";
+    console.log(btnWatched.textContent);
+  } else if(ev.target === btnWatched && btnWatched.textContent === "delete from watched"){
+    checkDelete("arrWatched", idMovie);
+    btnWatched.textContent = "add to watched";
+  }else if (
+    ev.target === btnDelWatched &&
+    btnDelWatched.textContent === "delete from watched"
+  ) {
+    checkDelete("arrWatched", idMovie);
+    btnDelWatched.textContent = "add to watched";
+  } else if (
+    ev.target === btnDelWatched &&
+    btnDelWatched.textContent === "add to watched"
+  ) {
+    saveMovie("arrWatched", idMovie);
+    btnWatched.textContent = "delete from watched";
+  }else if (ev.target === btnQueue && btnQueue.textContent === "add to queue") {
+    saveMovieQueue("arrQueue", idMovie)
+    btnQueue.textContent = "delete from queue";
+  } else if(ev.target === btnQueue && btnQueue.textContent === "delete from queue"){
+    checkDelete("arrQueue", idMovie)
+    btnQueue.textContent = "add to queue";
+  }else if (ev.target === btnDelQueue && btnDelQueue.textContent === "delete from queue") {
+    checkDelete("arrQueue", idMovie)
+    btnDelQueue.textContent = "add to queue";
+  }else if (ev.target === btnDelQueue && btnDelQueue.textContent === "add to queue") {
+    saveMovieQueue("arrQueue", idMovie)
+    btnDelQueue.textContent = "delete from queue";
+  }
+}
 // localStorage.clear()

@@ -10,6 +10,7 @@ import { pullData } from "./services/services";
 import { write } from "./localStorage.js";
 const mainFilmList = document.querySelector(".list-film");
 
+let currentObj;
 let idForLocalStorage;
 let linkForVideo;
 let titleForLink;
@@ -36,7 +37,7 @@ function checkBodyScroll() {
 
 function getCurrentObj(id) {
   const getInfo = pullData();
-  let currentObj;
+  currentObj;
   getInfo.forEach((elem) => {
     if (elem.id === Number(id)) {
       currentObj = elem;
@@ -47,23 +48,36 @@ function getCurrentObj(id) {
 }
 
 function drawModal(obj) {
+  let includeW = 0;
+  let includeQ = 0;
   let markup;
   let arrW = JSON.parse(localStorage.getItem("arrWatched")) || [];
   let arrQ = JSON.parse(localStorage.getItem("arrQueue")) || [];
-  if (
-    arrW.includes(String(idForLocalStorage)) &&
-    arrQ.includes(String(idForLocalStorage))
-  ) {
+
+  arrW.forEach(el => {
+    if (JSON.stringify(el) === JSON.stringify(currentObj)){
+      includeW ++;
+    } else {
+      return;
+    }
+  })
+
+  arrQ.forEach(el => {
+    console.log(JSON.stringify(el) === JSON.stringify(currentObj));
+    if (JSON.stringify(el) === JSON.stringify(currentObj)){
+      includeQ++;
+    } else {
+      return;
+    }
+  })
+  console.log(includeW);
+  console.log(includeQ);
+
+  if (includeW && includeQ) {
     markup = filmCardTplDel(obj);
-  } else if (
-    arrW.includes(String(idForLocalStorage)) &&
-    !arrQ.includes(String(idForLocalStorage))
-  ) {
+  } else if (includeW && !includeQ) {
     markup = filmCardTplDelW(obj);
-  } else if (
-    !arrW.includes(String(idForLocalStorage)) &&
-    arrQ.includes(String(idForLocalStorage))
-  ) {
+  } else if (!includeW && includeQ) {
     markup = filmCardTplDelQ(obj);
   } else {
     markup = filmCardTpl(obj);
