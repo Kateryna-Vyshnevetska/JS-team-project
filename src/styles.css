@@ -175,6 +175,18 @@ body {
   margin: 0;
 }
 
+.notify-text {
+  display: block;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ff001b;
+  text-align: left;
+}
+
+.notify-text.is-not-visible {
+  display: none;
+}
+
 .button-list {
   display: flex;
   justify-content: center;
@@ -227,50 +239,57 @@ button:focus {
 
 body.modal-open {
   overflow: hidden;
-
-  /* THIS IS BROKED ALL BODY */
-  /* position: fixed; */
 }
 
 .card-wrapper {
   width: 290px;
-  height: auto;
   background-color: var(--background-main-color);
   font-family: Roboto;
   color: var(--black-text-color);
   font-style: normal;
   text-align: left;
-  margin: 0 auto;
   font-weight: 500;
-  padding: 5px 0;
+  padding: 10px 20px 5px;
 }
 
 .card-image__wrapper {
   text-align: center;
-  margin: 5px 20px;
 }
 
 .card-image {
   width: 250px;
   height: auto;
   border-radius: 5px;
+  box-shadow: 0 0 3px;
 }
 
 .card-title {
   font-size: 20px;
   line-height: 23px;
   text-transform: uppercase;
+/* <<<<<<< search6
   margin: 15px 20px 10px 20px;
+======= */
+  margin-bottom: 10px;
+}
+
+.card-info__wrapper {
+  padding: 10px 0;
 }
 
 .card-list {
+/* <<<<<<< search6
   margin: 10px 20px;
+======= */
+  margin-bottom: 10px;
   font-size: 12px;
 }
 
 .card-item {
   display: flex;
+/* <<<<<<< search6
   height: 15px;
+======= */
 }
 
 .card-item:not(:last-child) {
@@ -281,12 +300,17 @@ body.modal-open {
   line-height: 16px;
   color: var(--color-text-modal-window);
   width: 70px;
+/* <<<<<<< search6
   margin-right: 40px;
+======= */
+  margin-bottom: 0;
 }
 
 .card-item__descript {
   line-height: 14px;
   text-transform: uppercase;
+  width: 155px;
+  margin-bottom: 0;
 }
 
 .card-item__vote {
@@ -295,7 +319,6 @@ body.modal-open {
   width: 36px;
   height: 16px;
   background: var(--accent-color);
-  /* background: #FF6B01; */
   border-radius: 5px;
   text-align: center;
   padding-top: 1px;
@@ -307,27 +330,36 @@ body.modal-open {
 }
 
 .card-description__title {
+/* <<<<<<< search6
   margin: 10px 20px 5px 20px;
+======= */
+  margin-bottom: 5px;
   font-size: 12px;
   text-transform: uppercase;
 }
 
 .card-description__about {
+/* <<<<<<< search6
   margin: 5px 20px 10px 20px;
+======= */
+  margin-bottom: 10px;
   font-size: 12px;
   line-height: 20px;
+  max-height: 80px;
+  overflow: auto;
+  box-shadow: 0 0 1px;
+  padding-left: 5px;
 }
 
 .card-button__wrapper {
-  margin: 5px 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  line-height: 15px;
 }
 
 .modal-btn {
-  border: 1px solid var(--black-text-color);
+  border: 1px solid var(--color-text-modal-window);
+  /* border: 1px solid var(--black-text-color); */
   color: var(--black-text-color);
   background-color: transparent;
   text-transform: uppercase;
@@ -341,6 +373,7 @@ body.modal-open {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
+  box-shadow: 0 0 1px;
 }
 
 .modal-btn:hover {
@@ -369,6 +402,10 @@ body.modal-open {
   .modal-btn:not(:last-child) {
     margin-bottom: 10px;
   }
+  .card-item {
+    justify-content: space-between;
+  }
+  /* =============================================== */
 
   @media screen and (min-device-pixel-ratio: 2),
     screen and (-webkit-min-device-pixel-ratio: 2),
@@ -501,23 +538,40 @@ body.modal-open {
   .card-wrapper {
     width: 640px;
     display: flex;
+    justify-content: space-between;
   }
-
+  .card-image__wrapper {
+    padding: 10px 0;
+  }
   .card-info__wrapper {
-    max-width: 335px;
+    max-width: 320px;
+  }
+  .card-image {
+    width: 260px;
+  }
+  .card-item__about {
+    margin-right: 30px;
   }
 
   .card-title {
     font-size: 30px;
     line-height: 35px;
   }
+  .card-button__wrapper {
+    padding: 5px 0;
+  }
   .modal-btn:nth-child(2n + 1) {
     margin-right: 10px;
   }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .modal-btn:not(:last-child) {
     margin-bottom: 10px;
   }
 }
+
+/* =============================================== */
 
 @media screen and (min-width: 1024px) {
   .container {
@@ -541,12 +595,51 @@ body.modal-open {
   /* ============modal====================== */
   .card-wrapper {
     width: 920px;
+    padding: 10px 40px;
+  }
+  .card-image {
+    width: 350px;
+  }
+  .card-title {
+    margin-bottom: 20px;
+    font-size: 40px;
+  }
+  .card-list {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .card-item__descript {
+    font-size: 14px;
+  }
+  .card-item__about {
+    width: 90px;
+  }
+
+  .card-image__wrapper {
+    margin-right: 30px;
   }
   .card-info__wrapper {
     max-width: 470px;
+    padding: 20px 0;
+  }
+  .card-description__title {
+    font-size: 16px;
+  }
+  .card-description__about {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 20px;
+    overflow: hidden;
+    box-shadow: none;
+    padding-left: 0;
   }
   .modal-btn:not(:last-child) {
-    margin-right: 10px;
+    margin-right: 15px;
+  }
+  
+  .card-button__wrapper {
+    padding: 30px 0;
+    justify-content: flex-start;
   }
 
   /* ============================= */
