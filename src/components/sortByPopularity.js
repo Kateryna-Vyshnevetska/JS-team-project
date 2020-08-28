@@ -1,10 +1,11 @@
 import refs from "../options/refs.js";
 import { drawHtml } from "./services/services.js";
+import { totalResults } from "./services/services.js";
 
 function sortByPopularity() {
   refs.sortBtn.classList.toggle("is-active");
 
-  if (refs.sortBtn.classList.contains("is-active")) {
+  if (refs.sortBtn.classList.contains("is-active") && totalResults >= 2) {
     let films = JSON.parse(localStorage.getItem("searchFilms"));
     let sortedFilms = films.results.sort(
       (a, b) => b.vote_average - a.vote_average
