@@ -123,6 +123,18 @@ body {
   background-image: url(./assests/images/search-icon.svg);
 }
 
+.btn-youtube {
+  background-image: url("./assests/images/icons8-play-button-2.svg");
+  width: 48px;
+  height: 48px;
+  background-repeat : no-repeat;
+  cursor: pointer;
+  border: 0;
+  background-color: transparent;
+  position: absolute;
+  z-index: 1;
+}
+
 .search-icon.is-not-visible {
   display: none;
 }
