@@ -142,6 +142,39 @@ body {
 
 /* нотификация для поля инпут в хедере */
 
+#notify-text {
+  font-size: 14px;
+  line-height: 16px;
+  margin-bottom: 5px;
+  text-align: left;
+}
+#notify-text.unSuccessful {
+  color: #ff001b;
+}
+#notify-text.successful {
+  color: #7cdbb7;
+}
+
+.not-found-container {
+  background-color: rgb(223, 221, 221);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.not-found-container.is-not-visible {
+  display: none;
+}
+
+.not-found-text {
+  color: #ff001b;
+  font-size: large;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+
 .notify-text {
   display: block;
   font-size: 14px;
@@ -234,18 +267,29 @@ body.modal-open {
   font-size: 20px;
   line-height: 23px;
   text-transform: uppercase;
+/* <<<<<<< search6
+  margin: 15px 20px 10px 20px;
+======= */
   margin-bottom: 10px;
 }
+
 .card-info__wrapper {
   padding: 10px 0;
 }
+
 .card-list {
+/* <<<<<<< search6
+  margin: 10px 20px;
+======= */
   margin-bottom: 10px;
   font-size: 12px;
 }
 
 .card-item {
   display: flex;
+/* <<<<<<< search6
+  height: 15px;
+======= */
 }
 
 .card-item:not(:last-child) {
@@ -256,6 +300,9 @@ body.modal-open {
   line-height: 16px;
   color: var(--color-text-modal-window);
   width: 70px;
+/* <<<<<<< search6
+  margin-right: 40px;
+======= */
   margin-bottom: 0;
 }
 
@@ -283,12 +330,18 @@ body.modal-open {
 }
 
 .card-description__title {
+/* <<<<<<< search6
+  margin: 10px 20px 5px 20px;
+======= */
   margin-bottom: 5px;
   font-size: 12px;
   text-transform: uppercase;
 }
 
 .card-description__about {
+/* <<<<<<< search6
+  margin: 5px 20px 10px 20px;
+======= */
   margin-bottom: 10px;
   font-size: 12px;
   line-height: 20px;
@@ -463,19 +516,6 @@ body.modal-open {
     text-indent: 500px;
     transition: text-indent 0.3s ease;
   }
-  #notify-text {
-    font-size: 14px;
-    line-height: 16px;
-    margin-bottom: 5px;
-    text-align: center;
-  }
-  #notify-text.unSuccessful {
-    color: #ff001b;
-  }
-  #notify-text.successful {
-    color: #7cdbb7;
-    text-align: left;
-  }
 
   .search-icon {
     top: 10px;
@@ -524,6 +564,7 @@ body.modal-open {
     margin-right: 10px;
   }
 }
+
 @media screen and (min-width: 768px) and (max-width: 1023px) {
   .modal-btn:not(:last-child) {
     margin-bottom: 10px;
@@ -595,6 +636,7 @@ body.modal-open {
   .modal-btn:not(:last-child) {
     margin-right: 15px;
   }
+  
   .card-button__wrapper {
     padding: 30px 0;
     justify-content: flex-start;

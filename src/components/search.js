@@ -5,38 +5,44 @@ import { getPopular } from "./services/services.js";
 import { totalResults } from "./services/services.js";
 import { getGenres } from "./services/services.js";
 import { drawHtml } from "./services/services.js";
-import { res } from "./services/services.js";
+
 const checkInput = function (e) {
   e.preventDefault();
 
   let reg = /[^\d\sA-Z]/gi;
   let inputValue = e.target.value.match(reg);
+
   if (!inputValue) {
-    filmsSearch(e.target.value);
-    // const d = filmsSearch(e.target.value).then((f) => {
-    //   return getGenres().then((g) =>
-    //     f.map((el) => ({
-    //       ...el,
-    //       genre_ids: el.genre_ids.flatMap((num) =>
-    //         g.filter((el) => el.id === num)
-    //       ),
-    //     }))
-    //   );
-    // });
-    // d.then(drawHtml);
+    // filmsSearch(e.target.value);
+    const d = filmsSearch(e.target.value).then((f) => {
+      return getGenres().then((g) =>
+        f.map((el) => ({
+          ...el,
+          genre_ids: el.genre_ids.flatMap((num) =>
+            g.filter((el) => el.id === num)
+          ),
+        }))
+      );
+    });
+    d.then(drawHtml);
     setTimeout(() => {
+      refs.notFoundContainer.classList.add("is-not-visible");
       refs.sortBtn.classList.remove("is-active");
       refs.searchInfo.classList.remove("unSuccessful");
       refs.searchInfo.classList.add("successful");
-      refs.searchInfo.textContent = `По вашему запросу найдено ${totalResults} фильм(ов/а)`;
+      refs.searchInfo.style.textAlign = "left";
+      refs.searchInfo.textContent = `Found ${totalResults} movie(s) by your request`;
       if (totalResults === 0) {
+        refs.notFoundContainer.classList.remove("is-not-visible");
+        getPopular();
         refs.searchInfo.classList.remove("successful");
         refs.searchInfo.classList.add("unSuccessful");
-        refs.searchInfo.textContent = `Search result not successful. Enter the correct movie name and try again`;
+        refs.searchInfo.textContent = `Found ${totalResults} movie(s) by your request`;
         refs.paginationRef.classList.add("is-not-visible");
       } else if (e.target.value === "") {
         getPopular();
         refs.searchInfo.textContent = "";
+        refs.notFoundContainer.classList.add("is-not-visible");
       }
     }, 800);
   } else {
@@ -45,7 +51,8 @@ const checkInput = function (e) {
     refs.searchInfo.textContent = `Search result not successful. Enter the correct movie name and try again`;
     refs.paginationRef.classList.add("is-not-visible");
     refs.searchInfo.style.textAlign = "center";
+    refs.notFoundContainer.classList.add("is-not-visible");
   }
-}
+};
 
-refs.inputSearchRef.addEventListener("change", debounce(checkInput, 1000))
+refs.inputSearchRef.addEventListener("change", debounce(checkInput, 1000));
