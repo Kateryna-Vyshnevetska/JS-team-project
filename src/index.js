@@ -9,5 +9,6 @@ import "./components/header-nav-btn.js";
 import "./components/paginator.js";
 import "./components/localStorage.js";
 import "./components/sortByPopularity.js";
-import "./components/carousel.js"
-import "./components/drawWatchedQueue.js"
+import "./components/carousel.js";
+import "./components/drawWatchedQueue.js";
+import "./components/bot.js";
