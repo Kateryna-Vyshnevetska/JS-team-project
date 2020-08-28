@@ -71,19 +71,19 @@
             data-button-list-header="watched-and-queue"
           >
             <li class="button-item">
-              <button class="btn accent">WATCHED</button>
+              <button class="btn accent libr-watched">WATCHED</button>
             </li>
             <li class="button-item">
-              <button class="btn primary-white">QUEUE</button>
+              <button class="btn primary-white libr-queue">QUEUE</button>
             </li>
           </ul>
         </div>
    
-    </header>
+    </header> 
 
       <main class="main d-none">
         <!-- карусель -->
-        <section>
+        <section class="carousel">
           <div class="container">
             <h2 class="carousel-title">Скоро в прокате</h2>
             <div class="slider-container">
@@ -114,14 +114,17 @@
         <!-- карусель -->
         <section class="section">
           <div class="container">
-            
+            <div class="not-found-container is-not-visible">
+              <p class="not-found-text">There are no exact matches &#9888<br>Refine your search or select a movie from our recommendations:</p>
+            </div>
             <div class="tabs">
-              <button class="sort-button first" type="button">Sort by ⭐</button>
+              <button class="sort-button first" type="button">Sort by &#11088</button>
               <div class="tabs_2">
                 <button class="sort-button" type="button">Maybe</button>
                 <button class="sort-button" type="button">Will be</button>
               </div>
             </div>
+            
             <ul class="list-film"></ul>
           </div>
           <div id="pagination2" class="tui-pagination" data-pagination-value=""></div>

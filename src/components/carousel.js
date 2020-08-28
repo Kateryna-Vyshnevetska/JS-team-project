@@ -34,27 +34,26 @@ var Carousel = function (
   //Moves to the next slide if value is -1, moves to the previous is value is 1
 
   var moveSlide = function (value) {
-    position += value * 200;
+    position += value;
     slider.style.left = position + "px";
-    slider.style.right = position + "px";
   };
 
   return {
     //Function to move to next slide
     right: function () {
-      console.log(position);
-      if (position) {
-        moveSlide(-1);
+      if (position > -3402) {
+        moveSlide(-199);
       } else {
         position = slidesNumber - 1;
-        slider.style.right = position + "px";
+        slider.style.left = position + "px";
       }
     },
     //Function to go to previous slide
     left: function () {
-      console.log(position);
-      if (position > -4001) {
-        moveSlide(1);
+      if (position === 0) {
+        moveSlide(0);
+      } else if (position < 0) {
+        moveSlide(200);
       } else {
         position = slidesNumber - 1;
         slider.style.left = position + "px";
@@ -78,8 +77,6 @@ const getUpcomingFilms = function () {
   )
     .then((list) => list.json())
     .then((list) => {
-      console.log(list.results);
-
       const listRef = document.querySelector("#slider");
 
       list.results.map((el) => {

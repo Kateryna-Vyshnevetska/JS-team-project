@@ -8,10 +8,12 @@
   overflow: hidden;
   height: 360px;
 }
+
 .slider {
   position: relative;
-  transition: 500ms;
+
   display: inline-flex;
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .slide {
   display: inline-block;
@@ -21,11 +23,13 @@
   position: absolute;
   top: 50%;
   left: -20px;
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .slider-arrow-right {
   position: absolute;
   top: 50%;
   right: -20px;
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .svg-arrow:hover {
   opacity: 0.6;
@@ -41,6 +45,7 @@
 .carousel-link {
   display: block;
   height: 100%;
+  transition: 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .carousel-link:hover {
@@ -55,24 +60,37 @@
 }
 
 .release-date {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  font-family: Roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   position: relative;
-    height: 50px;
+  height: 50px;
   color: white;
   font-size: 17px;
   margin-bottom: 0px;
-  
-  background-color:rgb(255 158 24);
+
+  background-color: rgb(255 158 24);
+  border-radius: 10px;
 }
 
 .carousel-title {
-    text-align: center;
-    margin: 0px;
-    padding: 20px;
-    font-size: 41px;
-    line-height: 1.5;
-    font-weight: 500;
+  font-family: Roboto;
+  text-align: center;
+  margin: 0px;
+  padding: 20px;
+  font-size: 41px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.carousel {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .carousel {
+    display: block;
+  }
 }
