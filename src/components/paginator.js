@@ -1,63 +1,81 @@
 import Pagination from "tui-pagination";
 import "../../src/tui-pagination.css";
-import { filmsSearch } from "./services/services.js";
+import {
+    filmsSearch,
+    showPopular,
+    myNewTotalPage,
+    myNewInput,
+    myNewTotalAmountOfFilms,
+} from "./services/services.js";
 import refs from "../options/refs.js";
+export const createPaginator = function(pageForStartPaginator) {
+    const paginatorOptions = {
+        totalItems: myNewTotalAmountOfFilms,
+        itemsPerPage: 20,
+        visiblePages: getVisiblePagesCount(),
+        centerAlign: true,
+        totalPage: pageForStartPaginator,
+    };
+    new Pagination(document.getElementById("pagination2"), paginatorOptions);
+    let page = 1;
+    refs.paginationRef.addEventListener("click", (event) => {
+        isEnabled(event);
+    });
 
-const paginatorOptions = {
-  totalItems: 500,
-  itemsPerPage: 10,
-  visiblePages: getVisiblePagesCount(),
-  centerAlign: true,
-};
+    function isEnabled(event) {
+        const arr = Array.from(event.target.classList);
+        if (!arr.includes("tui-pagination")) {
+            setPaginator(event);
+            // backToTop();
+        }
+    }
 
-var pagination2 = new Pagination(
-  document.getElementById("pagination2"),
-  paginatorOptions
-);
+    function setPaginator(event) {
+        page = 1;
+        const text = event.target.textContent;
+        if (text === "next") {
+            page++;
+        } else if (text === "prev") {
+            page--;
+        } else if (text === "first") {
+            page = 1;
+        } else if (text === "last") {
+            page = myNewTotalPage;
+            console.log("check", page);
+        } else {
+            page = text;
+        }
+        filmsSearch(myNewInput, page);
+        console.log('page', page);
+        console.log('create paginator в конце создания пагинатора ', myNewInput);
+    }
 
-export function setPaginator() {
-  page = event.target.textContent;
-  filmsSearch(page);
+    function getVisiblePagesCount() {
+        if (document.body.clientWidth <= 767) {
+            return 5;
+        } else {
+            return 7;
+        }
+    }
 }
-
-export let page = 1;
-
-// refs.paginationRef.addEventListener("click", setPaginator);
-
-function getVisiblePagesCount() {
-  if (document.body.clientWidth <= 767) {
-    return 5;
-  } else {
-    return 7;
-  }
-}
-
-refs.paginationRef.addEventListener("click", (event) => {
-  filmsSearch(event.target.textContent);
-
-  backToTop();
-});
 
 function backToTop() {
-  if (window.pageYOffset > 0) {
-    window.scrollBy(0, -80);
-    setTimeout(backToTop, 5);
-  }
+    if (window.pageYOffset > 0) {
+        window.scrollBy(0, -80);
+        setTimeout(backToTop, 5);
+    }
 }
 
 function trackScroll() {
-  let scrolled = window.pageYOffset;
-  let coords = document.documentElement.clientHeight;
-
-  if (scrolled > coords) {
-    goTopBtn.classList.add("back_to_top-show");
-  }
-  if (scrolled < coords) {
-    goTopBtn.classList.remove("back_to_top-show");
-  }
+    let scrolled = window.pageYOffset;
+    let coords = document.documentElement.clientHeight;
+    if (scrolled > coords) {
+        goTopBtn.classList.add("back_to_top-show");
+    }
+    if (scrolled < coords) {
+        goTopBtn.classList.remove("back_to_top-show");
+    }
 }
-
 let goTopBtn = document.querySelector(".back_to_top");
-
 window.addEventListener("scroll", trackScroll);
 goTopBtn.addEventListener("click", backToTop);
