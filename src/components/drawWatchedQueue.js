@@ -1,10 +1,11 @@
 import { drawHtml } from "./services/services.js";
-
+console.log('work');
 const librWatched = document.querySelector(".libr-watched");
 const librQueue = document.querySelector(".libr-queue");
 
 const drawLibraryWatched = function () {
     let arrLibraryWatched = JSON.parse(localStorage.getItem("arrWatched")) || [];
+    console.log(arrLibraryWatched);
     drawHtml(arrLibraryWatched);
 };
 
