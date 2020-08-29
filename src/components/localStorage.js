@@ -16,7 +16,6 @@ const saveMovieQueue = (value, id) => {
   let arr = JSON.parse(localStorage.getItem(value)) || [];
   arr.unshift(id);
     localStorage.setItem(value, JSON.stringify(arr));
-    console.log();
   // if (arr.includes(id)) {
   // }
 };
@@ -24,9 +23,16 @@ const saveMovieQueue = (value, id) => {
 
 const checkDelete = function (value, id) {
   let arr = JSON.parse(localStorage.getItem(value)) || [];
-  const findIndex = arr.indexOf(id);
-  arr.splice(findIndex, 1);
-  localStorage.setItem(value, JSON.stringify(arr));
+
+  arr.forEach(el => {
+    if (JSON.stringify(el) === JSON.stringify(id)) {
+      const findIndex = arr.indexOf(el);
+      arr.splice(findIndex, 1);
+      localStorage.setItem(value, JSON.stringify(arr));
+    } else {
+      return;
+    }
+  })
 };
 
 // =============================================
@@ -38,7 +44,7 @@ export function write(some) {
 }
 
 const checkClickBtn = (ev) => {
-  console.log(ev.target);
+  // console.log(ev.target);
   const btnWatched = document.querySelector(".card-button__watched");
   const btnDelWatched = document.querySelector(".card-button__del-watched");
   const btnQueue = document.querySelector(".card-button__queue");
