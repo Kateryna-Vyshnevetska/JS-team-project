@@ -5,33 +5,34 @@ import { getPopular } from "./services/services.js";
 import { totalResults } from "./services/services.js";
 import { getGenres } from "./services/services.js";
 import { drawHtml } from "./services/services.js";
+import { sortByPopularity } from "./sortByPopularity.js";
 
-const checkInput = function (e) {
+export const checkInput = function (e) {
   e.preventDefault();
 
   let reg = /[^\d\sA-Z]/gi;
   let inputValue = e.target.value.match(reg);
 
+  const d = filmsSearch(e.target.value).then((f) => {
+    return getGenres().then((g) =>
+      f.map((el) => ({
+        ...el,
+        genre_ids: el.genre_ids.flatMap((num) =>
+          g.filter((el) => el.id === num)
+        ),
+      }))
+    );
+  });
+  d.then(drawHtml);
+
   if (!inputValue) {
-    // filmsSearch(e.target.value);
-    const d = filmsSearch(e.target.value).then((f) => {
-      return getGenres().then((g) =>
-        f.map((el) => ({
-          ...el,
-          genre_ids: el.genre_ids.flatMap((num) =>
-            g.filter((el) => el.id === num)
-          ),
-        }))
-      );
-    });
-    d.then(drawHtml);
     setTimeout(() => {
       refs.notFoundContainer.classList.add("is-not-visible");
-      refs.sortBtn.classList.remove("is-active");
       refs.searchInfo.classList.remove("unSuccessful");
       refs.searchInfo.classList.add("successful");
       refs.searchInfo.style.textAlign = "left";
       refs.searchInfo.textContent = `Found ${totalResults} movie(s) by your request`;
+      sortByPopularity();
       if (totalResults === 0) {
         refs.notFoundContainer.classList.remove("is-not-visible");
         getPopular();

@@ -14,6 +14,7 @@ const refs = {
   paginationRef: document.querySelector(".tui-pagination"),
   notFoundText: document.querySelector(".not-found-text"),
   notFoundContainer: document.querySelector(".not-found-container"),
+  yearsRef: document.querySelector("#years"),
 };
 
 export default refs;
