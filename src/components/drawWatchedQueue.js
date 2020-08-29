@@ -1,18 +1,46 @@
 import { drawHtml } from "./services/services.js";
-console.log('work');
+import refs from "../options/refs.js";
+import {
+  createPaginator,
+  checkCreatePuginator,
+  checkCreatePuginatorForSearch,
+} from "./paginator.js";
+
+
 const librWatched = document.querySelector(".libr-watched");
 const librQueue = document.querySelector(".libr-queue");
+const libraryRef = document.querySelector('[data-nav-choice="my-library"]');
+const listFilmRef = document.querySelector(".js-name");
+
 
 const drawLibraryWatched = function () {
-    let arrLibraryWatched = JSON.parse(localStorage.getItem("arrWatched")) || [];
-    console.log(arrLibraryWatched);
-    drawHtml(arrLibraryWatched);
+  let arrLibraryWatched = JSON.parse(localStorage.getItem("arrWatched")) || [];
+  listFilmRef.innerHTML = '<p class="carousel-title">My Library Content</p>';
+
+ 
+  if (arrLibraryWatched.length > 20) {
+    refs.paginationRef.classList.remove("is-hidden-paginator");
+      
+    createPaginator(arrLibraryWatched.length);
+    drawHtml(arrLibraryWatched)
+  }
+  drawHtml(arrLibraryWatched);
 };
 
 const drawLibraryQueue = function () {
-    let arrLibraryQueue = JSON.parse(localStorage.getItem("arrQueue")) || [];
-    drawHtml(arrLibraryQueue);
+  let arrLibraryQueue = JSON.parse(localStorage.getItem("arrQueue")) || [];
+
+  listFilmRef.innerHTML = '<p class="carousel-title">My Queue Content</p>';
+
+  drawHtml(arrLibraryQueue);
 };
 
 librWatched.addEventListener("click", drawLibraryWatched);
-librQueue.addEventListener('click', drawLibraryQueue);
+librQueue.addEventListener("click", () => {
+    refs.paginationRef.classList.add("is-hidden-paginator");
+    drawLibraryQueue()
+} );
+libraryRef.addEventListener("click", () => {
+  refs.paginationRef.classList.add("is-hidden-paginator");
+  drawLibraryWatched();
+});

@@ -948,3 +948,12 @@ body.modal-open {
   border: 1px solid var(--accent-color);
   color: var(--white-text-color);
 }
+
+
+.is-hidden-paginator {
+  display: none;
+}
+
+.is-hidden {
+  display: none;
+}
