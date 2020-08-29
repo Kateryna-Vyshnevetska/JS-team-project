@@ -4,6 +4,7 @@ const librWatched = document.querySelector(".libr-watched");
 const librQueue = document.querySelector(".libr-queue");
 const massegeWatched = document.querySelector('.is-massege-watched-hidden');
 const massegeQueue = document.querySelector('.is-massege-queue-hidden');
+const body = document.querySelector('.list-film');
 
 
 const drawLibraryWatched = function () {
@@ -21,25 +22,27 @@ const drawLibraryWatched = function () {
 // librWatched.addEventListener("click", drawLibraryWatched);
 // librQueue.addEventListener("click", drawLibraryQueue);
 // =======
-    let arrLibraryWatched;
+    let arrLibraryWatched = [];
+    massegeWatched.style.display = "none", massegeQueue.style.display = "none"
     if (arrLibraryWatched = JSON.parse(localStorage.getItem("arrWatched"))) {
         drawHtml(arrLibraryWatched);
-    } else if (arrLibraryWatched = []) {
-        drawHtml(massegeWatched.style.display = "block", massegeQueue.style.display = "none")
+    } else {
+        body.innerHTML = '';
+        massegeWatched.style.display = "block";
     }
 };
 
 const drawLibraryQueue = function () {
-    let arrLibraryQueue;
-    if (arrLibraryQueue = JSON.parse(localStorage.getItem("arrQueue"))) {
+    let arrLibraryQueue = [];
+    massegeQueue.style.display = "none", massegeWatched.style.display = "none";
+    if (arrLibraryQueue = JSON.parse(localStorage.getItem("arrQueue"))){
         drawHtml(arrLibraryQueue);
-    } else if (arrLibraryQueue = []) { 
-        drawHtml(massegeQueue.style.display = "block", massegeWatched.style.display = "none")
+    } else{ 
+        body.innerHTML = '';
+        massegeQueue.style.display = "block";
     }
 };
 
 librWatched.addEventListener("click", drawLibraryWatched);
 librQueue.addEventListener('click', drawLibraryQueue);
 
-
-// >>>>>>> dev

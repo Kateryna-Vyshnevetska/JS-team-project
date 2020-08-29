@@ -9,30 +9,6 @@ import { sortByYear } from "./sortByYears.js";
 import { drawHtml, myNewTotalPage } from "./services/services.js";
 import { createPaginator } from "./paginator.js";
 
-//   const d = filmsSearch(e.target.value).then((f) => {
-//     return getGenres().then((g) =>
-//       f.map((el) => ({
-//         ...el,
-//         genre_ids: el.genre_ids.flatMap((num) =>
-//           g.filter((el) => el.id === num)
-//         ),
-//       }))
-//     );
-//   });
-//   d.then(drawHtml);
-
-//   if (!inputValue) {
-//     setTimeout(() => {
-//       refs.notFoundContainer.classList.add("is-not-visible");
-//       refs.searchInfo.classList.remove("unSuccessful");
-//       refs.searchInfo.classList.add("successful");
-//       refs.searchInfo.style.textAlign = "left";
-//       refs.searchInfo.textContent = `Found ${totalResults} movie(s) by your request`;
-//       sortByYear();
-//       sortByPopularity();
-//       if (totalResults === 0) {
-//         refs.notFoundContainer.classList.remove("is-not-visible");
-//         getPopular();
 export const checkInput = function(e) {
     e.preventDefault();
 
@@ -61,6 +37,8 @@ export const checkInput = function(e) {
             refs.searchInfo.classList.add("successful");
             refs.searchInfo.style.textAlign = "left";
             refs.searchInfo.textContent = `Found ${totalResults} movie(s) by your request`;
+            // sortByYear();
+            sortByPopularity();
             console.log('sds');
             createPaginator(myNewTotalPage);
             console.log('sds', myNewTotalPage);
