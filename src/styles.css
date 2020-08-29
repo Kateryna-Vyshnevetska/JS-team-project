@@ -209,6 +209,38 @@ body {
   display: none;
 }
 
+.years {
+  width: 150px;
+  padding: 5px;
+  font-family: Roboto;
+  font-size: 18px;
+  border-radius: 5px;
+  color: var(--black-text-color);
+  overflow-y: hidden;
+  border: 4px solid var(--accent-color);
+  appearance: none;
+  background: url(http://s1.iconbird.com/ico/2013/7/388/w64h641372775139handyicon044.png)
+    96% / 15% no-repeat;
+}
+
+#years.year-option {
+  font-weight: 500;
+}
+#years.year-option:hover {
+  color: var(--accent-color);
+  position: relative;
+}
+
+#years.year-option:hover:after {
+  content: "\2714";
+  right: 0;
+  position: absolute;
+}
+
+.years.is-not-visible {
+  display: none;
+}
+
 .button-list {
   display: flex;
   justify-content: center;

@@ -20,6 +20,29 @@ const page = 1;
 
 // THIS IS FROM SEARCH
 // With this function work search
+// <<<<<<< search8
+// export const filmsSearch = function (keyWord) {
+//   return fetch(
+//     `https://api.themoviedb.org/3/search/movie?api_key=027ca1d5e779abba9fcdc8b6b57f2385&query=${keyWord}&page=${page}&include_adult=false`
+//   )
+//     .then((list) => list.json())
+//     .then((list) => {
+//       totalResults = list.total_results;
+//       resList = list;
+//       localStorage.setItem("searchFilms", JSON.stringify(resList)); //не удалять, нужно Сергею!
+//       getFilmsByWord(list);
+//       return list.results;
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
+
+// export const drawHtml = (data) => {
+//   dataForModal = [...data];
+//   const markup = mainTemplate(data);
+//   refs.listFilms.innerHTML = markup;
+// =======
 export const filmsSearch = function(keyWord, page) {
     myNewInput = keyWord;
     return fetch(
@@ -51,6 +74,7 @@ export const drawHtml = (data) => {
     const markup = mainTemplate(data);
     refs.listFilms.innerHTML = markup;
     doneMain();
+
 };
 
 //   THIS IS DEV from Tofic but doesn`t work
