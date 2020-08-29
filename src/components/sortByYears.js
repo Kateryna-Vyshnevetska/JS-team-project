@@ -2,9 +2,10 @@ import refs from "../options/refs.js";
 import years from "../template/years.hbs";
 import { drawHtml } from "./services/services.js";
 
-let arr = JSON.parse(localStorage.getItem("searchFilms"));
-
+// let arr = JSON.parse(localStorage.getItem("searchFilms"));
+let arr;
 export function sortByYear() {
+  arr = JSON.parse(localStorage.getItem("searchFilms"));
   let arrYears = arr.results.map((el) =>
     el.release_date.slice(0, el.release_date.length - 6)
   );

@@ -20,7 +20,6 @@ const saveMovieQueue = (value, id) => {
   // }
 };
 
-
 const checkDelete = function (value, id) {
   let arr = JSON.parse(localStorage.getItem(value)) || [];
 

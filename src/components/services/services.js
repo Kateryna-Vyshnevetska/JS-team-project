@@ -5,14 +5,12 @@ import mainTemplate from "../../template/mainTemplate.hbs";
 import { doneMain } from '../modal.js';
 import { createPaginator, myFuncForReset } from "../paginator.js";
 
-// For Kate`s modal
-
 export let myNewTotalPage;
 export let myNewInput;
 export let myNewTotalAmountOfFilms = 10000;
+export let totalResults;
 
 let dataForModal;
-export let totalResults;
 let resList;
 
 // keyword и page пока заглушка, будет брать из инпута
@@ -22,6 +20,7 @@ const page = 1;
 // With this function work search
 // <<<<<<< search8
 // export const filmsSearch = function (keyWord) {
+//     console.log('when services');
 //   return fetch(
 //     `https://api.themoviedb.org/3/search/movie?api_key=027ca1d5e779abba9fcdc8b6b57f2385&query=${keyWord}&page=${page}&include_adult=false`
 //   )
@@ -29,6 +28,7 @@ const page = 1;
 //     .then((list) => {
 //       totalResults = list.total_results;
 //       resList = list;
+//       console.log('resList',resList);
 //       localStorage.setItem("searchFilms", JSON.stringify(resList)); //не удалять, нужно Сергею!
 //       getFilmsByWord(list);
 //       return list.results;
@@ -42,6 +42,7 @@ const page = 1;
 //   dataForModal = [...data];
 //   const markup = mainTemplate(data);
 //   refs.listFilms.innerHTML = markup;
+// }
 // =======
 export const filmsSearch = function(keyWord, page) {
     myNewInput = keyWord;
@@ -74,24 +75,7 @@ export const drawHtml = (data) => {
     const markup = mainTemplate(data);
     refs.listFilms.innerHTML = markup;
     doneMain();
-
 };
-
-//   THIS IS DEV from Tofic but doesn`t work
-// export const filmsSearch = function(keyWord) {
-//     return fetch(
-//             `https://api.themoviedb.org/3/search/movie?api_key=027ca1d5e779abba9fcdc8b6b57f2385&query=${keyWord}&page=${page}&include_adult=false`
-//         )
-//         .then((list) => list.json())
-//         .then((list) => {
-//             res = list.total_results;
-//             getFilmsByWord(list);
-//             return list.results;
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         });
-// };
 
 // For Kate`s modal
 export const pullData = () => {
