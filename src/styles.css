@@ -304,15 +304,15 @@ button:focus {
   border: none;
   border-radius: 50%;
   background-color: transparent;
-  color:var(--white-text-color);
+  color: var(--white-text-color);
   cursor: pointer;
   transition: background-color 200ms ease-in-out;
   outline: none;
-  background-image: url('../src/assests/images/icon-close.svg');
+  background-image: url("../src/assests/images/icon-close.svg");
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
-  transition: all 300ms ease-in
+  transition: all 300ms ease-in;
 }
 
 .lightbox__button:hover,
@@ -513,6 +513,7 @@ body.modal-open {
   border-radius: 5px;
   box-shadow: 0 0 3px;
   width: 110px;
+  height: 165px;
 }
 
 /* =============================================== */
@@ -536,7 +537,7 @@ body.modal-open {
   display: none;
   border-radius: 50%;
 }
-.btn-hidden{
+.btn-hidden {
   visibility: hidden;
 }
 
@@ -735,9 +736,10 @@ body.modal-open {
   /* --------------cast--------------------- */
   .cast-image {
     width: 200px;
+    height: 300px;
   }
   .cast-wraper {
-    max-width: 200px;
+    max-width: 100%;
   }
   .actors-wraper {
     max-width: 600px;
@@ -915,7 +917,8 @@ body.modal-open {
 
   /* =============cast============== */
   .cast-image {
-    width: 100%;
+    width: 200px;
+    height: 300px;
   }
   .cast-wraper {
     max-width: 100%;
