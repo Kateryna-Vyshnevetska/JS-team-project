@@ -137,7 +137,7 @@ body {
   background-image: url("./assests/images/icons8-play-button-2.svg");
   width: 48px;
   height: 48px;
-  background-repeat : no-repeat;
+  background-repeat: no-repeat;
   cursor: pointer;
   border: 0;
   background-color: transparent;
@@ -155,11 +155,7 @@ body {
   line-height: 1.14;
   text-align: center;
   color: #545454;
-}
-
-.footer-content {
-  margin-top: 28px;
-  margin-bottom: 55px;
+  margin: 0;
 }
 
 /* нотификация для поля инпут в хедере */
@@ -289,7 +285,7 @@ body.modal-open {
   font-size: 20px;
   line-height: 23px;
   text-transform: uppercase;
-/* <<<<<<< search6
+  /* <<<<<<< search6
   margin: 15px 20px 10px 20px;
 ======= */
   margin-bottom: 10px;
@@ -300,7 +296,7 @@ body.modal-open {
 }
 
 .card-list {
-/* <<<<<<< search6
+  /* <<<<<<< search6
   margin: 10px 20px;
 ======= */
   margin-bottom: 10px;
@@ -309,7 +305,7 @@ body.modal-open {
 
 .card-item {
   display: flex;
-/* <<<<<<< search6
+  /* <<<<<<< search6
   height: 15px;
 ======= */
 }
@@ -322,7 +318,7 @@ body.modal-open {
   line-height: 16px;
   color: var(--color-text-modal-window);
   width: 70px;
-/* <<<<<<< search6
+  /* <<<<<<< search6
   margin-right: 40px;
 ======= */
   margin-bottom: 0;
@@ -352,7 +348,7 @@ body.modal-open {
 }
 
 .card-description__title {
-/* <<<<<<< search6
+  /* <<<<<<< search6
   margin: 10px 20px 5px 20px;
 ======= */
   margin-bottom: 5px;
@@ -361,7 +357,7 @@ body.modal-open {
 }
 
 .card-description__about {
-/* <<<<<<< search6
+  /* <<<<<<< search6
   margin: 5px 20px 10px 20px;
 ======= */
   margin-bottom: 10px;
@@ -524,6 +520,10 @@ body.modal-open {
   .footer-text--first {
     margin-bottom: 10px;
   }
+  .footer-content {
+    margin-top: 28px;
+    margin-bottom: 55px;
+  }
 
   .sort-button.first {
     margin: 0 auto;
@@ -679,11 +679,10 @@ body.modal-open {
 }
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
-  
   .modal-btn:not(:last-child) {
     margin-bottom: 10px;
   }
-  
+
   .cast-wraper:nth-child(2n + 1) {
     margin-right: 10px;
   }
@@ -738,8 +737,8 @@ body.modal-open {
   .card-item__about {
     width: 90px;
   }
-  .card-item__vote{
-    padding-top:1.5px ;
+  .card-item__vote {
+    padding-top: 1.5px;
   }
 
   .card-image__wrapper {
@@ -760,14 +759,14 @@ body.modal-open {
     box-shadow: none;
     padding-left: 0;
   }
-  .modal-btn{
+  .modal-btn {
     min-width: 136px;
     line-height: 20px;
   }
   .modal-btn:not(:last-child) {
     margin-right: 15px;
   }
-  
+
   .card-button__wrapper {
     padding: 30px 0;
     justify-content: flex-start;
@@ -821,7 +820,7 @@ body.modal-open {
   }
 
   /* ===============повторюється код із 673 рядком================= */
-  
+
   /* .tabs {
     display: flex;
     justify-content: space-between;

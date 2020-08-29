@@ -2,7 +2,7 @@ import { API_KEY } from "../../options/apikey.js";
 import { data } from "autoprefixer";
 import refs from "../../options/refs.js";
 import mainTemplate from "../../template/mainTemplate.hbs";
-import {doneMain} from '../modal.js';
+import { doneMain } from "../modal.js";
 
 // For Kate`s modal
 let dataForModal;
