@@ -4,15 +4,16 @@ import filmCardTpl from "../template/film-card.hbs";
 import filmCardTplDel from "../template/film-cardDel.hbs";
 import filmCardTplDelQ from "../template/film-cardQ.hbs";
 import filmCardTplDelW from "../template/film-cardW.hbs";
+import castTpl from "../template/cast.hbs";
 
 import { pullData } from "./services/services";
 import { write } from "./localStorage.js";
 const mainFilmList = document.querySelector(".list-film");
 
+let currentObj;
 let idForLocalStorage;
 let linkForVideo;
 let titleForLink;
-
 
 const modalOptions = {
   onShow: () => checkBodyScroll(),
@@ -26,6 +27,7 @@ export function openModal(event) {
     idForLocalStorage = event.target.dataset.id;
     let id = event.target.dataset.id;
     getCurrentObj(id);
+    fetchCast(id);
   }
 }
 
@@ -35,87 +37,113 @@ function checkBodyScroll() {
 
 function getCurrentObj(id) {
   const getInfo = pullData();
-  let currentObj;
+  currentObj;
   getInfo.forEach((elem) => {
     if (elem.id === Number(id)) {
       currentObj = elem;
     }
   });
   drawModal(currentObj);
+  write(currentObj)
 }
 
 function drawModal(obj) {
+  let includeW = 0;
+  let includeQ = 0;
   let markup;
-  let arrW = JSON.parse(localStorage.getItem('arrWatched')) || [];
-  let arrQ = JSON.parse(localStorage.getItem('arrQueue')) || [];
-  if(arrW.includes(String(idForLocalStorage)) && arrQ.includes(String(idForLocalStorage))){
+  let arrW = JSON.parse(localStorage.getItem("arrWatched")) || [];
+  let arrQ = JSON.parse(localStorage.getItem("arrQueue")) || [];
+
+  arrW.forEach(el => {
+    if (JSON.stringify(el) === JSON.stringify(currentObj)){
+      includeW ++;
+    } else {
+      return;
+    }
+  })
+
+  arrQ.forEach(el => {
+    console.log(JSON.stringify(el) === JSON.stringify(currentObj));
+    if (JSON.stringify(el) === JSON.stringify(currentObj)){
+      includeQ++;
+    } else {
+      return;
+    }
+  })
+  console.log(includeW);
+  console.log(includeQ);
+
+  if (includeW && includeQ) {
     markup = filmCardTplDel(obj);
-  }else if(arrW.includes(String(idForLocalStorage)) && !arrQ.includes(String(idForLocalStorage))){
+  } else if (includeW && !includeQ) {
     markup = filmCardTplDelW(obj);
-  }else if(!arrW.includes(String(idForLocalStorage)) && arrQ.includes(String(idForLocalStorage))){
+  } else if (!includeW && includeQ) {
     markup = filmCardTplDelQ(obj);
-  }
-  else{
+  } else {
     markup = filmCardTpl(obj);
   }
   const instance = basicLightbox.create(markup, modalOptions);
   instance.show();
-  write(idForLocalStorage);
+  // write(idForLocalStorage);
   openTrailerModal();
 }
 
 export function openTrailerModal() {
   const trailerBtn = document.querySelector("[data-name ='trailer']");
   trailerBtn.addEventListener("click", () => {
-    const ApiKey = "7f0b5ab01080cb0bb4b9db0d9bc41efa";
-    const url = `https://api.themoviedb.org/3/movie/${idForLocalStorage}/videos?api_key=${ApiKey}&language=en-US`;
-    fetch(url)
-      .then((response) => response.json())
-      .then((data) => {
-        const id = data.results[0].key;
-        const instance = basicLightbox.create(`
-    <iframe width="560" height="315" src='https://www.youtube.com/embed/${id}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-`);
-        instance.show();
-      });
-  });
-
-  // trailerBtn.addEventListener("click", () => {
-  //   // linkForVideo = GetVideoTrailer(titleForLink);
-  //   // const trailerId = event.srcElement.dataset.id;
-  //   const URL = `https://api.themoviedb.org/3/movie/${idForLocalStorage}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
-  //   console.log(URL);
-  //   fetch(URL)
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       const videos = data.results;
-  //       const video = videos[0];
-  //       const videoKey = video.key;
-  //               const instance = basicLightbox.create(`
-  //           <iframe src="https://www.youtube.com/embed/${videoKey}" width="560" height="315" frameborder="0"></iframe>
-  //       `);
-  //       instance.show();
-  //     })
-  //     });
-    }
-  // чиста функція без слухачів=====================
-  //   const instance = basicLightbox.create(`
-  //   <video controls>
-  //       <source src="https://basiclightbox.electerious.com/assets/videos/video.mp4">
-  //   </video>
-  // `);
-
-  //   instance.show();
-
-  //   ТО ЧТО БЫЛО ПЕРЕД ТРЕЙЛЕРОМ
-  //   const instance = basicLightbox.create(markup);
-  //   instance.show();
-  //   // loadTrailer();
-  //   write(idForLocalStorage);
-
+    drawModalForTrailler(idForLocalStorage);
+});
+}
 
 mainFilmList.addEventListener("click", openModal);
 
+function drawModalForTrailler(id) {
+  const ApiKey = "7f0b5ab01080cb0bb4b9db0d9bc41efa";
+  const url = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${ApiKey}&language=en-US`;
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      const id = data.results[0].key;
+      const instance = basicLightbox.create(`
+  <iframe width="560" height="315" src='https://www.youtube.com/embed/${id}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+`);
+      instance.show();
+    });
+}
+
 export function getIDFromIMG(id) {
   return id;
+}
+
+export function doneMain () {
+  const btnYoutube = document.querySelectorAll('.btn-id');
+  btnYoutube.forEach(el => el.addEventListener("click", getIdForBtnTrailer))
+}
+
+const getIdForBtnTrailer = (ev) => {
+  const idForBtnTrailer = ev.target.dataset.id;
+  drawModalForTrailler(idForBtnTrailer)
+}
+
+function getCastObj(data) {
+  const artistArr = data.cast.slice(0, 4);
+  // console.log(artistArr);
+  const castBtn = document.querySelector("[data-name='cast']");
+  // console.log(castBtn);
+  let markUp = castTpl(artistArr);
+  // console.log(markUp);
+  castBtn.addEventListener("click", () => {
+    const instance = basicLightbox.create(markUp);
+    instance.show();
+  });
+}
+
+function fetchCast(id) {
+  const ApiKey = "7f0b5ab01080cb0bb4b9db0d9bc41efa";
+  const url = `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${ApiKey}`;
+  return fetch(url)
+    .then((responce) => responce.json())
+    .then((data) => {
+      getCastObj(data);
+    });
 }

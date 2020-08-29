@@ -1,5 +1,8 @@
 {{#each this}}
 <li class="film">
+  <div class="btn-id">
+    <button data-id = '{{id}}' class="btn-youtube"></button>
+  </div>
     <div class="film__poster">
       <img data-id = '{{id}}' class="film__poster-photo" src= 'https://image.tmdb.org/t/p/w300{{poster_path}}' alt="" />
     </div>
