@@ -26,7 +26,7 @@ export const checkInput = function(e) {
         );
 
     });
-    d.then(console.log()).then(drawHtml);
+    d.then(drawHtml);
 
     if (!inputValue) {
         setTimeout(() => {
