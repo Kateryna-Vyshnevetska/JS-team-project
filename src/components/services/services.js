@@ -3,8 +3,14 @@ import { data } from "autoprefixer";
 import refs from "../../options/refs.js";
 import mainTemplate from "../../template/mainTemplate.hbs";
 import { doneMain } from '../modal.js';
+import { createPaginator, myFuncForReset } from "../paginator.js";
 
 // For Kate`s modal
+
+export let myNewTotalPage;
+export let myNewInput;
+export let myNewTotalAmountOfFilms = 10000;
+
 let dataForModal;
 export let totalResults;
 let resList;
@@ -14,7 +20,8 @@ const page = 1;
 
 // THIS IS FROM SEARCH
 // With this function work search
-export const filmsSearch = function(keyWord) {
+export const filmsSearch = function(keyWord, page) {
+    myNewInput = keyWord;
     return fetch(
             `https://api.themoviedb.org/3/search/movie?api_key=027ca1d5e779abba9fcdc8b6b57f2385&query=${keyWord}&page=${page}&include_adult=false`
         )
@@ -22,6 +29,14 @@ export const filmsSearch = function(keyWord) {
         .then((list) => {
             totalResults = list.total_results;
             resList = list;
+
+            myNewTotalPage = list.total_pages;
+            myNewTotalAmountOfFilms = list.total_results;
+            // for (; i < yerunda; i++) {
+            //   createPaginator(myNewTotalPage);
+            //   console.log('create paginator в филм сёрч');
+            // }
+
             localStorage.setItem("searchFilms", JSON.stringify(resList));
             getFilmsByWord(list);
             return list.results;

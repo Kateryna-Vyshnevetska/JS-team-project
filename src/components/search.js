@@ -4,8 +4,11 @@ import { filmsSearch } from "./services/services.js";
 import { getPopular } from "./services/services.js";
 import { totalResults } from "./services/services.js";
 import { getGenres } from "./services/services.js";
-import { drawHtml } from "./services/services.js";
+// import { drawHtml } from "./services/services.js";
 import { sortByPopularity } from "./sortByPopularity.js";
+import { drawHtml, myNewTotalPage } from "./services/services.js";
+import { createPaginator } from "./paginator.js";
+
 
 export const checkInput = function(e) {
     e.preventDefault();
@@ -26,7 +29,7 @@ export const checkInput = function(e) {
         );
 
     });
-    d.then(console.log()).then(drawHtml);
+    d.then(drawHtml);
 
     if (!inputValue) {
         setTimeout(() => {
@@ -35,6 +38,10 @@ export const checkInput = function(e) {
             refs.searchInfo.classList.add("successful");
             refs.searchInfo.style.textAlign = "left";
             refs.searchInfo.textContent = `Found ${totalResults} movie(s) by your request`;
+            console.log('sds');
+            createPaginator(myNewTotalPage);
+            console.log('sds', myNewTotalPage);
+
             if (totalResults === 0) {
                 refs.notFoundContainer.classList.remove("is-not-visible");
                 getPopular();
