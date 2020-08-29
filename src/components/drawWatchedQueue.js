@@ -5,7 +5,6 @@ const librQueue = document.querySelector(".libr-queue");
 const massegeWatched = document.querySelector('.is-massege-watched-hidden');
 const massegeQueue = document.querySelector('.is-massege-queue-hidden');
 
-
 const drawLibraryWatched = function () {
     let arrLibraryWatched;
     if (arrLibraryWatched = JSON.parse(localStorage.getItem("arrWatched"))) {
