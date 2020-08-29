@@ -6,6 +6,7 @@ import { totalResults } from "./services/services.js";
 import { getGenres } from "./services/services.js";
 import { drawHtml } from "./services/services.js";
 import { sortByPopularity } from "./sortByPopularity.js";
+import { sortByYear } from "./sortByYears.js";
 
 export const checkInput = function (e) {
   e.preventDefault();
@@ -32,6 +33,7 @@ export const checkInput = function (e) {
       refs.searchInfo.classList.add("successful");
       refs.searchInfo.style.textAlign = "left";
       refs.searchInfo.textContent = `Found ${totalResults} movie(s) by your request`;
+      sortByYear();
       sortByPopularity();
       if (totalResults === 0) {
         refs.notFoundContainer.classList.remove("is-not-visible");

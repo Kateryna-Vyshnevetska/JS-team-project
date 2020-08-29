@@ -2,7 +2,6 @@ import { API_KEY } from "../../options/apikey.js";
 import { data } from "autoprefixer";
 import refs from "../../options/refs.js";
 import mainTemplate from "../../template/mainTemplate.hbs";
-import {doneMain} from '../modal.js';
 
 // For Kate`s modal
 let dataForModal;
@@ -22,7 +21,7 @@ export const filmsSearch = function (keyWord) {
     .then((list) => {
       totalResults = list.total_results;
       resList = list;
-      localStorage.setItem("searchFilms", JSON.stringify(resList));
+      localStorage.setItem("searchFilms", JSON.stringify(resList)); //не удалять, нужно Сергею!
       getFilmsByWord(list);
       return list.results;
     })
@@ -35,7 +34,6 @@ export const drawHtml = (data) => {
   dataForModal = [...data];
   const markup = mainTemplate(data);
   refs.listFilms.innerHTML = markup;
-  doneMain();
 };
 
 //   THIS IS DEV from Tofic but doesn`t work
