@@ -4,26 +4,28 @@ let idMovie;
 
 //------new-way
 const saveMovie = (value, id) => {
-    let arr = JSON.parse(localStorage.getItem(value)) || [];
-    arr.push(id);
-    localStorage.setItem(value, JSON.stringify(arr));
-    // if (arr.includes(id)) {
-    // }
+  let arr = JSON.parse(localStorage.getItem(value)) || [];
+  arr.push(id);
+  localStorage.setItem(value, JSON.stringify(arr));
+  // if (arr.includes(id)) {
+  // }
 };
 
 //-------queue-functions
 const saveMovieQueue = (value, id) => {
   let arr = JSON.parse(localStorage.getItem(value)) || [];
   arr.unshift(id);
-    localStorage.setItem(value, JSON.stringify(arr));
+  localStorage.setItem(value, JSON.stringify(arr));
   // if (arr.includes(id)) {
   // }
 };
 
 const checkDelete = function (value, id) {
   let arr = JSON.parse(localStorage.getItem(value)) || [];
-
-  arr.forEach(el => {
+  if (arr.length === 1) {
+    localStorage.removeItem(value);
+  }
+  arr.forEach((el) => {
     if (JSON.stringify(el) === JSON.stringify(id)) {
       const findIndex = arr.indexOf(el);
       arr.splice(findIndex, 1);
@@ -31,7 +33,7 @@ const checkDelete = function (value, id) {
     } else {
       return;
     }
-  })
+  });
 };
 
 // =============================================
@@ -53,10 +55,13 @@ const checkClickBtn = (ev) => {
     saveMovie("arrWatched", idMovie);
     btnWatched.textContent = "delete from watched";
     console.log(btnWatched.textContent);
-  } else if(ev.target === btnWatched && btnWatched.textContent === "delete from watched"){
+  } else if (
+    ev.target === btnWatched &&
+    btnWatched.textContent === "delete from watched"
+  ) {
     checkDelete("arrWatched", idMovie);
     btnWatched.textContent = "add to watched";
-  }else if (
+  } else if (
     ev.target === btnDelWatched &&
     btnDelWatched.textContent === "delete from watched"
   ) {
@@ -68,18 +73,30 @@ const checkClickBtn = (ev) => {
   ) {
     saveMovie("arrWatched", idMovie);
     btnWatched.textContent = "delete from watched";
-  }else if (ev.target === btnQueue && btnQueue.textContent === "add to queue") {
-    saveMovieQueue("arrQueue", idMovie)
+  } else if (
+    ev.target === btnQueue &&
+    btnQueue.textContent === "add to queue"
+  ) {
+    saveMovieQueue("arrQueue", idMovie);
     btnQueue.textContent = "delete from queue";
-  } else if(ev.target === btnQueue && btnQueue.textContent === "delete from queue"){
-    checkDelete("arrQueue", idMovie)
+  } else if (
+    ev.target === btnQueue &&
+    btnQueue.textContent === "delete from queue"
+  ) {
+    checkDelete("arrQueue", idMovie);
     btnQueue.textContent = "add to queue";
-  }else if (ev.target === btnDelQueue && btnDelQueue.textContent === "delete from queue") {
-    checkDelete("arrQueue", idMovie)
+  } else if (
+    ev.target === btnDelQueue &&
+    btnDelQueue.textContent === "delete from queue"
+  ) {
+    checkDelete("arrQueue", idMovie);
     btnDelQueue.textContent = "add to queue";
-  }else if (ev.target === btnDelQueue && btnDelQueue.textContent === "add to queue") {
-    saveMovieQueue("arrQueue", idMovie)
+  } else if (
+    ev.target === btnDelQueue &&
+    btnDelQueue.textContent === "add to queue"
+  ) {
+    saveMovieQueue("arrQueue", idMovie);
     btnDelQueue.textContent = "delete from queue";
   }
-}
+};
 // localStorage.clear()
