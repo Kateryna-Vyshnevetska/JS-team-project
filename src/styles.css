@@ -604,7 +604,6 @@ body.modal-open {
     padding-right: 75px;
   }
   .section {
-    padding-top: 60px;
     padding-bottom: 60px;
     max-width: var(--section-tablet-width-size);
   }
@@ -1047,4 +1046,3 @@ body.modal-open {
   text-align: center;
   color: #be3309;
 }
-
