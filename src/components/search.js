@@ -1,7 +1,6 @@
 import refs from "../options/refs.js";
 import debounce from "lodash.debounce";
 import { filmsSearch } from "./services/services.js";
-import { getPopular } from "./services/services.js";
 import { totalResults } from "./services/services.js";
 import { getGenres } from "./services/services.js";
 import { sortByPopularity } from "./sortByPopularity.js";
@@ -29,7 +28,6 @@ export const checkInput = function (e) {
         .sort((a, b) => b.vote_average - a.vote_average)
     );
   });
-  d.then(drawHtml);
 
   if (!inputValue) {
     setTimeout(() => {
@@ -40,21 +38,19 @@ export const checkInput = function (e) {
       refs.searchInfo.textContent = `Found ${totalResults} movie(s) by your request`;
       sortByYear();
       sortByPopularity();
+
+      d.then(drawHtml);
+
       createPaginator(myNewTotalPage);
-      console.log("sds", myNewTotalPage);
 
       if (totalResults === 0) {
         refs.notFoundContainer.classList.remove("is-not-visible");
-        // showPopular(page)
         console.log("первое то что нам надо ");
         refs.searchInfo.classList.remove("successful");
         refs.searchInfo.classList.add("unSuccessful");
         refs.searchInfo.textContent = `Found ${totalResults} movie(s) by your request`;
         refs.paginationRef.classList.add("is-not-visible");
       } else if (e.target.value === "") {
-        console.log("второе то что нам надо ");
-        // showPopular(page)
-
         refs.searchInfo.textContent = "";
         refs.notFoundContainer.classList.add("is-not-visible");
       }
