@@ -42,10 +42,9 @@ export const checkInput = function (e) {
       d.then(drawHtml);
 
       createPaginator(myNewTotalPage);
-
+      
       if (totalResults === 0) {
         refs.notFoundContainer.classList.remove("is-not-visible");
-        console.log("первое то что нам надо ");
         refs.searchInfo.classList.remove("successful");
         refs.searchInfo.classList.add("unSuccessful");
         refs.searchInfo.textContent = `Found ${totalResults} movie(s) by your request`;
@@ -54,7 +53,7 @@ export const checkInput = function (e) {
         refs.searchInfo.textContent = "";
         refs.notFoundContainer.classList.add("is-not-visible");
       }
-    }, 800);
+    }, 1000);
   } else {
     refs.searchInfo.classList.remove("successful");
     refs.searchInfo.classList.add("unSuccessful");

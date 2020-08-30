@@ -135,14 +135,55 @@ body {
 
 .btn-youtube {
   background-image: url("./assests/images/icons8-play-button-2.svg");
-  width: 48px;
-  height: 48px;
+  width: 275px;
+  height: 40px;
   background-repeat: no-repeat;
   cursor: pointer;
   border: 0;
   background-color: transparent;
   position: absolute;
   z-index: 1;
+}
+
+.btn-youtube-text {
+  font-size: 18px;
+  color: #ffffff;
+  cursor: pointer;
+  position: absolute;
+  margin: 0;
+  z-index: 2;
+  text-shadow: -0 -1px 2px rgba(5, 4, 4, 0.81), 0 -1px 2px rgba(5, 4, 4, 0.81),
+    -0 1px 2px rgba(5, 4, 4, 0.81), 0 1px 2px rgba(5, 4, 4, 0.81),
+    -1px -0 2px rgba(5, 4, 4, 0.81), 1px -0 2px rgba(5, 4, 4, 0.81),
+    -1px 0 2px rgba(5, 4, 4, 0.81), 1px 0 2px rgba(5, 4, 4, 0.81),
+    -1px -1px 2px rgba(5, 4, 4, 0.81), 1px -1px 2px rgba(5, 4, 4, 0.81),
+    -1px 1px 2px rgba(5, 4, 4, 0.81), 1px 1px 2px rgba(5, 4, 4, 0.81),
+    -1px -1px 2px rgba(5, 4, 4, 0.81), 1px -1px 2px rgba(5, 4, 4, 0.81),
+    -1px 1px 2px rgba(5, 4, 4, 0.81), 1px 1px 2px rgba(5, 4, 4, 0.81);
+}
+
+.film .overlay-btn-youtube-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-family: Roboto;
+  background-color: rgba(255, 118, 6, 0.753);
+  position: absolute;
+  height: 25px;
+  width: 240px;
+  border-radius: 5px;
+  top: 3px;
+  left: 180px;
+  z-index: 2;
+  transform: translateX(100%);
+  transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.film:hover .overlay-btn-youtube-text {
+  opacity: 1;
+  transform: translateX(-62%);
+  transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .search-icon.is-not-visible {

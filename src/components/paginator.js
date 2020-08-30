@@ -17,7 +17,6 @@ let globalCheckPaginattor = 0;
 let globalCheckPaginattorForSearch = 0;
 
 const visiblePaginator = document.querySelector('[data-input="input"]');
-
 if (visiblePaginator.classList.contains(".input-search .is-not-visible")) {
 }
 
@@ -128,3 +127,4 @@ function trackScroll() {
 let goTopBtn = document.querySelector(".back_to_top");
 window.addEventListener("scroll", trackScroll);
 goTopBtn.addEventListener("click", backToTop);
+
