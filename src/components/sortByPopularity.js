@@ -7,6 +7,6 @@ export function sortByPopularity() {
         let sortedFilms = films.results.sort(
             (a, b) => b.vote_average - a.vote_average
         );
-        console.log([...sortedFilms]);
+        // console.log([...sortedFilms]);
     } else return;
 }
