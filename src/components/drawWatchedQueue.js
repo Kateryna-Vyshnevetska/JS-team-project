@@ -19,7 +19,7 @@ let newArrWitnWatched = [];
 let newArrWitnQueue = [];
 let switcher;
 
-const drawLibraryWatched = function () {
+export const drawLibraryWatched = function () {
   switcher = 1;
   let arrLibraryWatched;
   listFilmRef.textContent = "Your library watched";
@@ -50,7 +50,7 @@ const drawLibraryWatched = function () {
   }
 };
 
-const drawLibraryQueue = function () {
+export const drawLibraryQueue = function () {
   switcher = 0;
   refs.paginationRef3.classList.add("is-hidden-paginator");
   listFilmRef.textContent = "Your library queue";
@@ -86,7 +86,7 @@ const drawLibraryQueue = function () {
 };
 
 function backToTop() {
-  window.scroll({top: 770, behavior: "auto"});
+  window.scroll({top: 700, behavior: "auto"});
 }
 
 export const createPaginatorForLibrary = function (pageForStartPaginator, lengthVal) {
@@ -163,5 +163,6 @@ librQueue.addEventListener("click", drawLibraryQueue);
 libraryRef.addEventListener("click", () => {
       drawLibraryWatched();
       backToTop();
+      localStorage.setItem('myLibrary', 'true');
       refs.paginationRef.classList.add("is-hidden-paginator");
     })

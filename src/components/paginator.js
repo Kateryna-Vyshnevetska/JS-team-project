@@ -6,6 +6,7 @@ import {
   myNewTotalPage,
   myNewInput,
   myNewTotalAmountOfFilms,
+  getPopular
   getGenres,
   drawHtml,
 } from "./services/services.js";
@@ -17,7 +18,8 @@ let globalCheckPaginattor = 0;
 let globalCheckPaginattorForSearch = 0;
 
 const visiblePaginator = document.querySelector('[data-input="input"]');
-if (visiblePaginator.classList.contains(".input-search .is-not-visible")) {
+
+if (visiblePaginator.classList.contains(".input-search .is-not-visible")) { // console.log("yes");
 }
 
 export function checkCreatePuginator(totalPages) {
@@ -44,7 +46,7 @@ export const createPaginator = function (pageForStartPaginator) {
     itemsPerPage: 20,
     visiblePages: getVisiblePagesCount(),
     centerAlign: true,
-    totalPage: pageForStartPaginator,
+    totalPage: pageForStartPaginator
   };
 
   new Pagination(document.getElementById("pagination2"), paginatorOptions);
@@ -55,7 +57,7 @@ export const createPaginator = function (pageForStartPaginator) {
 
   function isEnabled(event) {
     const arr = Array.from(event.target.classList);
-    if (!arr.includes("tui-pagination")) {
+    if (! arr.includes("tui-pagination")) {
       setPaginator(event);
       backToTop();
     }
@@ -99,7 +101,7 @@ export const createPaginator = function (pageForStartPaginator) {
   }
 
   function getVisiblePagesCount() {
-    if (document.body.clientWidth <= 767) {
+    if (document.body.clientWidth<= 767) {
       return 5;
     } else {
       return 7;
@@ -109,22 +111,19 @@ export const createPaginator = function (pageForStartPaginator) {
 
 function backToTop() {
   window.scroll({
-    top: 770,
-    behavior: "auto",
-  });
+    top: 700, behavior: "auto", });
 }
 
 function trackScroll() {
   let scrolled = window.pageYOffset;
   let coords = document.documentElement.clientHeight;
-  if (scrolled > coords) {
-    goTopBtn.classList.add("back_to_top-show");
+  if (scrolled> coords) {
+      goTopBtn.classList.add("back_to_top-show");
+    }
+    if (scrolled < coords) {
+      goTopBtn.classList.remove("back_to_top-show");
+    }
   }
-  if (scrolled < coords) {
-    goTopBtn.classList.remove("back_to_top-show");
-  }
-}
-let goTopBtn = document.querySelector(".back_to_top");
-window.addEventListener("scroll", trackScroll);
-goTopBtn.addEventListener("click", backToTop);
-
+  let goTopBtn = document.querySelector(".back_to_top");
+  window.addEventListener("scroll", trackScroll);
+  goTopBtn.addEventListener("click", backToTop);
