@@ -17,6 +17,7 @@ const page = 1;
 
 export const filmsSearch = function (keyWord, page) {
   myNewInput = keyWord;
+  
   return fetch(`https://api.themoviedb.org/3/search/movie?api_key=027ca1d5e779abba9fcdc8b6b57f2385&query=${keyWord}&page=${page}&include_adult=false`).then((list) => list.json()).then((list) => {
     totalResults = list.total_results;
     resList = list;
