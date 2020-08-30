@@ -63,7 +63,7 @@
           </nav>
         </div>
         <div class="header-bottom">
-          <input type="text" placeholder="Поиск фильмов" class="input-search" />
+          <input type="text" placeholder="Поиск фильмов" class="input-search" data-input="input" />
           <span class="search-icon"></span>
           <p class="unSuccessful" id="notify-text"></p>
           <ul
@@ -114,7 +114,7 @@
         <p class="is-massege-watched-hidden">Your library watched movies is empty yet. Try to add some movies here.</p>
         <p class="is-massege-queue-hidden">Your library queue movies is empty yet. Try to add some movies here.</p>
         <!-- карусель -->
-        <section class="section">
+        <section class="section js-main-content">
           <div class="container">
             <div class="not-found-container is-not-visible">
               <p class="not-found-text">There are no exact matches &#9888<br>Refine your search or select a movie from our recommendations:</p>
@@ -130,10 +130,16 @@
                 <button class="sort-button" type="button">Will be</button> -->
               </div>
             </div>
-            
-            <ul class="list-film"></ul>
+            <h2 class="js-name"></h2> 
+            <ul class="list-film">            
+            </ul>
           </div>
           <div id="pagination2" class="tui-pagination" data-pagination-value=""></div>
+        </section>
+        <section class="my-library">
+          <div class="container">
+
+          </div>
         </section>
         <a class="back_to_top" title="Наверх">&#9650;</a>
       </main>

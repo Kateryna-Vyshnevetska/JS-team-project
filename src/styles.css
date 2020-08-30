@@ -1022,6 +1022,14 @@ body.modal-open {
   color: var(--white-text-color);
 }
 
+.is-hidden-paginator {
+  display: none;
+}
+
+.is-hidden {
+  display: none;
+}
+
 .is-massege-watched-hidden {
   font-size: 24px;
   line-height: 1.14;
@@ -1039,3 +1047,4 @@ body.modal-open {
   text-align: center;
   color: #be3309;
 }
+
