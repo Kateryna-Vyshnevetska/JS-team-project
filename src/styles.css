@@ -354,7 +354,6 @@ button:focus {
 
 .lightbox__button:hover,
 .lightbox__button:focus {
-  /* background-color: rgba(0, 0, 0, 0.5); */
   background-color: var(--accent-color);
 }
 
@@ -388,9 +387,6 @@ body.modal-open {
   font-size: 20px;
   line-height: 23px;
   text-transform: uppercase;
-  /* <<<<<<< search6
-  margin: 15px 20px 10px 20px;
-======= */
   margin-bottom: 10px;
 }
 
@@ -399,18 +395,12 @@ body.modal-open {
 }
 
 .card-list {
-  /* <<<<<<< search6
-  margin: 10px 20px;
-======= */
   margin-bottom: 10px;
   font-size: 12px;
 }
 
 .card-item {
   display: flex;
-  /* <<<<<<< search6
-  height: 15px;
-======= */
 }
 
 .card-item:not(:last-child) {
@@ -421,9 +411,6 @@ body.modal-open {
   line-height: 16px;
   color: var(--color-text-modal-window);
   width: 70px;
-  /* <<<<<<< search6
-  margin-right: 40px;
-======= */
   margin-bottom: 0;
 }
 
@@ -451,18 +438,12 @@ body.modal-open {
 }
 
 .card-description__title {
-  /* <<<<<<< search6
-  margin: 10px 20px 5px 20px;
-======= */
   margin-bottom: 5px;
   font-size: 12px;
   text-transform: uppercase;
 }
 
 .card-description__about {
-  /* <<<<<<< search6
-  margin: 5px 20px 10px 20px;
-======= */
   margin-bottom: 10px;
   font-size: 12px;
   line-height: 20px;
@@ -930,13 +911,6 @@ body.modal-open {
     }
   }
 
-  /* ===============повторюється код із 673 рядком================= */
-
-  /* .tabs {
-    display: flex;
-    justify-content: space-between;
-  }  */
-
   .new-bcg {
     background-image: linear-gradient(
         to right,
@@ -975,29 +949,6 @@ body.modal-open {
     margin-right: 15px;
   }
 }
-
-/* стили кнопок для пагинатора  */
-/* .section .tui-pagination .tui-page-btn {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
-}
-
-.tui-pagination .tui-page-btn.tui-is-selected {
-    background-color: var(--accent-color);
-    font-weight: 500;
-}
-
-.tui-pagination .tui-page-btn.tui-is-selected:hover {
-    background-color: var(--accent-color);
-    font-weight: 500;
-}
-
-.tui-pagination.is-not-visible {
-  display: none;
-} */
-
-/* БАЗОВЫЙ СТИЛЬ КНОПКИ + АКЦЕНТ !!!!!!!!!!! */
 
 .btn {
   background-color: transparent;

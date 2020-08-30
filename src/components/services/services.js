@@ -3,7 +3,7 @@ import {data} from "autoprefixer";
 import refs from "../../options/refs.js";
 import mainTemplate from "../../template/mainTemplate.hbs";
 import {doneMain} from "../modal.js";
-import {createPaginator, myFuncForReset, checkCreatePuginator, checkCreatePuginatorForSearch} from "../paginator.js";
+import {checkCreatePuginator, checkCreatePuginatorForSearch} from "../paginator.js";
 
 export let myNewTotalPage;
 export let myNewInput;
@@ -101,5 +101,4 @@ const dateSlice = function (results) {
   });
 };
 
-// getPopular();
 showPopular(page);
