@@ -6,9 +6,9 @@ import {
   myNewTotalPage,
   myNewInput,
   myNewTotalAmountOfFilms,
-  getPopular
+  getPopular,
   getGenres,
-  drawHtml,
+  drawHtml
 } from "./services/services.js";
 
 import refs from "../options/refs.js";
@@ -82,16 +82,10 @@ export const createPaginator = function (pageForStartPaginator) {
       showPopular(page);
     } else if (myNewInput.length > 0) {
       const newD = filmsSearch(myNewInput, page).then((f) => {
-        return getGenres().then((g) =>
-          f
-            .map((el) => ({
-              ...el,
-              genre_ids: el.genre_ids.flatMap((num) =>
-                g.filter((el) => el.id === num)
-              ),
-            }))
-            .sort((a, b) => b.vote_average - a.vote_average)
-        );
+        return getGenres().then((g) => f.map((el) => ({
+          ...el,
+          genre_ids: el.genre_ids.flatMap((num) => g.filter((el) => el.id === num))
+        })).sort((a, b) => b.vote_average - a.vote_average));
       });
 
       newD.then(drawHtml);
