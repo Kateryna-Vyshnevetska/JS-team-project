@@ -9,11 +9,14 @@ import { sortByYear } from "./sortByYears.js";
 import { drawHtml, myNewTotalPage } from "./services/services.js";
 import { createPaginator } from "./paginator.js";
 
+const popularTitle = document.querySelector(".popular-title");
+
 export const checkInput = function (e) {
   e.preventDefault();
   let reg = /[^\d\sA-Z]/gi;
   let inputValue = e.target.value.match(reg);
 
+  popularTitle.style.display = "none";
   const d = filmsSearch(e.target.value).then((f) => {
     return getGenres().then((g) =>
       f
