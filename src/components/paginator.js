@@ -6,8 +6,10 @@ import {
   myNewTotalPage,
   myNewInput,
   myNewTotalAmountOfFilms,
-  getPopular,
+  getGenres,
+  drawHtml,
 } from "./services/services.js";
+
 import refs from "../options/refs.js";
 
 let globalCheckPaginattor = 0;
@@ -15,10 +17,9 @@ let globalCheckPaginattor = 0;
 let globalCheckPaginattorForSearch = 0;
 
 const visiblePaginator = document.querySelector('[data-input="input"]');
-// console.log(visiblePaginator);
 if (visiblePaginator.classList.contains(".input-search .is-not-visible")) {
-  console.log("yes");
 }
+
 export function checkCreatePuginator(totalPages) {
   if (globalCheckPaginattor === 0) {
     createPaginator(totalPages);
@@ -56,7 +57,7 @@ export const createPaginator = function (pageForStartPaginator) {
     const arr = Array.from(event.target.classList);
     if (!arr.includes("tui-pagination")) {
       setPaginator(event);
-      // backToTop();
+      backToTop();
     }
   }
 
@@ -64,14 +65,13 @@ export const createPaginator = function (pageForStartPaginator) {
     page = 1;
     const text = event.target.textContent;
     if (text === "next") {
-      page++;
+      page += 1;
     } else if (text === "prev") {
-      page--;
+      page -= 1;
     } else if (text === "first") {
       page = 1;
     } else if (text === "last") {
       page = myNewTotalPage;
-      console.log("check", page);
     } else {
       page = text;
     }
@@ -79,7 +79,20 @@ export const createPaginator = function (pageForStartPaginator) {
     if (typeof myNewInput === "undefined") {
       showPopular(page);
     } else if (myNewInput.length > 0) {
-      filmsSearch(myNewInput, page);
+      const newD = filmsSearch(myNewInput, page).then((f) => {
+        return getGenres().then((g) =>
+          f
+            .map((el) => ({
+              ...el,
+              genre_ids: el.genre_ids.flatMap((num) =>
+                g.filter((el) => el.id === num)
+              ),
+            }))
+            .sort((a, b) => b.vote_average - a.vote_average)
+        );
+      });
+
+      newD.then(drawHtml);
     } else {
       return;
     }
@@ -95,10 +108,10 @@ export const createPaginator = function (pageForStartPaginator) {
 };
 
 function backToTop() {
-  if (window.pageYOffset > 0) {
-    window.scrollBy(0, -80);
-    setTimeout(backToTop, 5);
-  }
+  window.scroll({
+    top: 770,
+    behavior: "auto",
+  });
 }
 
 function trackScroll() {
@@ -115,4 +128,3 @@ let goTopBtn = document.querySelector(".back_to_top");
 window.addEventListener("scroll", trackScroll);
 goTopBtn.addEventListener("click", backToTop);
 
-// console.dir(visiblePaginator);

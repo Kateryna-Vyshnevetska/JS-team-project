@@ -97,7 +97,7 @@ function drawModal(obj) {
 
 export function openTrailerModal() {
   const trailerBtn = document.querySelector("[data-name ='trailer']");
-  trailerBtn.addEventListener("click", () => {
+    trailerBtn.addEventListener("click", () => {
     drawModalForTrailler(idForLocalStorage);
   });
 }

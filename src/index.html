@@ -63,7 +63,7 @@
           </nav>
         </div>
         <div class="header-bottom">
-          <input type="text" placeholder="Поиск фильмов" class="input-search" data-input="input" />
+          <input type="text" placeholder="Search a movie" class="input-search" data-input="input" />
           <span class="search-icon"></span>
           <p class="unSuccessful" id="notify-text"></p>
           <ul
@@ -85,7 +85,7 @@
         <!-- карусель -->
         <section class="carousel">
           <div class="container">
-            <h2 class="carousel-title">Скоро в прокате</h2>
+            <h2 class="carousel-title">New Releases / Coming Soon</h2>
             <div class="slider-container">
               <!-- nav arrows -->
               <div class="slider-arrows">
@@ -111,8 +111,8 @@
             </div>
           </div>
         </section>
-        <p class="is-massege-watched-hidden">Your library watched movies is empty yet. Try to add some movies here.</p>
-        <p class="is-massege-queue-hidden">Your library queue movies is empty yet. Try to add some movies here.</p>
+        <!-- <p class="is-massege-watched-hidden">Your library watched movies is empty yet. Try to add some movies here.</p>
+        <p class="is-massege-queue-hidden">Your library queue movies is empty yet. Try to add some movies here.</p> -->
         <!-- карусель -->
         <section class="section js-main-content">
           <div class="container">
@@ -130,11 +130,15 @@
                 <button class="sort-button" type="button">Will be</button> -->
               </div>
             </div>
-            <h2 class="js-name"></h2> 
+            <h1 class="popular-title">Popular Movies</h1>
+            <h2 class="js-name carousel-title" ></h2> 
+              <p class="is-massege-watched-hidden">Your library watched movies is empty yet. Try to add some movies here.</p>
+              <p class="is-massege-queue-hidden">Your library queue movies is empty yet. Try to add some movies here.</p>
             <ul class="list-film">            
             </ul>
           </div>
-          <div id="pagination2" class="tui-pagination" data-pagination-value=""></div>
+          <div id="pagination2" class="tui-pagination" data-pagination-value="2"></div>
+          <div id="pagination3" class="tui-pagination" data-pagination-value="3"></div>
         </section>
         <section class="my-library">
           <div class="container">
@@ -151,13 +155,26 @@
           <p class="footer-text">&nbsp;Developed with 🧡   <a href="https://goit.ua/"> by GoIT Students</a> </p>
         </div>
       </div>
-<!-- uSocial -->
-<script async src="https://usocial.pro/usocial/usocial.js?v=6.1.4" data-script="usocial" charset="utf-8"></script>
-<div class="uSocial-Share" data-pid="0449e49f115d8cc5c0e29440c8c0137a" data-type="share"
-  data-options="round-rect,style1,default,right,slide-up,size32,eachCounter0,counter0,nomobile"
-  data-social="telegram,lin,twi,fb"></div>
-<!-- /uSocial -->
     </footer> 
+<script type="text/javascript">(function (w, doc) {
+    if (!w.__utlWdgt) {
+      w.__utlWdgt = true;
+      var d = doc, s = d.createElement('script'), g = 'getElementsByTagName';
+      s.type = 'text/javascript'; s.charset = 'UTF-8'; s.async = true;
+      s.src = ('https:' == w.location.protocol ? 'https' : 'http') + '://w.uptolike.com/widgets/v1/uptolike.js';
+      var h = d[g]('body')[0];
+      h.appendChild(s);
+    }
+  })(window, document);
+</script>
+<div data-mobile-view="true" data-share-size="30" data-like-text-enable="false" data-background-alpha="0.0"
+  data-pid="1888913" data-mode="share" data-background-color="#ffffff" data-hover-effect="rotate-cw"
+  data-share-shape="round-rectangle" data-share-counter-size="8" data-icon-color="#ffffff"
+  data-mobile-sn-ids="fb.tw.tm.ln." data-text-color="#000000" data-buttons-color="#ffffff"
+  data-counter-background-color="#ffffff" data-share-counter-type="disable" data-orientation="fixed-right"
+  data-following-enable="false" data-sn-ids="fb.tw.tm.ln." data-preview-mobile="false" data-selection-enable="false"
+  data-exclude-show-more="true" data-share-style="5" data-counter-background-alpha="1.0" data-top-button="false"
+  class="uptolike-buttons"></div>
   </body>
   
 </html>
