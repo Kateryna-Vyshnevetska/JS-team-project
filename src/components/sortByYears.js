@@ -2,7 +2,6 @@ import refs from "../options/refs.js";
 import years from "../template/years.hbs";
 import { drawHtml } from "./services/services.js";
 
-// let arr = JSON.parse(localStorage.getItem("searchFilms"));
 let arr;
 export function sortByYear() {
   arr = JSON.parse(localStorage.getItem("searchFilms"));
@@ -19,21 +18,26 @@ export function sortByYear() {
   if (filteredArrYears) {
     refs.yearsRef.classList.remove("is-not-visible");
 
-    refs.yearsRef.innerHTML = `<option value="" selected>Select year</option>${years(
+    refs.yearsRef.innerHTML = `<option value="0" selected="selected">Select year</option>${years(
       arrayPerfect
     )}`;
   } else return;
 }
 
 function getYear(event) {
-  const res = arr.results.filter((el) => {
-    return (
-      el.release_date.slice(0, el.release_date.length - 6) ===
-      event.target.value
-    );
-  });
-  console.log(res);
-  drawHtml(res);
+  console.log(event.target.firstChild);
+  if (event.target.value === 0) {
+    return;
+  } else if (event.target.value !== 0) {
+    let res = arr.results.filter((el) => {
+      return (
+        el.release_date.slice(0, el.release_date.length - 6) ===
+        event.target.value
+      );
+    });
+    console.log(res);
+    drawHtml(res);
+  }
 }
 
 refs.yearsRef.addEventListener("change", getYear);

@@ -15,6 +15,7 @@ const refs = {
   notFoundText: document.querySelector(".not-found-text"),
   notFoundContainer: document.querySelector(".not-found-container"),
   yearsRef: document.querySelector("#years"),
+  treilerTitle: document.querySelectorAll(".btn-youtube-text"),
 };
 
 export default refs;

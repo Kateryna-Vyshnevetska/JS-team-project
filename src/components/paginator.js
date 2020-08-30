@@ -15,7 +15,7 @@ let globalCheckPaginattor = 0;
 let globalCheckPaginattorForSearch = 0;
 
 const visiblePaginator = document.querySelector('[data-input="input"]');
-console.log(visiblePaginator);
+// console.log(visiblePaginator);
 if (visiblePaginator.classList.contains(".input-search .is-not-visible")) {
   console.log("yes");
 }
@@ -76,8 +76,6 @@ export const createPaginator = function (pageForStartPaginator) {
       page = text;
     }
 
-    
-
     if (typeof myNewInput === "undefined") {
       showPopular(page);
     } else if (myNewInput.length > 0) {
@@ -117,4 +115,4 @@ let goTopBtn = document.querySelector(".back_to_top");
 window.addEventListener("scroll", trackScroll);
 goTopBtn.addEventListener("click", backToTop);
 
-console.dir(visiblePaginator);
+// console.dir(visiblePaginator);
