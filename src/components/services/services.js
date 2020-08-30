@@ -66,7 +66,9 @@ export const filmsSearch = function (keyWord, page) {
       // }
 
       localStorage.setItem("searchFilms", JSON.stringify(resList));
-      checkCreatePuginatorForSearch(myNewTotalPage);
+
+      // checkCreatePuginatorForSearch(myNewTotalPage);
+
       getFilmsByWord(list);
       return list.results;
     })
@@ -76,7 +78,7 @@ export const filmsSearch = function (keyWord, page) {
 };
 
 export const drawHtml = (data) => {
-  console.log("dataServ", data);
+  // console.log("dataServ", data);
   dataForModal = [...data];
   const markup = mainTemplate(data);
   refs.listFilms.innerHTML = markup;
