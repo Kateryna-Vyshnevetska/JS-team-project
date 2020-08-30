@@ -8,6 +8,10 @@
   user-select: none;
 }
 
+.tui-pagination.is-not-visible{
+  display: none;
+}
+
 .tui-ico-ellipsis,
 .tui-ico-first,
 .tui-ico-last,
