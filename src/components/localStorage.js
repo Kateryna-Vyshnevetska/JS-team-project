@@ -1,3 +1,5 @@
+import {drawHtml} from "./services/services";
+
 let idMovie;
 const massegeWatched = document.querySelector(".is-massege-watched-hidden");
 const massegeQueue = document.querySelector(".is-massege-queue-hidden");
@@ -17,20 +19,28 @@ const saveMovieQueue = (value, id) => {
 
 const checkDelete = function (value, id) {
   let arr = JSON.parse(localStorage.getItem(value)) || [];
-  if (arr.length === 1) {
-    localStorage.removeItem(value);
-    body.innerHTML = "";
-    if (value === 'arrWatched') {
-      massegeWatched.style.display = "block";
-    } else {
-      massegeQueue.style.display = "block";
-    }
-  }
+  let checkPage = JSON.parse(localStorage.getItem('myLibrary'));
+  console.log(checkPage);
+
   arr.forEach((el) => {
     if (JSON.stringify(el) === JSON.stringify(id)) {
       const findIndex = arr.indexOf(el);
       arr.splice(findIndex, 1);
       localStorage.setItem(value, JSON.stringify(arr));
+      if (checkPage) {
+        drawHtml(arr);
+        console.log(arr.length);
+
+        if (arr.length === 0) {
+          localStorage.removeItem(value);
+          body.innerHTML = "";
+          if (value === 'arrWatched') {
+            massegeWatched.style.display = "block";
+          } else {
+            massegeQueue.style.display = "block";
+          }
+        }
+      }
     } else {
       return;
     }
