@@ -6,10 +6,10 @@ import { totalResults } from "./services/services.js";
 import { getGenres } from "./services/services.js";
 import { sortByPopularity } from "./sortByPopularity.js";
 import { sortByYear } from "./sortByYears.js";
-import { drawHtml, myNewTotalPage, } from "./services/services.js";
+import { drawHtml, myNewTotalPage } from "./services/services.js";
 import { createPaginator } from "./paginator.js";
 
-export const checkInput = function(e) {
+export const checkInput = function (e) {
   e.preventDefault();
   let reg = /[^\d\sA-Z]/gi;
   let inputValue = e.target.value.match(reg);
@@ -38,20 +38,20 @@ export const checkInput = function(e) {
       sortByYear();
       sortByPopularity();
       createPaginator(myNewTotalPage);
-      console.log('sds', myNewTotalPage);
+      console.log("sds", myNewTotalPage);
 
       if (totalResults === 0) {
         refs.notFoundContainer.classList.remove("is-not-visible");
-        showPopular(page)
-        console.log('первое то что нам надо ');
+        // showPopular(page)
+        console.log("первое то что нам надо ");
         refs.searchInfo.classList.remove("successful");
         refs.searchInfo.classList.add("unSuccessful");
         refs.searchInfo.textContent = `Found ${totalResults} movie(s) by your request`;
         refs.paginationRef.classList.add("is-not-visible");
       } else if (e.target.value === "") {
-        console.log('второе то что нам надо ');
-        showPopular(page)
-        
+        console.log("второе то что нам надо ");
+        // showPopular(page)
+
         refs.searchInfo.textContent = "";
         refs.notFoundContainer.classList.add("is-not-visible");
       }
@@ -63,7 +63,6 @@ export const checkInput = function(e) {
     refs.paginationRef.classList.add("is-not-visible");
     refs.searchInfo.style.textAlign = "center";
     refs.notFoundContainer.classList.add("is-not-visible");
-    
   }
 };
 
