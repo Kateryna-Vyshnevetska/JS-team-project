@@ -14,8 +14,6 @@ const mainFilmList = document.querySelector(".list-film");
 
 let currentObj;
 let idForLocalStorage;
-let linkForVideo;
-let titleForLink;
 
 const modalOptions = {
   onShow: () => {
@@ -91,7 +89,6 @@ function drawModal(obj) {
   const instance = basicLightbox.create(markup, modalOptions);
   instance.show();
   modalClBtn(instance);
-  // write(idForLocalStorage);
   openTrailerModal();
 }
 
@@ -138,11 +135,8 @@ const getIdForBtnTrailer = (ev) => {
 
 function getCastObj(data) {
   const artistArr = data.cast.slice(0, 4);
-  // console.log(artistArr);
   const castBtn = document.querySelector("[data-name='cast']");
-  // console.log(castBtn);
   let markUp = castTpl(artistArr);
-  // console.log(markUp);
   castBtn.addEventListener("click", () => {
     const instance = basicLightbox.create(markUp);
     instance.show();

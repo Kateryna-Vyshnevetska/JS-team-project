@@ -8,12 +8,11 @@ export function sortByYear() {
   let arrYears = arr.results.map((el) =>
     el.release_date.slice(0, el.release_date.length - 6)
   );
-  // console.log(arrYears);
+
   let filteredArrYears = arrYears.filter((el) => el !== "");
   let sortedfilteredArrYears = filteredArrYears.sort((a, b) => b - a);
   let arrayRemoveDublicate = new Set(sortedfilteredArrYears);
   let arrayPerfect = [...arrayRemoveDublicate];
-  // console.log(arrayPerfect);
 
   if (filteredArrYears) {
     refs.yearsRef.classList.remove("is-not-visible");
@@ -25,12 +24,6 @@ export function sortByYear() {
 }
 
 function getYear(event) {
-
-//   if (event.target.value === 0) {
-//     return;
-//   } else if (event.target.value !== 0) {
-//     let res = arr.results.filter((el) => {
-
   refs.paginationRef.classList.add("is-hidden");
 
   if (event.target.value === "") {
