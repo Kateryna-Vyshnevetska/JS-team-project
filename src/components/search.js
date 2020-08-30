@@ -35,7 +35,7 @@ export const checkInput = function(e) {
       refs.searchInfo.classList.add("successful");
       refs.searchInfo.style.textAlign = "left";
       refs.searchInfo.textContent = `Found ${totalResults} movie(s) by your request`;
-//       sortByYear();
+      sortByYear();
       sortByPopularity();
       createPaginator(myNewTotalPage);
       console.log('sds', myNewTotalPage);

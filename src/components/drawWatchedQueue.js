@@ -37,8 +37,8 @@ const drawLibraryQueue = function () {
     }
 };
 
-// librWatched.addEventListener("click", drawLibraryWatched);
-// librQueue.addEventListener('click', drawLibraryQueue);
+librWatched.addEventListener("click", drawLibraryWatched);
+librQueue.addEventListener('click', drawLibraryQueue);
 // librQueue.addEventListener("click", () => {
 //     refs.paginationRef.classList.add("is-hidden-paginator");
 //     drawLibraryQueue()
