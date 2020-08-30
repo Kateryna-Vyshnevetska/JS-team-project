@@ -6,7 +6,6 @@ import {
   myNewTotalPage,
   myNewInput,
   myNewTotalAmountOfFilms,
-  getPopular,
   getGenres,
   drawHtml
 } from "./services/services.js";
@@ -118,6 +117,10 @@ function trackScroll() {
       goTopBtn.classList.remove("back_to_top-show");
     }
   }
+
   let goTopBtn = document.querySelector(".back_to_top");
   window.addEventListener("scroll", trackScroll);
-  goTopBtn.addEventListener("click", backToTop);
+  goTopBtn.addEventListener("click", () => {
+    window.scroll({
+      top: 0, behavior: "smooth", });
+  });
