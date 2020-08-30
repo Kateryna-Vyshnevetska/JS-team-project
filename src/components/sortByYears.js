@@ -25,8 +25,7 @@ export function sortByYear() {
 
 function getYear(event) {
   refs.paginationRef.classList.add("is-hidden");
-
-  if (event.target.value === "") {
+  if (event.target.value === '0') {
     drawHtml(arr.results);
     refs.paginationRef.classList.remove("is-hidden");
   } else {
