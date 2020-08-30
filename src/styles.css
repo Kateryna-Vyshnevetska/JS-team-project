@@ -516,7 +516,7 @@ body.modal-open {
 /* Стили для кнопки прокрутки вверх  */
 
 .back_to_top {
-  bottom: 1%;
+  bottom: 15%;
   right: 1%;
   width: 20px;
   height: 20px;
@@ -604,7 +604,6 @@ body.modal-open {
     padding-right: 75px;
   }
   .section {
-    padding-top: 60px;
     padding-bottom: 60px;
     max-width: var(--section-tablet-width-size);
   }
@@ -758,7 +757,7 @@ body.modal-open {
     margin-right: 10px;
   }
   .back_to_top {
-    bottom: 2%;
+    bottom: 25%;
     right: 2%;
     width: 30px;
     height: 30px;
@@ -1047,4 +1046,3 @@ body.modal-open {
   text-align: center;
   color: #be3309;
 }
-
