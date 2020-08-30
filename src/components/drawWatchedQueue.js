@@ -1,11 +1,5 @@
-import { drawHtml } from "./services/services.js";
+import {drawHtml} from "./services/services.js";
 import refs from "../options/refs.js";
-
-import {
-  createPaginator,
-  checkCreatePuginator,
-  checkCreatePuginatorForSearch,
-} from "./paginator.js";
 import Pagination from "tui-pagination";
 
 const librWatched = document.querySelector(".libr-watched");
@@ -20,62 +14,85 @@ let lengthWatched;
 let lengthQueue;
 let perPage = 20;
 let newArrWitnWatched = [];
+let newArrWitnQueue = [];
+let switcher;
 
 const drawLibraryWatched = function () {
-  let arrLibraryWatched = [];
+  switcher = 1;
+  let arrLibraryWatched;
   listFilmRef.textContent = "Your library watched";
   massegeWatched.style.display = "none";
   massegeQueue.style.display = "none";
-
   if ((arrLibraryWatched = JSON.parse(localStorage.getItem("arrWatched")))) {
     lengthWatched = arrLibraryWatched.length;
     if (lengthWatched > 20) {
       amountOfPages = Math.ceil(arrLibraryWatched.length / 20);
-
       for (let i = 0; i <= amountOfPages; i++) {
         newArrWitnWatched.push(arrLibraryWatched.splice(0, perPage));
       }
       drawHtml(newArrWitnWatched[0]);
-      createPaginatorForLibrary(amountOfPages);
+      createPaginatorForLibrary(amountOfPages, lengthWatched);
+    } else if (lengthWatched === 0) {
+      backToTop();
+      body.innerHTML = "";
+      massegeWatched.style.display = "block";
+    } else if (lengthWatched < 20) {
+      drawHtml(arrLibraryWatched);
+      backToTop();
     }
-    // drawHtml(arrLibraryWatched);
   } else {
-    console.log("delete");
+    backToTop();
     body.innerHTML = "";
     massegeWatched.style.display = "block";
   }
 };
 
 const drawLibraryQueue = function () {
+  switcher = 0;
+  refs.paginationRef3.classList.add("is-hidden-paginator");
   listFilmRef.textContent = "Your library queue";
-  let arrLibraryQueue = [];
-  (massegeQueue.style.display = "none"),
-    (massegeWatched.style.display = "none");
+  let arrLibraryQueue;
+  massegeQueue.style.display = "none";
+  massegeWatched.style.display = "none";
   if ((arrLibraryQueue = JSON.parse(localStorage.getItem("arrQueue")))) {
-    if (arrLibraryQueue.length > 20) {
-      createPaginatorForLibrary(arrLibraryQueue.length);
+    lengthQueue = arrLibraryQueue.length;
+    if (lengthQueue > 20) {
+      amountOfPages = Math.ceil(arrLibraryQueue.length / 20);
+      for (let i = 0; i <= amountOfPages; i++) {
+        newArrWitnQueue.push(arrLibraryQueue.splice(0, perPage));
+      }
+      drawHtml(newArrWitnQueue[0]);
+      backToTop();
+      refs.paginationRef3.classList.remove("is-hidden-paginator");
+      createPaginatorForLibrary(amountOfPages, lengthQueue);
+    } else if (lengthQueue === 0) {
+      backToTop();
+      body.innerHTML = "";
+      massegeQueue.style.display = "block";
+
+    } else if (lengthQueue < 20) {
+
+      drawHtml(arrLibraryQueue);
+      backToTop();
     }
-    drawHtml(arrLibraryQueue);
   } else {
+    backToTop();
     body.innerHTML = "";
     massegeQueue.style.display = "block";
   }
 };
 
 function backToTop() {
-  window.scroll({
-    top: 770,
-    behavior: "auto",
-  });
+  window.scroll({top: 770, behavior: "auto"});
 }
 
-export const createPaginatorForLibrary = function (pageForStartPaginator) {
+export const createPaginatorForLibrary = function (pageForStartPaginator, lengthVal) {
   const paginatorOptions = {
-    totalItems: lengthWatched,
+    totalItems: lengthVal,
     itemsPerPage: 20,
     visiblePages: getVisiblePagesCount(),
     centerAlign: true,
-    totalPage: pageForStartPaginator,
+    totalPage: pageForStartPaginator
   };
 
   new Pagination(document.getElementById("pagination3"), paginatorOptions);
@@ -86,7 +103,7 @@ export const createPaginatorForLibrary = function (pageForStartPaginator) {
 
   function isEnabled(event) {
     const arr = Array.from(event.target.classList);
-    if (!arr.includes("tui-pagination")) {
+    if (! arr.includes("tui-pagination")) {
       setPaginator(event);
       backToTop();
     }
@@ -94,36 +111,43 @@ export const createPaginatorForLibrary = function (pageForStartPaginator) {
 
   function setPaginator(event) {
     const text = event.target.textContent;
-    console.log(text);
     if (text === "next") {
       page += 1;
-      drawHtml(newArrWitnWatched[page]);
+      if (switcher) {
+        drawHtml(newArrWitnWatched[page]);
+      }
+      drawHtml(newArrWitnQueue[page]);
     } else if (text === "prev") {
       page -= 1;
-      console.log(page);
-      drawHtml(newArrWitnWatched[page]);
+      if (switcher) {
+        drawHtml(newArrWitnWatched[page]);
+      }
+      drawHtml(newArrWitnQueue[page]);
     } else if (text === "first") {
-      page = 1;
+      page = 0;
+      if (switcher) {
+        drawHtml(newArrWitnWatched[page]);
+      }
+      drawHtml(newArrWitnQueue[page]);
     } else if (text === "last") {
-      page = myNewTotalPage;
-      console.log("check", page);
+      if (switcher) {
+        page = amountOfPages - 1;
+        console.log(page);
+        drawHtml(newArrWitnWatched[page]);
+      }
+      page = amountOfPages - 1;
+      drawHtml(newArrWitnQueue[page]);
     } else {
       page = Number(text) - 1;
-      console.log("page", page);
-      drawHtml(newArrWitnWatched[page]);
+      if (switcher) {
+        drawHtml(newArrWitnWatched[page]);
+      }
+      drawHtml(newArrWitnQueue[page]);
     }
-    // drawHtml(newArrWitnWatched[page]);
-    // if (typeof myNewInput === "undefined") {
-    //   showPopular(page);
-    // } else if (myNewInput.length > 0) {
-    //   filmsSearch(myNewInput, page);
-    // } else {
-    //   return;
-    // }
   }
 
   function getVisiblePagesCount() {
-    if (document.body.clientWidth <= 767) {
+    if (document.body.clientWidth<= 767) {
       return 5;
     } else {
       return 7;
@@ -134,6 +158,7 @@ export const createPaginatorForLibrary = function (pageForStartPaginator) {
 librWatched.addEventListener("click", drawLibraryWatched);
 librQueue.addEventListener("click", drawLibraryQueue);
 libraryRef.addEventListener("click", () => {
-  drawLibraryWatched();
-  refs.paginationRef.classList.add("is-hidden-paginator");
-});
+      drawLibraryWatched();
+      backToTop();
+      refs.paginationRef.classList.add("is-hidden-paginator");
+    })
