@@ -12,3 +12,4 @@ import "./components/sortByPopularity.js";
 import "./components/carousel.js";
 import "./components/drawWatchedQueue.js";
 import "./components/bot.js";
+import "./components/sortByYears.js";

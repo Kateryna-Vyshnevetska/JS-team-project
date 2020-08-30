@@ -3,10 +3,19 @@ import { data } from "autoprefixer";
 import refs from "../../options/refs.js";
 import mainTemplate from "../../template/mainTemplate.hbs";
 import { doneMain } from "../modal.js";
+import {
+  createPaginator,
+  myFuncForReset,
+  checkCreatePuginator,
+  checkCreatePuginatorForSearch,
+} from "../paginator.js";
 
-// For Kate`s modal
-let dataForModal;
+export let myNewTotalPage;
+export let myNewInput;
+export let myNewTotalAmountOfFilms = 10000;
 export let totalResults;
+
+let dataForModal;
 let resList;
 
 // keyword и page пока заглушка, будет брать из инпута
@@ -14,21 +23,56 @@ const page = 1;
 
 // THIS IS FROM SEARCH
 // With this function work search
-export const filmsSearch = function (keyWord) {
-  return fetch(
-    `https://api.themoviedb.org/3/search/movie?api_key=027ca1d5e779abba9fcdc8b6b57f2385&query=${keyWord}&page=${page}&include_adult=false`
-  )
-    .then((list) => list.json())
-    .then((list) => {
-      totalResults = list.total_results;
-      resList = list;
-      localStorage.setItem("searchFilms", JSON.stringify(resList));
-      getFilmsByWord(list);
-      return list.results;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+// <<<<<<< search8
+// export const filmsSearch = function (keyWord) {
+//     console.log('when services');
+//   return fetch(
+//     `https://api.themoviedb.org/3/search/movie?api_key=027ca1d5e779abba9fcdc8b6b57f2385&query=${keyWord}&page=${page}&include_adult=false`
+//   )
+//     .then((list) => list.json())
+//     .then((list) => {
+//       totalResults = list.total_results;
+//       resList = list;
+//       console.log('resList',resList);
+//       localStorage.setItem("searchFilms", JSON.stringify(resList)); //не удалять, нужно Сергею!
+//       getFilmsByWord(list);
+//       return list.results;
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// };
+
+// export const drawHtml = (data) => {
+//   dataForModal = [...data];
+//   const markup = mainTemplate(data);
+//   refs.listFilms.innerHTML = markup;
+// }
+export const filmsSearch = function(keyWord, page) {
+    myNewInput = keyWord;
+    return fetch(
+            `https://api.themoviedb.org/3/search/movie?api_key=027ca1d5e779abba9fcdc8b6b57f2385&query=${keyWord}&page=${page}&include_adult=false`
+        )
+        .then((list) => list.json())
+        .then((list) => {
+            totalResults = list.total_results;
+            resList = list;
+
+            myNewTotalPage = list.total_pages;
+            myNewTotalAmountOfFilms = list.total_results;
+            // for (; i < yerunda; i++) {
+            //   createPaginator(myNewTotalPage);
+            //   console.log('create paginator в филм сёрч');
+            // }
+
+            localStorage.setItem("searchFilms", JSON.stringify(resList));
+            checkCreatePuginatorForSearch(myNewTotalPage);
+            getFilmsByWord(list);
+            return list.results;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
 };
 
 export const drawHtml = (data) => {
@@ -37,22 +81,6 @@ export const drawHtml = (data) => {
   refs.listFilms.innerHTML = markup;
   doneMain();
 };
-
-//   THIS IS DEV from Tofic but doesn`t work
-// export const filmsSearch = function(keyWord) {
-//     return fetch(
-//             `https://api.themoviedb.org/3/search/movie?api_key=027ca1d5e779abba9fcdc8b6b57f2385&query=${keyWord}&page=${page}&include_adult=false`
-//         )
-//         .then((list) => list.json())
-//         .then((list) => {
-//             res = list.total_results;
-//             getFilmsByWord(list);
-//             return list.results;
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         });
-// };
 
 // For Kate`s modal
 export const pullData = () => {
@@ -68,13 +96,17 @@ export const getDetails = function (id) {
 };
 
 // при вызове популярных так же срабатывают и другие функции как при обычном поиске
-export const getPopular = function () {
+export const getPopular = function (page) {
   return fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${page}`
   )
     .then((list) => list.json())
     .then((list) => {
+      myNewTotalPage = list.total_pages;
+      myNewTotalAmountOfFilms = list.total_results;
+
       getFilmsByWord(list);
+
       return list.results;
     })
     .catch((error) => {
@@ -95,19 +127,26 @@ export const getGenres = function () {
     });
 };
 
-const d = getPopular().then((f) => {
-  return getGenres().then((g) =>
-    f.map((el) => ({
-      ...el,
-      genre_ids: el.genre_ids.flatMap((num) => g.filter((el) => el.id === num)),
-    }))
-  );
-});
-d.then(drawHtml);
+export const showPopular = function (page) {
+  const d = getPopular(page).then((f) => {
+    return getGenres().then((g) =>
+      f.map((el) => ({
+        ...el,
+        genre_ids: el.genre_ids.flatMap((num) =>
+          g.filter((el) => el.id === num)
+        ),
+      }))
+    );
+  });
+  
+  checkCreatePuginator(myNewTotalPage);
+  
+  d.then(drawHtml);
+};
 
 export const getFilmsByWord = function (list, keyword) {
   let results = list.results;
-  // console.log(results);
+  
   dateSlice(results);
   drawHtml(results);
 };
@@ -118,4 +157,5 @@ const dateSlice = function (results) {
   });
 };
 
-getPopular();
+// getPopular();
+showPopular(page);

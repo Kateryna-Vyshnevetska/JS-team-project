@@ -8,68 +8,87 @@ import castTpl from "../template/cast.hbs";
 
 import { pullData } from "./services/services";
 import { write } from "./localStorage.js";
+import { modalClBtn, modalClBtTrailer, modalClBtCast } from "./modal-close";
 const mainFilmList = document.querySelector(".list-film");
 
+let currentObj;
 let idForLocalStorage;
 let linkForVideo;
 let titleForLink;
 
 const modalOptions = {
-  onShow: () => checkBodyScroll(),
-  onClose: () => checkBodyScroll(),
-};
-
-export function openModal(event) {
-  if (event.target.nodeName !== "IMG") {
-    return;
-  } else {
-    idForLocalStorage = event.target.dataset.id;
-    let id = event.target.dataset.id;
-    getCurrentObj(id);
+  onShow: () => {
+    checkBodyScroll()},
+    onClose: () => checkBodyScroll(),
+  };
+  
+  export function openModal(event) {
+    if (event.target.nodeName !== "IMG") {
+      return;
+    } else {
+      idForLocalStorage = event.target.dataset.id;
+      let id = event.target.dataset.id;
+      getCurrentObj(id);
     fetchCast(id);
   }
 }
 
 function checkBodyScroll() {
   document.body.classList.toggle("modal-open");
+  const scrollBtn=document.querySelector('.back_to_top')
+  scrollBtn.classList.toggle('btn-hidden');
 }
 
 function getCurrentObj(id) {
   const getInfo = pullData();
-  let currentObj;
+  currentObj;
   getInfo.forEach((elem) => {
     if (elem.id === Number(id)) {
       currentObj = elem;
     }
   });
   drawModal(currentObj);
-  write(currentObj)
+  write(currentObj);
 }
 
 function drawModal(obj) {
+  let includeW = 0;
+  let includeQ = 0;
   let markup;
   let arrW = JSON.parse(localStorage.getItem("arrWatched")) || [];
   let arrQ = JSON.parse(localStorage.getItem("arrQueue")) || [];
-  if (
-    arrW.includes(String(idForLocalStorage)) &&
-    arrQ.includes(String(idForLocalStorage))
-  ) {
+
+  arrW.forEach(el => {
+    if (JSON.stringify(el) === JSON.stringify(currentObj)){
+      includeW ++;
+    } else {
+      return;
+    }
+  })
+
+  arrQ.forEach(el => {
+    console.log(JSON.stringify(el) === JSON.stringify(currentObj));
+    if (JSON.stringify(el) === JSON.stringify(currentObj)){
+      includeQ++;
+    } else {
+      return;
+    }
+  })
+  console.log(includeW);
+  console.log(includeQ);
+
+  if (includeW && includeQ) {
     markup = filmCardTplDel(obj);
-  } else if (
-    arrW.includes(String(idForLocalStorage)) &&
-    !arrQ.includes(String(idForLocalStorage))
-  ) {
+  } else if (includeW && !includeQ) {
     markup = filmCardTplDelW(obj);
-  } else if (
-    !arrW.includes(String(idForLocalStorage)) &&
-    arrQ.includes(String(idForLocalStorage))
-  ) {
+  } else if (!includeW && includeQ) {
     markup = filmCardTplDelQ(obj);
   } else {
     markup = filmCardTpl(obj);
   }
   const instance = basicLightbox.create(markup, modalOptions);
   instance.show();
+  modalClBtn(instance);
   // write(idForLocalStorage);
   openTrailerModal();
 }
@@ -78,7 +97,7 @@ export function openTrailerModal() {
   const trailerBtn = document.querySelector("[data-name ='trailer']");
   trailerBtn.addEventListener("click", () => {
     drawModalForTrailler(idForLocalStorage);
-});
+  });
 }
 
 mainFilmList.addEventListener("click", openModal);
@@ -94,6 +113,7 @@ function drawModalForTrailler(id) {
   <iframe width="560" height="315" src='https://www.youtube.com/embed/${id}'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 `);
       instance.show();
+      modalClBtTrailer(instance);
     });
 }
 
@@ -101,15 +121,15 @@ export function getIDFromIMG(id) {
   return id;
 }
 
-export function doneMain () {
-  const btnYoutube = document.querySelectorAll('.btn-id');
-  btnYoutube.forEach(el => el.addEventListener("click", getIdForBtnTrailer))
+export function doneMain() {
+  const btnYoutube = document.querySelectorAll(".btn-id");
+  btnYoutube.forEach((el) => el.addEventListener("click", getIdForBtnTrailer));
 }
 
 const getIdForBtnTrailer = (ev) => {
   const idForBtnTrailer = ev.target.dataset.id;
-  drawModalForTrailler(idForBtnTrailer)
-}
+  drawModalForTrailler(idForBtnTrailer);
+};
 
 function getCastObj(data) {
   const artistArr = data.cast.slice(0, 4);
@@ -121,6 +141,7 @@ function getCastObj(data) {
   castBtn.addEventListener("click", () => {
     const instance = basicLightbox.create(markUp);
     instance.show();
+    modalClBtCast(instance);
   });
 }
 
