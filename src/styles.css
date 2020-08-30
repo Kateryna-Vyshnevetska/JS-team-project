@@ -155,11 +155,7 @@ body {
   line-height: 1.14;
   text-align: center;
   color: #545454;
-}
-
-.footer-content {
-  margin-top: 28px;
-  margin-bottom: 55px;
+  margin: 0;
 }
 
 /* нотификация для поля инпут в хедере */
@@ -589,6 +585,10 @@ body.modal-open {
   }
   .footer-text--first {
     margin-bottom: 10px;
+  }
+  .footer-content {
+    margin-top: 28px;
+    margin-bottom: 55px;
   }
 
   .sort-button.first {
