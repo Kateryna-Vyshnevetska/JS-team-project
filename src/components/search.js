@@ -11,7 +11,7 @@ import {createPaginator} from "./paginator.js";
 const popularTitle = document.querySelector(".popular-title");
 let inputValue;
 export const checkInput = function (e) {
-  if (! e.target.value) {
+  if (!e.target.value) {
     showPopular(1);
   } else {
     e.preventDefault();
@@ -26,9 +26,10 @@ export const checkInput = function (e) {
       })).sort((a, b) => b.vote_average - a.vote_average));
     });
     d.then(drawHtml);
+    refs.yearsRef.classList.remove("is-not-visible");
   }
 
-  refs.yearsRef.classList.remove("is-not-visible");
+  
   if (! inputValue) {
     setTimeout(() => {
       refs.notFoundContainer.classList.add("is-not-visible");
@@ -50,6 +51,7 @@ export const checkInput = function (e) {
         refs.yearsRef.classList.add("is-not-visible");
 
       } else if (e.target.value === "") {
+        refs.yearsRef.classList.add("is-not-visible");
         console.log(e.target.value);
         refs.searchInfo.textContent = "";
         refs.notFoundContainer.classList.add("is-not-visible");
