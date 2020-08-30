@@ -9,6 +9,8 @@ const massegeQueue = document.querySelector(".is-massege-queue-hidden");
 const libraryRef = document.querySelector('[data-nav-choice="my-library"]');
 const body = document.querySelector(".list-film");
 const listFilmRef = document.querySelector(".js-name");
+const popularTitle = document.querySelector(".popular-title");
+
 let amountOfPages;
 let lengthWatched;
 let lengthQueue;
@@ -23,6 +25,7 @@ const drawLibraryWatched = function () {
   listFilmRef.textContent = "Your library watched";
   massegeWatched.style.display = "none";
   massegeQueue.style.display = "none";
+  popularTitle.style.display = "none";
   if ((arrLibraryWatched = JSON.parse(localStorage.getItem("arrWatched")))) {
     lengthWatched = arrLibraryWatched.length;
     if (lengthWatched > 20) {
