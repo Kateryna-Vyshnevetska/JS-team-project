@@ -12,13 +12,17 @@ const popularTitle = document.querySelector(".popular-title");
 let inputValue;
 export const checkInput = function (e) {
   if (!e.target.value) {
+    console.log('here');
+    refs.yearsRef.classList.add("is-not-visible");
+    refs.notFoundContainer.classList.add("is-not-visible");
+    popularTitle.classList.add("is-not-visible");
     showPopular(1);
   } else {
     e.preventDefault();
     let reg = /[^\d\sA-Zа-яА-ЯЁё]/gi;
     inputValue = e.target.value.match(reg);
 
-    popularTitle.style.display = "none";
+    popularTitle.textContent = `Results on your request: ${e.target.value}`;
     const d = filmsSearch(e.target.value).then((f) => {
       return getGenres().then((g) => f.map((el) => ({
         ...el,
@@ -26,12 +30,13 @@ export const checkInput = function (e) {
       })).sort((a, b) => b.vote_average - a.vote_average));
     });
     d.then(drawHtml);
-    refs.yearsRef.classList.remove("is-not-visible");
+    
   }
 
   
   if (! inputValue) {
     setTimeout(() => {
+      refs.yearsRef.classList.remove("is-not-visible");
       refs.notFoundContainer.classList.add("is-not-visible");
       refs.searchInfo.classList.remove("unSuccessful");
       refs.searchInfo.classList.add("successful");
@@ -49,6 +54,11 @@ export const checkInput = function (e) {
         refs.searchInfo.textContent = `Found ${totalResults} movie(s) by your request`;
         refs.paginationRef.classList.add("is-not-visible");
         refs.yearsRef.classList.add("is-not-visible");
+        if (!e.target.value) {
+          refs.searchInfo.textContent = '';
+          refs.notFoundContainer.classList.add("is-not-visible");
+          popularTitle.textContent = 'Popular Movies';
+        }
 
       } else if (e.target.value === "") {
         refs.yearsRef.classList.add("is-not-visible");
