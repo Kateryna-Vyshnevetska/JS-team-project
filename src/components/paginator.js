@@ -112,7 +112,7 @@ export const createPaginator = function (pageForStartPaginator) {
 
 function backToTop() {
   window.scroll({
-    top: 700,
+    top: 500,
     behavior: "auto",
   });
 }

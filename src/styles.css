@@ -97,6 +97,7 @@ body {
   margin: 0 auto;
 }
 
+
 .input-search {
   display: block;
   width: 100%;
@@ -699,9 +700,18 @@ body.modal-open {
   .input-search {
     width: 336px;
   }
+  /* Для хрома / */
   .input-search:focus::-webkit-input-placeholder {
     text-indent: 500px;
     transition: text-indent 0.3s ease;
+  }
+  .input-search::-webkit-input-placeholder {
+    transition: text-indent 0.3s ease;
+  }
+  /* / Для моззилы */
+  .input-search:focus::-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   .search-icon {
