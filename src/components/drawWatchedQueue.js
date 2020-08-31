@@ -1,4 +1,4 @@
-import {drawHtml} from "./services/services.js";
+import { drawHtml } from "./services/services.js";
 import refs from "../options/refs.js";
 import Pagination from "tui-pagination";
 
@@ -36,15 +36,15 @@ export const drawLibraryWatched = function () {
       drawHtml(newArrWitnWatched[0]);
       createPaginatorForLibrary(amountOfPages, lengthWatched);
     } else if (lengthWatched === 0) {
-      backToTop();
+      document.body.clientWidth <= 767 ? backToTopMob() : backToTop();
       body.innerHTML = "";
       massegeWatched.style.display = "block";
     } else if (lengthWatched < 20) {
       drawHtml(arrLibraryWatched);
-      backToTop();
+      document.body.clientWidth <= 767 ? backToTopMob() : backToTop();
     }
   } else {
-    backToTop();
+    document.body.clientWidth <= 767 ? backToTopMob() : backToTop();
     body.innerHTML = "";
     massegeWatched.style.display = "block";
   }
@@ -65,37 +65,44 @@ export const drawLibraryQueue = function () {
         newArrWitnQueue.push(arrLibraryQueue.splice(0, perPage));
       }
       drawHtml(newArrWitnQueue[0]);
-      backToTop();
+      document.body.clientWidth <= 767 ? backToTopMob() : backToTop();
       refs.paginationRef3.classList.remove("is-hidden-paginator");
       createPaginatorForLibrary(amountOfPages, lengthQueue);
     } else if (lengthQueue === 0) {
-      backToTop();
+      document.body.clientWidth <= 767 ? backToTopMob() : backToTop();
       body.innerHTML = "";
       massegeQueue.style.display = "block";
-
     } else if (lengthQueue < 20) {
-
       drawHtml(arrLibraryQueue);
-      backToTop();
+      document.body.clientWidth <= 767 ? backToTopMob() : backToTop();
     }
   } else {
-    backToTop();
+    document.body.clientWidth <= 767 ? backToTopMob() : backToTop();
     body.innerHTML = "";
     massegeQueue.style.display = "block";
   }
 };
 
 function backToTop() {
-  window.scroll({top: 700, behavior: "auto"});
+  window.scroll({ top: 700, behavior: "auto" });
+}
+function backToTopMob() {
+  window.scroll({
+    top: 260,
+    behavior: "auto",
+  });
 }
 
-export const createPaginatorForLibrary = function (pageForStartPaginator, lengthVal) {
+export const createPaginatorForLibrary = function (
+  pageForStartPaginator,
+  lengthVal
+) {
   const paginatorOptions = {
     totalItems: lengthVal,
     itemsPerPage: 20,
     visiblePages: getVisiblePagesCount(),
     centerAlign: true,
-    totalPage: pageForStartPaginator
+    totalPage: pageForStartPaginator,
   };
 
   new Pagination(document.getElementById("pagination3"), paginatorOptions);
@@ -106,9 +113,9 @@ export const createPaginatorForLibrary = function (pageForStartPaginator, length
 
   function isEnabled(event) {
     const arr = Array.from(event.target.classList);
-    if (! arr.includes("tui-pagination")) {
+    if (!arr.includes("tui-pagination")) {
       setPaginator(event);
-      backToTop();
+      document.body.clientWidth <= 767 ? backToTopMob() : backToTop();
     }
   }
 
@@ -150,7 +157,7 @@ export const createPaginatorForLibrary = function (pageForStartPaginator, length
   }
 
   function getVisiblePagesCount() {
-    if (document.body.clientWidth<= 767) {
+    if (document.body.clientWidth <= 767) {
       return 5;
     } else {
       return 7;
@@ -161,8 +168,8 @@ export const createPaginatorForLibrary = function (pageForStartPaginator, length
 librWatched.addEventListener("click", drawLibraryWatched);
 librQueue.addEventListener("click", drawLibraryQueue);
 libraryRef.addEventListener("click", () => {
-      drawLibraryWatched();
-      backToTop();
-      localStorage.setItem('myLibrary', 'true');
-      refs.paginationRef.classList.add("is-hidden-paginator");
-    })
+  drawLibraryWatched();
+  document.body.clientWidth <= 767 ? backToTopMob() : backToTop();
+  localStorage.setItem("myLibrary", "true");
+  refs.paginationRef.classList.add("is-hidden-paginator");
+});
