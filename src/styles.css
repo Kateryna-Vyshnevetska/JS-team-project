@@ -376,6 +376,10 @@ body.modal-open {
 .card-image__wrapper {
   text-align: center;
 }
+.-webkit-user-select{
+  width: 100%;
+  height: auto;
+}
 
 .card-image {
   width: 250px;
