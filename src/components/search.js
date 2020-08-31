@@ -16,7 +16,8 @@ export const checkInput = function (e) {
   let reg = /[^\d\sA-Z]/gi;
   let inputValue = e.target.value.match(reg);
 
-  popularTitle.style.display = "none";
+  popularTitle.textContent = `Results on your request:  ${e.target.value}`;
+
   const d = filmsSearch(e.target.value).then((f) => {
     return getGenres().then((g) =>
       f
