@@ -85,7 +85,7 @@ const getUpcomingFilms = function () {
                     <a href="#" class="carousel-link">
                       <img src="https://image.tmdb.org/t/p/w200${el.poster_path}" class="img-carousel" />
                     </a>
-                    <p class="release-date">В прокате</br>"${el.release_date}"</p>
+                    <p class="release-date">Available from</br>"${el.release_date}"</p>
                   </div>`;
       });
     })

@@ -538,10 +538,10 @@ body.modal-open {
 /* Стили для кнопки прокрутки вверх  */
 
 .back_to_top {
-  bottom: 15%;
-  right: 1%;
-  width: 20px;
-  height: 20px;
+  bottom: 10%;
+  right: 6%;
+  width: 40px;
+  height: 40px;
   list-style: none;
   text-decoration: none;
   position: fixed;
