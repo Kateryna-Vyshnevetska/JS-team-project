@@ -12,7 +12,6 @@ import { modalClBtn, modalClBtTrailer, modalClBtCast } from "./modal-close";
 import refs from "../options/refs";
 const mainFilmList = document.querySelector(".list-film");
 
-
 let currentObj;
 let idForLocalStorage;
 
@@ -95,7 +94,7 @@ function drawModal(obj) {
 
 export function openTrailerModal() {
   const trailerBtn = document.querySelector("[data-name ='trailer']");
-    trailerBtn.addEventListener("click", () => {
+  trailerBtn.addEventListener("click", () => {
     drawModalForTrailler(idForLocalStorage);
   });
 }
@@ -115,21 +114,19 @@ function drawModalForTrailler(id) {
       instance.show();
       modalClBtTrailer(instance);
     })
-    .catch(() =>{const instance = basicLightbox.create(`
-    <iframe width="560" height="315" src='../assests/images/this-video-is-unavailable-on-YouTube.png' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    .catch(() => {
+      const instance = basicLightbox.create(`
+    <iframe width="560" height="315" src='http://www.youtube.com/embed/zwBpUdZ0lrQ' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       `);
-      
-        instance.show();
-        modalClBtTrailer(instance);
-      })
+
+      instance.show();
+      modalClBtTrailer(instance);
+    });
 }
 
 export function getIDFromIMG(id) {
   return id;
 }
-
-
-
 
 // `
 //     <iframe width="560" height="315" src='http://www.youtube.com/embed/zwBpUdZ0lrQ?enablejsapi=1&origin=http://www.youtube.com'frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -138,7 +135,6 @@ export function getIDFromIMG(id) {
 // `
 // <iframe width="560" height="315" src='../assests/images/this-video-is-unavailable-on-YouTube.png' frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 //   `
-
 
 export function doneMain() {
   const btnYoutube = document.querySelectorAll(".btn-id");

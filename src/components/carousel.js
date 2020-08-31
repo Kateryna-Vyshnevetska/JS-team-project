@@ -94,7 +94,6 @@ const getUpcomingFilms = function (pageCarousel) {
                     <p class="release-date">Available from</br>"${el.release_date}"</p>
                   </div>`;
       });
-      console.log(listRef);
     })
     .catch((error) => {
       console.log(error);
