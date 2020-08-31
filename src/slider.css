@@ -1,6 +1,5 @@
 /* cтили для карусели  */
 .slider-container {
-  width: 100%;
   position: relative;
   margin: 10px auto;
 }
@@ -93,5 +92,27 @@
 @media screen and (min-width: 768px) {
   .carousel {
     display: block;
+  }
+
+  .slider-container {
+    width: 700px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .slider-container {
+    width: 1000px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .slider-container {
+    width: 1150px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .slider-container {
+    width: 1380px;
   }
 }
