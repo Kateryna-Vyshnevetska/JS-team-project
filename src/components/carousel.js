@@ -45,7 +45,7 @@ var Carousel = function (
     //Function to move to next slide
     right: function () {
       if (position > -3100) {
-        moveSlide(-199);
+        moveSlide(-220);
       } else {
         position = slidesNumber - 1;
         slider.style.left = position + "px";
@@ -59,7 +59,7 @@ var Carousel = function (
       if (position === 0) {
         moveSlide(0);
       } else if (position < 0) {
-        moveSlide(200);
+        moveSlide(220);
       } else {
         position = slidesNumber - 1;
         slider.style.left = position + "px";
@@ -104,4 +104,4 @@ getUpcomingFilms(pageCarousel);
 
 setInterval(() => {
   carousel.right();
-}, 3000);
+}, 5000);

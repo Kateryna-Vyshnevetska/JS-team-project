@@ -87,9 +87,7 @@ export const createPaginator = function (pageForStartPaginator) {
           f
             .map((el) => ({
               ...el,
-              genre_ids: el.genre_ids.flatMap((num) =>
-                g.filter((el) => el.id === num)
-              ),
+              genre_ids: el.genre_ids.flatMap((num) => g.filter((el) => el.id === num)),
             }))
             .sort((a, b) => b.vote_average - a.vote_average)
         );
@@ -111,15 +109,17 @@ export const createPaginator = function (pageForStartPaginator) {
 };
 
 function backToTop() {
-  window.scroll({
-    top: 500,
-    behavior: "auto",
-  });
+  setTimeout(() => {
+    window.scroll({
+      top: 720,
+      behavior: "smooth",
+    });
+  }, 300);
 }
 function backToTopMob() {
   window.scroll({
     top: 260,
-    behavior: "auto",
+    behavior: "smooth",
   });
 }
 

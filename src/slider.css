@@ -39,6 +39,7 @@
   height: 100%;
   width: auto;
   display: block;
+  border-radius: 16px 16px 0 0;
 }
 
 .carousel-link {
@@ -71,15 +72,15 @@
   margin-bottom: 0px;
 
   background-color: rgb(255 158 24);
-  border-radius: 10px;
+  border-radius: 0px 0px 16px 16px;
 }
 
 .carousel-title {
   font-family: Roboto;
   text-align: center;
   margin: 0px;
-  padding-top: 20px;
-  /* padding-bottom: 10px; */
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 30px;
   line-height: 1.5;
   font-weight: 700;
@@ -107,12 +108,12 @@
 
 @media screen and (min-width: 1200px) {
   .slider-container {
-    width: 1150px;
+    width: 1104px;
   }
 }
 
 @media screen and (min-width: 1400px) {
   .slider-container {
-    width: 1380px;
+    width: 1320px;
   }
 }

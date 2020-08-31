@@ -5,11 +5,7 @@ body {
 }
 
 .header {
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.56),
-      rgba(0, 0, 0, 0.56)
-    ),
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(./assests/images/header-bcg-chair-mob.jpg);
   min-height: 230px;
   background-repeat: no-repeat;
@@ -18,11 +14,7 @@ body {
 }
 
 .new-bcg {
-  background-image: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.56),
-      rgba(0, 0, 0, 0.56)
-    ),
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(./assests/images/red-chair/header-bcg-red-chair-mob.jpg);
   min-height: 230px;
   background-repeat: no-repeat;
@@ -96,7 +88,6 @@ body {
   text-align: center;
   margin: 0 auto;
 }
-
 
 .input-search {
   display: block;
@@ -376,7 +367,7 @@ body.modal-open {
 .card-image__wrapper {
   text-align: center;
 }
-.-webkit-user-select{
+.-webkit-user-select {
   width: 100%;
   height: auto;
 }
@@ -635,11 +626,7 @@ body.modal-open {
     max-width: var(--section-tablet-width-size);
   }
   .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(./assests/images/header-bcg-chair-tablet.jpg);
   }
   @media screen and (min-device-pixel-ratio: 2),
@@ -669,11 +656,7 @@ body.modal-open {
     }
   }
   .new-bcg {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(./assests/images/red-chair/header-bcg-red-chair-tablet.jpg);
     min-height: 230px;
     background-repeat: no-repeat;
@@ -681,11 +664,7 @@ body.modal-open {
     background-size: cover;
   }
   .new-bcg {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(./assests/images/red-chair/header-bcg-red-chair-tablet-2x.jpg);
     min-height: 230px;
     background-repeat: no-repeat;
@@ -695,6 +674,10 @@ body.modal-open {
 
   .logo-txt {
     display: block;
+  }
+
+  .header {
+    margin-bottom: 35px;
   }
 
   .header-bottom {
@@ -814,11 +797,7 @@ body.modal-open {
   }
 
   .header {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(./assests/images/header-bcg-chair-pc.jpg);
   }
   /* ============modal====================== */
@@ -926,11 +905,7 @@ body.modal-open {
   }
 
   .new-bcg {
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.56),
-        rgba(0, 0, 0, 0.56)
-      ),
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(./assests/images/red-chair/header-bcg-red-chair-pc-2x.jpg);
     min-height: 230px;
     background-repeat: no-repeat;
