@@ -1,5 +1,7 @@
 import { API_KEY } from "../options/apikey.js";
 
+var pageCarousel = "1";
+
 var Carousel = function (
   frameSelector,
   sliderSelector,
@@ -9,6 +11,7 @@ var Carousel = function (
 ) {
   //A variable to store the position of the slides
   var position = 0;
+
   var frame = document.querySelector(frameSelector);
   var slides = document.querySelectorAll(slidesSelector);
   //Get the number of slides in the slider
@@ -41,11 +44,14 @@ var Carousel = function (
   return {
     //Function to move to next slide
     right: function () {
-      if (position > -3402) {
+      if (position > -3100) {
         moveSlide(-199);
       } else {
         position = slidesNumber - 1;
         slider.style.left = position + "px";
+        pageCarousel = Number(pageCarousel) + 1;
+        pageCarousel = pageCarousel + "";
+        getUpcomingFilms(pageCarousel);
       }
     },
     //Function to go to previous slide
@@ -71,9 +77,9 @@ var carousel = new Carousel(
   ".arrowRight"
 );
 
-const getUpcomingFilms = function () {
+const getUpcomingFilms = function (pageCarousel) {
   fetch(
-    `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
+    `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=${pageCarousel}`
   )
     .then((list) => list.json())
     .then((list) => {
@@ -85,13 +91,18 @@ const getUpcomingFilms = function () {
                     <a href="#" class="carousel-link">
                       <img src="https://image.tmdb.org/t/p/w200${el.poster_path}" class="img-carousel" />
                     </a>
-                    <p class="release-date">В прокате</br>"${el.release_date}"</p>
+                    <p class="release-date">Available from</br>"${el.release_date}"</p>
                   </div>`;
       });
+      console.log(listRef);
     })
     .catch((error) => {
       console.log(error);
     });
 };
 
-getUpcomingFilms();
+getUpcomingFilms(pageCarousel);
+
+setInterval(() => {
+  carousel.right();
+}, 3000);
