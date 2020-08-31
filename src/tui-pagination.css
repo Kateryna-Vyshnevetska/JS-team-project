@@ -8,6 +8,10 @@
   user-select: none;
 }
 
+.tui-pagination.is-not-visible {
+  display: none;
+}
+
 .tui-ico-ellipsis,
 .tui-ico-first,
 .tui-ico-last,
@@ -18,10 +22,17 @@
 
 .tui-pagination {
   height: 40px;
-  margin: 14px 0 12px;
+  margin: 14px 0 -12px;
   line-height: normal;
   text-align: center;
   font-size: 0;
+  padding-top: 50px;
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .tui-pagination {
+    padding-top: 30px;
+  }
 }
 
 .tui-pagination .tui-page-btn {

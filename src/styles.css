@@ -97,6 +97,7 @@ body {
   margin: 0 auto;
 }
 
+
 .input-search {
   display: block;
   width: 100%;
@@ -375,6 +376,10 @@ body.modal-open {
 .card-image__wrapper {
   text-align: center;
 }
+.-webkit-user-select{
+  width: 100%;
+  height: auto;
+}
 
 .card-image {
   width: 250px;
@@ -538,10 +543,10 @@ body.modal-open {
 /* Стили для кнопки прокрутки вверх  */
 
 .back_to_top {
-  bottom: 15%;
-  right: 1%;
-  width: 20px;
-  height: 20px;
+  bottom: 10%;
+  right: 6%;
+  width: 40px;
+  height: 40px;
   list-style: none;
   text-decoration: none;
   position: fixed;
@@ -699,9 +704,18 @@ body.modal-open {
   .input-search {
     width: 336px;
   }
+  /* Для хрома / */
   .input-search:focus::-webkit-input-placeholder {
     text-indent: 500px;
     transition: text-indent 0.3s ease;
+  }
+  .input-search::-webkit-input-placeholder {
+    transition: text-indent 0.3s ease;
+  }
+  /* / Для моззилы */
+  .input-search:focus::-moz-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease;
   }
 
   .search-icon {
